@@ -153,7 +153,9 @@ sub prep_html {
 				$_ = "<a";
 				$_ .= " class=\"merged\"" if $j->{merged};
 				my $subject = preptitle($j->{title});
-				$_ .= " href=\"" . $j->{"html_url"} . "\">" . $subject . "</a>";
+				my $url = $j->{"html_url"} // '';
+				$url = '' unless $url =~ m{^https?://}i;
+				$_ .= " href=\"" . encode_entities($url, '<>&"') . "\">" . $subject . "</a>";
 			} elsif (m/^BM (\S+) (\S+)$/ or m/^LA ()(\S+)$/) {
 				my ($branch, $lastmerge) = @{^CAPTURE};
 				my $gitlog = gitcapture("log", "--no-decorate", "--no-merges", "--pretty=%H %s", "$lastmerge^..$lastmerge");
