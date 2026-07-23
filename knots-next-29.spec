@@ -3,7 +3,7 @@ timestamp 2026-05-07 03:45:44
 
 #.. checked up to PR #35239 / gui#936 / knots#303
 
-checkout v29.3
+checkout v29.4
 @29.x-syslibs
 # BUILD BUGS:
 	# Needs review: 33550 ryanofsky/pr/winstream
@@ -11,7 +11,7 @@ checkout v29.3
 	# Needs review: 33570 l0rinc/l0rinc/environ-mingw
 	# Needs review: g899 hebasto-g/251008-deprecated
 	# Triage: Partial: 33779 hebasto/251104-force-iwyu-kernel
-	34093 fix_freebsd15_netlink_warn			166ab5d85a4	last=c1361fc42dd vasild/fix_nlmsg_ok_compilation_fbsd15
+TM	34093 fix_freebsd15_netlink_warn			166ab5d85a4	last=c1361fc42dd vasild/fix_nlmsg_ok_compilation_fbsd15
 	(CHECK-LAST)	last=490cd874a40 origin-pull/34680/head^  # 29.x backport
 	k246  fix_boost1.73compat-29				3471088bca9
 		# https://github.com/bitcoin/bitcoin/issues/34101
@@ -19,6 +19,7 @@ checkout v29.3
 	# Triage: Needs review: 34591 hebasto/260214-cmake-macos-cross
 	# Needs review: 34953 sha256_sse4_nosanitize_pr34953-29.3				last=fedeff7f201 deadmanoz/fix/gcc-asan-sha256-sse4-only
 	# Triage: 35068 ryanofsky/pr/depfind
+	-     revert_core_boost1.91fix
 	-     compatfix_boost_1.91-28				66b00881f3b
 		# Similar to #35175 (but without the regression)
 # SYSLIBS:
@@ -527,7 +528,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	fd135c1a765	last=b807dfcdc59 ismae
 	# Needs review: 34480 danielabrozzoni/issue/26527-dont-backtime-nlocktime-unconf
 	# Needs review (and AI removal?): 34530 -  # wallet: guard against negative bump fee discount from mempool race
 	# Needs review/concept: 34538 willcl-ark/onlynet-advertisments
-	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
+TM	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
 	# Needs review: 34582 maflcko/2602-int-arg
 	34597 fix_SetStdinEcho_ub-0.20				7765d419b1a
 	34603 fix_win_IsSymlink-29.3				de7eb75f167	last=0f3fcdfaba3
@@ -538,8 +539,6 @@ NM	33475 fix_block_full_enough_underflow-29+k	fd135c1a765	last=b807dfcdc59 ismae
 		# NOTE: Subtly depends on #30221 (and the PRs bundled with it)
 	# Triage: 34655 l0rinc/l0rinc/coins_view_fuzzer_cleanup
 	# IPC mining: 34661 ryanofsky/pr/waitmine
-	# Doc fix: 34671 maflcko/2602-doc-guix-less
-		# NOTE: 29.x backport in #34680
 	# Needs review: 34678 chriszeng1010/fix-accept-unknown-sockaddr
 	34702 docfix_getblock_txfee_condition-22	2b00bce6ec7	last=f580cc7e9f2
 	# Needs review: 34743 willcl-ark/protect-manual-evictions
@@ -595,7 +594,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	fd135c1a765	last=b807dfcdc59 ismae
 	# Needs review: 35191 ArtSabintsev/codex/fix-txdb-cursor-malformed-key
 	# Needs review & UPnP: 35193 vasild/avoid_internet_traffic_from_init_test
 	# Needs review: 35208 l0rinc/l0rinc/headerssync-future-mtp-cap
-	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
+TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# Needs review: 35217 -  # psbt: fix PSBTInput::Merge ignoring sighash_type field
 	35227 fix_bdbro_check_lastpage_pr35227-28	7d69771566e	last=e2b0984f995 l0rinc/l0rinc/check-bdb-last-page-lsn
 	# Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
