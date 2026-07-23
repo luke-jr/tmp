@@ -77,7 +77,7 @@ NM	-     ci_gha_makejobs_8						e6137ba906d
 	# If needed: 34914 Sjors/2026/03/deep-sign (CI macOS codesigning)
 	35161 qa_merkle_mutated_rv-0.19				83e48f935fb	last=f2dbc6a5fd5 l0rinc/l0rinc/doc-merkle-root-mutated
 		# Test only
-	35164 qa_p2sh_sigop_counting-21				ec26bb782fd	last=f3f1a703137 musaHaruna/test/p2sh-sigop-counting
+	35164 qa_p2sh_sigop_counting-21				ec26bb782fd	last=e2a49487af3 musaHaruna/test/p2sh-sigop-counting
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25		c7578d676c4
 # FIXES:
@@ -455,8 +455,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	fd135c1a765	last=b807dfcdc59 ismae
 	-     loglevel_corrections_bdb-29+knots		428083123c1
 	# Triage: IPC-specific: Needs review: 33965 Sjors/2025/11/ipc-reserve
 	33993 doc_stopatheight_imprecise-21			a8def8c8d5e
-	34028 fix_seenlocal_max-26					50b600441b4	last=33103d5c4fe
-		# Held back pointless duplication 3fc5948e1fe...33103d5c4fe
+	34028 fix_seenlocal_max-26					50b600441b4	last=2189a6f5f22
 	-     fix_feeest_read_rare_overflow-29		3b0771ad4fd
 		# Alternative to: 34109 maflcko/2512-fix-u64
 	-     pcp_dont_spam_unauth-29				159afddcd57
@@ -531,7 +530,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	fd135c1a765	last=b807dfcdc59 ismae
 TM	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
 	# Needs review: 34582 maflcko/2602-int-arg
 	34597 fix_SetStdinEcho_ub-0.20				7765d419b1a
-	34603 fix_win_IsSymlink-29.3				de7eb75f167	last=0f3fcdfaba3
+	34603 fix_win_IsSymlink-29.3				de7eb75f167	last=b127cde3f4a
 	# Needs review? 34614 maflcko/2602-ci-space
 	g929  qt_plurals_prg929-21					a95b29ef739	last=746d8cddc19 hebasto-g/260217-translation-plurals
 	# Needs review: 34628 ajtowns/202602-mempool-invtosend
@@ -552,7 +551,7 @@ TM	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
 	34870 fix_wallet_bump_fail_crash-29.3		6a4e1edefdb	last=6072a2a6a1f furszy/2026_feebumper_crash_fix
 	# Needs work: 34872 w0xlt/wallet-mixed-input-history-only
 	34888 fix_wallet_coinsel_pr34888-25			930833acdad	last=0026b330c4a furszy/2026_wallet_total_amount_bad_comparison
-	34893 fix_psbt_merge_proprietary-29			2bf337459b1	last=eb76e953acc w0xlt/psbt-proprietary-merge-fix
+	34893 fix_psbt_merge_proprietary-29			2bf337459b1	last=da769855d0c w0xlt/psbt-proprietary-merge-fix
 	# Needs review: 34897 mzumsande/202603_index_sync_dont_commit_ahead
 	# Needs review: 34903 HouseOfHufflepuff/wallet-importdescriptors-validate-before-rescan
 	# Needs review: 34916 Sjors/2026/03/manpages-locale
@@ -585,7 +584,7 @@ TM	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
 	# Needs review: 35115 tony-ku/wallet-34599-abandon-confirmed-descendant
 	# OR: 34599 Luquitasjeffrey/issue34599
 	35116 socks5_redact_authinfo_log-28			dd8f611828c
-	35117 i2p_redact_privkey_in_log-22			55a4af0bc3e	last=cd2833e7436 takeshikurosawaa/i2p-session-create-redaction
+	35117 i2p_redact_privkey_in_log-22			55a4af0bc3e	last=b6c36704428 takeshikurosawaa/i2p-session-create-redaction
 	# Needs review? 35166 asafmod/harden-prevector-change-capacity
 	# Needs review: 35168 marcofleon/2026/04/loadblockindex-unlinked-fix
 	# Needs review? 35173 l0rinc/l0rinc/thread-name-truncation
@@ -799,7 +798,9 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# TODO: 35128 l0rinc/l0rinc/dbwrapper-key-spanreader
 	# TODO: 35156 l0rinc/l0rinc/ScopedDataStreamUsage
 	35195 cache_outpoint_sethash-27				1d5aeaef62f	last=16e77fdf132 l0rinc/l0rinc/noexcept-false
-	35197 lld_icf_safe-28						3e8c5fd0510	last=09de5363d36 fanquake/lld_icf_safe
+	35197 lld_icf_safe-28						3e8c5fd0510	last=24ad7419dea fanquake/lld_icf_safe
+		# Held back 09de5363d36...24ad7419dea: Moved to CMakeLists (applies to non-guix builds) and attempts --icf=safe_thunks (requires LLVM 20+)
+		# When bumping to LLVM 20+, upgrade this to safe_thunks too
 	# Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
 	# Needs review: k278  privkeyio/feature-runtime-scriptcheck-calibration
 	k287  privkeyio/uncap-scriptcheck-threads	aea3e9967e4	last=f23f08cb01f
@@ -1096,7 +1097,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# Needs review (and opt-in?): 26988 -  # cli: rework -addrinfo cli to use addresses which aren’t filtered for quality/recency
 	27034 rpc_importaddr_for_descwallet-27+k	ba2d43e2228	last=be3ae51ece8 furszy/2022_rpc_importaddress_descriptors_compatible
 		# Diff-minimised & tweaked to avoid breaking #23362
-	27052 rpc_getpeerinfo_lastblockann-28		70bc64f8270	last=136eed4a13c LarryRuane/2023-02-getpeerinfo
+	27052 rpc_getpeerinfo_lastblockann-28		70bc64f8270	last=252a6e72754 LarryRuane/2023-02-getpeerinfo
 		# Avoided changing internal data structures
 		# Held back test removal 036a87b8a99...136eed4a13c
 	27216 rpc_getaddressinfo_isactive			4c1b0e2b1a6	last=85f83339dda pinheadmz/used-addr-ui
@@ -1398,9 +1399,9 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# Needs work/review: g539  RandyMcMillan-g/1643263956-network-graph-issue-532
 	# Needs concept review: 26365 -  # wallet: GetEffectiveBalance
 	# Needs concept & review: Only when sending GETBLOCKTXN anyway? (more likely with Knots) 27086 -  # [WIP] p2p: Add random txn's from mempool to GETBLOCKTXN
-	30951 v2onlyclearnet-29+knots				753034853a0	last=263c16b537e
-		# Held back 27e90008835...1e61206583d (listen=0 forced antifeature, confusing help string, refactoring)
+	30951 v2onlyclearnet-29+knots				753034853a0	last=d72df0fc836
 		# Made a hidden option
+		# NOTE: -listen=0 required because it doesn't enforce v2 on incoming connections
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs review: 33044 fanquake/19513_rebased
@@ -1538,7 +1539,7 @@ NM	14137 win_taskbar_progress					49dcd6d2b1e	last=18eb4dbb8a
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 	-     bytespersigopstrict-29+knots			63934093bc2
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
-	9749  unique_spk_mempool-29.2+knots			e2ccfb48aec
+m	9749  unique_spk_mempool-29.2+knots			e2ccfb48aec
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 	-     dustdynamic-29.1+knots				838e42ae087
 	# ---- BEGIN DATACARRIER ---- (OLGA not backported)
@@ -1663,7 +1664,7 @@ NM	14137 win_taskbar_progress					49dcd6d2b1e	last=18eb4dbb8a
 	# Needs work/option: 24106 -  # policy: treat P2TR outputs with invalid x-only pubkey as non-standard
 	# Disabled just to be safe: -     bloom_default-29+knots				401f2f03e86
 		# Take typo fix from def_bloom_local_only
-	-     def_bloom_local_only					c18dd3c4f99
+m	-     def_bloom_local_only					c18dd3c4f99
 		# NOTE: Includes typo fix
 	-     wallet_avoid_newerchange				2a463c1fd89
 	-     enforce_checkpoints					118c37a3ead
