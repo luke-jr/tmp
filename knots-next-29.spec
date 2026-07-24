@@ -58,7 +58,7 @@ NM	-     ci_gha_makejobs_8						e6137ba906d
 	# Needs review: k209 mstampfer/test-feature-block-bad-version-log
 	# Only if native Windows CI: 32219 -
 		# NOTE: incomplete backport at c939d74b244
-	33639 docker_no_cache_gha-29.2				4ab7f50ad82
+	33639 docker_no_cache_gha-29.4				4ab7f50ad82
 	33990 qa_rpc_startingheight-28				642f978931f	last=52f96cc235d theStack/202512-test-announced_starting_height
 	34185 qafix_pruning_wo_wallet-25			6393a3a0e7a	last=8fb5e5f41dd brunoerg/2025-12-test-pruning-wout-wallet
 	# Only if native Windows CI? 34285 hebasto/260114-windows-pyzmq
@@ -323,6 +323,8 @@ NM	-     ci_gha_makejobs_8						e6137ba906d
 	# Needs work & importance: 31775 -  # rpc: collect transaction fees on generateblock
 	31785 fix_gui_rpcconsole_waitfor-29			cc4327a2f89
 	# Needs review: 31807 theuni/fix-dupe-kernel-symbols
+	# Is it even a fix? 31829 glozow:2025-01-orphanage-peer-dos
+		# CAUTION: Needs backports from #35175 (merged in 29.4 without them)
 	# 31912 workaround_buggy_rndrrs-28			36e11bb93cc	last=2498dd8dbd5  # random: Check GetRNDRRS is supported in InitHardwareRand to avoid infinite loop
 		# Held back 585aba6eec8..2498dd8dbd5 (2x diff for basically the same thing)
 	# Needs review? 31835 -  # validation: set BLOCK_FAILED_CHILD correctly
