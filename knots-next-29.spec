@@ -1100,9 +1100,10 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# Needs review (and opt-in?): 26988 -  # cli: rework -addrinfo cli to use addresses which aren’t filtered for quality/recency
 	27034 rpc_importaddr_for_descwallet-27+k	ba2d43e2228	last=be3ae51ece8 furszy/2022_rpc_importaddress_descriptors_compatible
 		# Diff-minimised & tweaked to avoid breaking #23362
-	27052 rpc_getpeerinfo_lastblockann-28		70bc64f8270	last=252a6e72754 LarryRuane/2023-02-getpeerinfo
+	27052 rpc_getpeerinfo_lastblockann-28		70bc64f8270	last=13ce46ba1a7 LarryRuane/2023-02-getpeerinfo
 		# Avoided changing internal data structures
 		# Held back test removal 036a87b8a99...136eed4a13c
+		# Held back type changes 252a6e72754...13ce46ba1a7
 	27216 rpc_getaddressinfo_isactive			4c1b0e2b1a6	last=85f83339dda pinheadmz/used-addr-ui
 	# Needs work: 27260 -  # Enhanced error messages for invalid network prefix during address parsing.
 	27351 codex32-29+knots						3b538529e5e	last=91771366a3d apoelstra/2023-03--codex32
@@ -1715,7 +1716,7 @@ m	-     def_bloom_local_only					c18dd3c4f99
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6434aa11a24
 	# Triage: 34808 hebasto/260311-qt-ts-source
-	7483  svg_icon-29.3+knots					b4bdc15b730
+m	7483  svg_icon-29.3+knots					b4bdc15b730
 		# Consider: https://github.com/bitcoinknots/bitcoin/pull/54
 		# Includes knots#328
 # BRANDING:
