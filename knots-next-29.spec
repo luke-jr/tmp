@@ -654,9 +654,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 #@29.x-knots-lts-deps
 	# No point (dynamic linked): 33952 fanquake/close_out_29977
 	-     upd_qt5-29.2							35d8876ef7b
-		# 5.15.18 Opensource released: https://lists.qt-project.org/pipermail/announce/2025-October/000592.html
-		# Includes patch for CVE-2025-4211 (not upstream; simpler and safer)
-		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
+		# 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#29.xTODO# FIXME -     depends_qt5kde
 	# Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
 		# TODO for 6.x: +#33906 (30.x backport in #33609)

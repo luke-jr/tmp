@@ -621,10 +621,8 @@ checkout v30.0rc1
 	#30.xTODO# Review security report(s)
 	n/a   (delete_release_notes_fragments)
 #@30.x-knots-lts-deps
-	-     upd_qt5-29.2							b10bf470c3c
-		# 5.15.18 Opensource released: https://lists.qt-project.org/pipermail/announce/2025-October/000592.html
-		# Includes patch for CVE-2025-4211 (not upstream; simpler and safer)
-		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
+	-     upd_qt5-29.2							35d8876ef7b
+		# 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#30.xTODO# FIXME -     depends_qt5kde
 	Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
 	Needs review: 32655 fanquake/sqlite_3_50_0
