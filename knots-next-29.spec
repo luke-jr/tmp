@@ -77,7 +77,7 @@ NM	-     ci_gha_makejobs_8						e6137ba906d
 	# If needed: 34914 Sjors/2026/03/deep-sign (CI macOS codesigning)
 	35161 qa_merkle_mutated_rv-0.19				83e48f935fb	last=f2dbc6a5fd5 l0rinc/l0rinc/doc-merkle-root-mutated
 		# Test only
-	35164 qa_p2sh_sigop_counting-21				ec26bb782fd	last=e2a49487af3 musaHaruna/test/p2sh-sigop-counting
+	35164 qa_p2sh_sigop_counting-23				ec26bb782fd	last=f1884695736 musaHaruna/test/p2sh-sigop-counting
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25		c7578d676c4
 # FIXES:
@@ -633,8 +633,9 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# Needs review: k298 param_bounds_checks_202604
 	# Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt							0388303c0c6
-	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=49db8d133cf
-	k336 privkeyio/fix-gui-datetime-locale
+	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
+	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
+		# Second commit included later in softwareexpiry
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1680,6 +1681,8 @@ m	-     def_bloom_local_only					c18dd3c4f99
 		#30.xTODO# Revert #25725 (Remove mainnet checkpoints)
 	# TODO: revert #28354 ?
 	10282 softwareexpiry						04b7764564c
+	(CHECK-LAST)	last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
+		# + part of knots#336
 		# Needs work: + knots#247
 		# TODO: "OK" is probably the wrong button to use for this
 		# TODO? "Upgrade" button to open website - or even download+verify??

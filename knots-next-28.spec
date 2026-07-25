@@ -81,7 +81,7 @@ checkout v28.2
 	# If needed: 34914 Sjors/2026/03/deep-sign (CI macOS codesigning)
 	35161 qa_merkle_mutated_rv-0.19							last=f2dbc6a5fd5 l0rinc/l0rinc/doc-merkle-root-mutated
 		# Test only
-	35164 qa_p2sh_sigop_counting-21							last=f3f1a703137 musaHaruna/test/p2sh-sigop-counting
+	35164 qa_p2sh_sigop_counting-23							last=f1884695736 musaHaruna/test/p2sh-sigop-counting
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25
 # FIXES:
@@ -730,8 +730,9 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs review: k298 param_bounds_checks_202604
 	Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
-	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=49db8d133cf
-	k336 privkeyio/fix-gui-datetime-locale
+	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
+	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
+		# Second commit included later in softwareexpiry
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1812,6 +1813,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	31969 assumeutxo_update-28					d011e71d99c	last=14f16748557 Sjors/2025/03/utxo-880000
 	# TODO: revert #28354 ?
 	10282 timebomb_knots-28						40f673fe63e	last=84572a8ec93 softwareexpiry
+	(CHECK-LAST)	last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
+		TODO: + part of knots#336
 		Needs work: + knots#247
 		TODO: rename branch?
 		TODO: disable mining; add alert in advance
