@@ -1270,6 +1270,7 @@ checkout v30.0rc1
 		# Held back on old version due to conflict with RPC updates...
 	9504  rpc_dumpmasterprivkey					a11d74ef978	last=07fc81109a
 	g444  gui_netwatch-29+knots					64bf5fe3f55	 # Latest code now
+	(CHECK-LAST)	last=191d0fdc9e2 origin-pull-k/330/head
 		# NOTE: Was #9849
 		# NOTE: Includes #25050 & knots#330
 	10615 multiwallet_rpc-29+knots				89d923d87d1  # latest code now
@@ -1364,6 +1365,7 @@ checkout v30.0rc1
 		31.xTODO: Check if we still need the vcpkg workarounds
 	n/a   restore_feefilter_opt					fbf83ac7c2e
 	-     gui_payreq_textedit					32595d73c9a
+	(CHECK-LAST)	last=cad6d027fd7 origin-pull-k/332/head
 		# Includes knots#332
 	# NOTE: Restoring BIP70 would require restoring OpenSSL, protobuf, and Qt's OpenSSL support :(
 	-     rpc_mempoolentry_txhash				c8f8f4b5f26
@@ -1664,6 +1666,7 @@ checkout v30.0rc1
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source
 	7483  svg_icon-29.3+knots					093b55fc9ce
+	(CHECK-LAST)	last=c198e9b3586 origin-pull-k/328/head
 		# Consider: https://github.com/bitcoinknots/bitcoin/pull/54
 		# Includes knots#328
 # BRANDING:

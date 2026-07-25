@@ -1333,6 +1333,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# Held back on old version due to conflict with RPC updates...
 	9504  rpc_dumpmasterprivkey					36702ee44ba	last=07fc81109a
 	g444  gui_netwatch-29+knots					5ca92dff872	 # Latest code now
+	(CHECK-LAST)	last=191d0fdc9e2 origin-pull-k/330/head
 		# NOTE: Was #9849
 		# NOTE: Includes #25050 & knots#330
 	10615 multiwallet_rpc-29+knots				eb7eb9c4134  # latest code now
@@ -1427,6 +1428,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		#30.xTODO# Revert #32500
 	n/a   restore_feefilter_opt					64e4e8d63f7
 	-     gui_payreq_textedit					10a385526cb
+	(CHECK-LAST)	last=cad6d027fd7 origin-pull-k/332/head
 		# Includes knots#332
 	# NOTE: Restoring BIP70 would require restoring OpenSSL, protobuf, and Qt's OpenSSL support :(
 	-     rpc_mempoolentry_txhash				f4c7e629efb
@@ -1717,6 +1719,7 @@ m	-     def_bloom_local_only					c18dd3c4f99
 	n/a   (delete_release_notes_fragments)		6434aa11a24
 	# Triage: 34808 hebasto/260311-qt-ts-source
 m	7483  svg_icon-29.3+knots					b4bdc15b730
+	(CHECK-LAST)	last=c198e9b3586 origin-pull-k/328/head
 		# Consider: https://github.com/bitcoinknots/bitcoin/pull/54
 		# Includes knots#328
 # BRANDING:
