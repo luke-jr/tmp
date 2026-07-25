@@ -602,6 +602,8 @@ checkout v30.0rc1
 	Needs review: k298 param_bounds_checks_202604
 	Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
+	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=49db8d133cf
+	k336 privkeyio/fix-gui-datetime-locale
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -619,9 +621,9 @@ checkout v30.0rc1
 	n/a   (delete_release_notes_fragments)
 #@30.x-knots-lts-deps
 	-     upd_qt5-29.2							b10bf470c3c
-		# 5.15.17 Opensource released: https://lists.qt-project.org/pipermail/announce/2025-May/000557.html
+		# 5.15.18 Opensource released: https://lists.qt-project.org/pipermail/announce/2025-October/000592.html
 		# Includes patch for CVE-2025-4211 (not upstream; simpler and safer)
-		# 5.15.19 (not available) fixes other bugs, but no CVEs that affect us (unless we start using Qt for XML or HTTP2)
+		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#30.xTODO# FIXME -     depends_qt5kde
 	Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
 	Needs review: 32655 fanquake/sqlite_3_50_0
@@ -1270,7 +1272,7 @@ checkout v30.0rc1
 	9504  rpc_dumpmasterprivkey					a11d74ef978	last=07fc81109a
 	g444  gui_netwatch-29+knots					64bf5fe3f55	 # Latest code now
 		# NOTE: Was #9849
-		# NOTE: Includes #25050
+		# NOTE: Includes #25050 & knots#330
 	10615 multiwallet_rpc-29+knots				89d923d87d1  # latest code now
 		# CAUTION: Be extra careful rebasing - diff/patch default context might accidentally move code around between different RPC methods!
 		# NOTE: 23.x added restorewallet to preexisting commit d927c064439->c706f7173ad
@@ -1363,6 +1365,7 @@ checkout v30.0rc1
 		31.xTODO: Check if we still need the vcpkg workarounds
 	n/a   restore_feefilter_opt					fbf83ac7c2e
 	-     gui_payreq_textedit					32595d73c9a
+		# Includes knots#332
 	# NOTE: Restoring BIP70 would require restoring OpenSSL, protobuf, and Qt's OpenSSL support :(
 	-     rpc_mempoolentry_txhash				c8f8f4b5f26
 	# FIXME: -     walletnotify_w_win-27+knots			c892f8b6dbf	# Latest code now
@@ -1661,6 +1664,7 @@ checkout v30.0rc1
 	Triage: 34808 hebasto/260311-qt-ts-source
 	7483  svg_icon-29.3+knots					093b55fc9ce
 		# Consider: https://github.com/bitcoinknots/bitcoin/pull/54
+		# Includes knots#328
 # BRANDING:
 	n/a   upd_copyrightyear-29
 	n/a   font_ocrbitcoin						68221e1221f

@@ -633,6 +633,8 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	# Needs review: k298 param_bounds_checks_202604
 	# Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt							0388303c0c6
+	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=49db8d133cf
+	k336 privkeyio/fix-gui-datetime-locale
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -653,7 +655,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	-     upd_qt5-29.2							35d8876ef7b
 		# 5.15.18 Opensource released: https://lists.qt-project.org/pipermail/announce/2025-October/000592.html
 		# Includes patch for CVE-2025-4211 (not upstream; simpler and safer)
-		# 5.15.19 (not available) fixes other bugs, but no CVEs that affect us (unless we start using Qt for XML or HTTP2)
+		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#29.xTODO# FIXME -     depends_qt5kde
 	# Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
 		# TODO for 6.x: +#33906 (30.x backport in #33609)
@@ -1332,7 +1334,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	9504  rpc_dumpmasterprivkey					36702ee44ba	last=07fc81109a
 	g444  gui_netwatch-29+knots					5ca92dff872	 # Latest code now
 		# NOTE: Was #9849
-		# NOTE: Includes #25050
+		# NOTE: Includes #25050 & knots#330
 	10615 multiwallet_rpc-29+knots				eb7eb9c4134  # latest code now
 		# CAUTION: Be extra careful rebasing - diff/patch default context might accidentally move code around between different RPC methods!
 		# NOTE: 23.x added restorewallet to preexisting commit d927c064439->c706f7173ad
@@ -1425,6 +1427,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		#30.xTODO# Revert #32500
 	n/a   restore_feefilter_opt					64e4e8d63f7
 	-     gui_payreq_textedit					10a385526cb
+		# Includes knots#332
 	# NOTE: Restoring BIP70 would require restoring OpenSSL, protobuf, and Qt's OpenSSL support :(
 	-     rpc_mempoolentry_txhash				f4c7e629efb
 	# FIXME: -     walletnotify_w_win-27+knots			c892f8b6dbf	# Latest code now
@@ -1713,6 +1716,7 @@ m	-     def_bloom_local_only					c18dd3c4f99
 	# Triage: 34808 hebasto/260311-qt-ts-source
 	7483  svg_icon-29.3+knots					b4bdc15b730
 		# Consider: https://github.com/bitcoinknots/bitcoin/pull/54
+		# Includes knots#328
 # BRANDING:
 	n/a   upd_copyrightyear-29					478d7507afb
 	n/a   font_ocrbitcoin						fddb167a394

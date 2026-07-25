@@ -730,6 +730,8 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs review: k298 param_bounds_checks_202604
 	Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
+	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=49db8d133cf
+	k336 privkeyio/fix-gui-datetime-locale
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -750,7 +752,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 		FIXME: Check #30774 for updated patch?
 		# Opensource released: https://lists.qt-project.org/pipermail/announce/2024-November/000526.html
 		TODO: Qt 5.15.17 + CVE-2025-4211
-		# 5.15.19 (not available) fixes other bugs, but no CVEs that affect us (unless we start using Qt for XML or HTTP2)
+		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#28.xTODO# FIXME -     depends_qt5kde
 	# Needs review & relevance: 29991 fanquake/sqlite_3_45_3
 	30301 theuni/miniupnp-228-bump
@@ -1847,9 +1849,10 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		d4c1e555559
 	Triage: 34808 hebasto/260311-qt-ts-source
-	7483  svg_icon-28+knots						5b18d9e534b	last=cd64df8af62 svg_icon-29.2+knots
+	7483  svg_icon-28+knots						5b18d9e534b	last=cd64df8af62 svg_icon-29.3+knots
 		# Consider: https://github.com/bitcoinknots/bitcoin/pull/54
 		FIXME: nsis looks for rendered_icons in srcdir
+		TODO: Include knots#328
 	n/a   tbc_font-28+knots						458c5339ceb	last= tbc_font
 		Triage: fix_qt_fontsel_confusion (bundled in 29.x tbc_font)
 		# TODO: Apply font to _all_ amounts when displaying TBC if default font doesn't support Tonal
