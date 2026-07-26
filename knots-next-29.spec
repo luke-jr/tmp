@@ -631,7 +631,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	k266  extsigner_sanitychk_fingerprint-26	25154d336cc	last=304598b5cc5 privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28			30561572c87	last=87fca974185 Bortlesboat/fix-ban-table-refresh
 	# Needs review: k298 param_bounds_checks_202604
-	# Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
+	k301 privkeyio/fix-warnings-no-wallet-tabs				last=a7685c4ffcd
 	k303 rm_dnsseed_pt							0388303c0c6
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
@@ -661,6 +661,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# With Qt6: 33906 hebasto/251118-patch-win11-plugin
 			# 30.x backport in #33609
 		# With Qt6: 33918 hebasto/251120-qt-link
+	k345 privkeyio/depends-libevent-2.1.13					last=01646471866
 	# Needs review: 32655 fanquake/sqlite_3_50_0
 	# Needs review: 32665 fanquake/boost_shrink
 	-     fix_secp256k1_bugs-29					d941a2618bc
@@ -1712,7 +1713,8 @@ m	-     def_bloom_local_only					c18dd3c4f99
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					1e15e28821c	last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
-		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8
+	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
+		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)

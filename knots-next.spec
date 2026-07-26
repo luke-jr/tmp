@@ -600,7 +600,7 @@ checkout v30.0rc1
 	k266  extsigner_sanitychk_fingerprint-26				last=acc78e798fa privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28						last=87fca974185 Bortlesboat/fix-ban-table-refresh
 	Needs review: k298 param_bounds_checks_202604
-	Needs concept & review: k301 privkeyio/fix-warnings-no-wallet-tabs
+	k301 privkeyio/fix-warnings-no-wallet-tabs				last=a7685c4ffcd
 	k303 rm_dnsseed_pt
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
@@ -625,6 +625,7 @@ checkout v30.0rc1
 		# 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#30.xTODO# FIXME -     depends_qt5kde
 	Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
+	k345 privkeyio/depends-libevent-2.1.13					last=01646471866
 	Needs review: 32655 fanquake/sqlite_3_50_0
 	Needs review: 33851 fanquake/xcb_util_updates
 	Triage: -     fix_secp256k1_bugs-29
@@ -1659,7 +1660,8 @@ checkout v30.0rc1
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
-		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8
+	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
+		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
