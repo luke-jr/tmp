@@ -701,7 +701,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	# Needs review: 35217 -  # psbt: fix PSBTInput::Merge ignoring sighash_type field
 	35227 fix_bdbro_check_lastpage_pr35227-28				last=e2b0984f995 l0rinc/l0rinc/check-bdb-last-page-lsn
 	Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
-	35384 -  # util: Check write failures before renaming settings.json
+	35384 fix_settings_writeerror_handling-27
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early-28+knots		dec38cfcc7b	last=e49dfac3241 fix_rpccookieperms_early
@@ -731,7 +731,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k266  extsigner_sanitychk_fingerprint-26				last=acc78e798fa privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28						last=87fca974185 Bortlesboat/fix-ban-table-refresh
 	Needs review: k298 param_bounds_checks_202604
-	k301 privkeyio/fix-warnings-no-wallet-tabs				last=a7685c4ffcd
+	k301 qt_always_show_alerts-27							last=3437824d39b privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
