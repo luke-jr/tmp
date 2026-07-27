@@ -85,6 +85,8 @@ checkout v30.0rc1
 # FIXES:
 	33433 qafix_rpc_bind_nonloopback_unavail	6b3aa212298
 	13789 asm_bypass_cxxflags					9de0f072503
+	(CHECK-LAST)	last=2dc3a83780d origin-pull-k/309/head
+		# + knots#309
 	32217 fix_gitdir_foreign					788c665be80
 		# Was part of #18902
 	#30.xTODO# Revert #32220 (cmake: Get rid of undocumented BITCOIN_GENBUILD_NO_GIT environment variable)
@@ -605,6 +607,8 @@ checkout v30.0rc1
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
+	k339 privkeyio/fix-pie-c-link-flags						last=5c48e68a691
+	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1661,7 +1665,7 @@ checkout v30.0rc1
 	k238 rdts_combined-29+knots								last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
 	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
-		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323
+		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
