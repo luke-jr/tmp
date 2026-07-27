@@ -639,7 +639,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
-	k339 privkeyio/fix-pie-c-link-flags						last=5c48e68a691
+	k339 fix_pie_c_link_flags-29							last=5c48e68a691 privkeyio/fix-pie-c-link-flags
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
@@ -666,7 +666,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# With Qt6: 33906 hebasto/251118-patch-win11-plugin
 			# 30.x backport in #33609
 		# With Qt6: 33918 hebasto/251120-qt-link
-	k345 privkeyio/depends-libevent-2.1.13					last=01646471866
+	k345 upd_libevent-29.1									last=01646471866 privkeyio/depends-libevent-2.1.13
 	# Needs review: 32655 fanquake/sqlite_3_50_0
 	# Needs review: 32665 fanquake/boost_shrink
 	-     fix_secp256k1_bugs-29					d941a2618bc
@@ -1374,7 +1374,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# NOTE: Stripped out benchmark change
 		#29.xTODO# Watch for Makefile.am or other changes for shared libbitcoinkernel on Windows
 	15218 postibd_flush-28						4762cb92383	last=8887d28a014  andrewtoth/flush-after-ibd
-	15428 tor_gui_pairing-29+knots				d56405ea1fd	last=ab9ed21dc98 tor_gui_pairing-0.21+knots
+m	15428 tor_gui_pairing-29+knots				d56405ea1fd	last=ab9ed21dc98 tor_gui_pairing-0.21+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-29+knots				7ba589f7d97	# Latest code now
 		# FIXME: fix automatic tor outbound using subprocess
