@@ -85,7 +85,7 @@ checkout v30.0rc1
 # FIXES:
 	33433 qafix_rpc_bind_nonloopback_unavail	6b3aa212298
 	13789 asm_bypass_cxxflags					9de0f072503
-	(CHECK-LAST)	last=2dc3a83780d origin-pull-k/309/head
+	(CHECK-LAST)	last=6878dd8f1ab origin-pull-k/309/head
 		# + knots#309
 	32217 fix_gitdir_foreign					788c665be80
 		# Was part of #18902
@@ -565,6 +565,7 @@ checkout v30.0rc1
 	# Needs review: 35217 -  # psbt: fix PSBTInput::Merge ignoring sighash_type field
 	35227 fix_bdbro_check_lastpage_pr35227-28				last=e2b0984f995 l0rinc/l0rinc/check-bdb-last-page-lsn
 	Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
+	35384 -  # util: Check write failures before renaming settings.json
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early				91f5662ec3d

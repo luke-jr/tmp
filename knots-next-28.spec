@@ -41,7 +41,7 @@ checkout v28.2
 	# Hopelessly diverged? 7485  sys_univalue_def				30111aa138c
 	#29.xTODO# sys_libminisketch
 	13789 bugfix_asm_pragmas-26					22df203e4cd	last=4d9aff4d0b2 asm_bypass_cxxflags
-	(CHECK-LAST)	last=2dc3a83780d origin-pull-k/309/head
+	(CHECK-LAST)	last=6878dd8f1ab origin-pull-k/309/head
 		TODO: + knots#309
 	15155 test_external_bcli					7d6366b5659
 	# Broken, and not worth the effort since a Tonal-capable font bundle is nice to have: g216  optional_font
@@ -701,6 +701,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	# Needs review: 35217 -  # psbt: fix PSBTInput::Merge ignoring sighash_type field
 	35227 fix_bdbro_check_lastpage_pr35227-28				last=e2b0984f995 l0rinc/l0rinc/check-bdb-last-page-lsn
 	Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
+	35384 -  # util: Check write failures before renaming settings.json
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early-28+knots		dec38cfcc7b	last=e49dfac3241 fix_rpccookieperms_early
