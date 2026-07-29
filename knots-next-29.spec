@@ -575,7 +575,8 @@ TM	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
 	# Needs review: 35003 furszy/2026_abc_io_exception
 	# Needs review: 35017 instagibbs/2026-04-remove_all_consensusscript
 	# Triage: Needs careful review: 35026 javierpmateos/fix-bip68-stale-lockpoints-clean
-	# Needs review: 35070 stratospher/2026_04_m_blocks_unlinked_ub
+	35168 fix_exclude_pruned_from_unlinked-28
+	35070 fix_FMWC_ub_pr35070-29
 	# Needs review: 35071 pinheadmz/reindex-continue
 	# Needs review: 35137 GerardoTaboada/wallet/document-maxconf-default
 	# Triage: Needs review: 35143 thomasbuilds/fix-btck-handle-self-move-assign
@@ -590,7 +591,6 @@ TM	34561 docfix_rpcwallet_send_eg_pr34561-23	a9524a0ef99	last=50cf6838e6a
 	35116 socks5_redact_authinfo_log-28			dd8f611828c
 	35117 i2p_redact_privkey_in_log-22			55a4af0bc3e	last=b6c36704428 takeshikurosawaa/i2p-session-create-redaction
 	# Needs review? 35166 asafmod/harden-prevector-change-capacity
-	# Needs review: 35168 marcofleon/2026/04/loadblockindex-unlinked-fix
 	# Needs review? 35173 l0rinc/l0rinc/thread-name-truncation
 	# Triage: Needs review: Or fix-only? 35177 AgusR7/test/getblockstats-gen-miniwallet
 	# Needs review: 35185 shuv-amp/fix-importdesc-timestamp-abort
@@ -639,7 +639,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
-	k339 fix_pie_c_link_flags-29							last=5c48e68a691 privkeyio/fix-pie-c-link-flags
+	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
@@ -666,7 +666,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# With Qt6: 33906 hebasto/251118-patch-win11-plugin
 			# 30.x backport in #33609
 		# With Qt6: 33918 hebasto/251120-qt-link
-	k345 upd_libevent-29.1									last=01646471866 privkeyio/depends-libevent-2.1.13
+	k345 privkeyio/depends-libevent-2.1.13					last=f3483f7623c
 	# Needs review: 32655 fanquake/sqlite_3_50_0
 	# Needs review: 32665 fanquake/boost_shrink
 	-     fix_secp256k1_bugs-29					d941a2618bc

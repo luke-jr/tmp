@@ -675,7 +675,8 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs review: 35003 furszy/2026_abc_io_exception
 	Triage: Review: 35017 instagibbs/2026-04-remove_all_consensusscript
 	Triage: Needs careful review: 35026 javierpmateos/fix-bip68-stale-lockpoints-clean
-	Triage: Needs review: 35070 stratospher/2026_04_m_blocks_unlinked_ub
+	Triage: 35168 fix_exclude_pruned_from_unlinked-28
+	Triage: 35070 stratospher/2026_04_m_blocks_unlinked_ub
 	Needs review: 35071 pinheadmz/reindex-continue
 	# Needs review: 35137 GerardoTaboada/wallet/document-maxconf-default
 	# Triage: Needs review: 35143 thomasbuilds/fix-btck-handle-self-move-assign
@@ -690,7 +691,6 @@ NM	32187 zmq_devirtual_destructor-0.12
 	35116 socks5_redact_authinfo_log-28
 	35117 i2p_redact_privkey_in_log-22						last=cd2833e7436 takeshikurosawaa/i2p-session-create-redaction
 	Needs review? 35166 asafmod/harden-prevector-change-capacity
-	Needs review: 35168 marcofleon/2026/04/loadblockindex-unlinked-fix
 	Needs review? 35173 l0rinc/l0rinc/thread-name-truncation
 	Triage: Needs review: Or fix-only? 35177 AgusR7/test/getblockstats-gen-miniwallet
 	Needs review: 35185 shuv-amp/fix-importdesc-timestamp-abort
@@ -736,7 +736,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
-	k339 privkeyio/fix-pie-c-link-flags						last=5c48e68a691
+	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
@@ -760,7 +760,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 		TODO: Qt 5.15.17 + CVE-2025-4211
 		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#28.xTODO# FIXME -     depends_qt5kde
-	k345 privkeyio/depends-libevent-2.1.13					last=01646471866
+	k345 privkeyio/depends-libevent-2.1.13					last=f3483f7623c
 	# Needs review & relevance: 29991 fanquake/sqlite_3_45_3
 	30301 theuni/miniupnp-228-bump
 	(CHECK-LAST)	last= origin-pull-k/196/head
