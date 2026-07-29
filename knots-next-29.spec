@@ -1753,7 +1753,7 @@ m	7483  svg_icon-29.3+knots					b4bdc15b730
 	n/a  (bump_version=knots20260508)			4efabab0e21
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		c72b1993047
-	n/a   (cherrypick=abdc54b1848)				0b04ddc31b7  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=6b7c0c4ac71)				0b04ddc31b7  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1764,7 +1764,7 @@ m	7483  svg_icon-29.3+knots					b4bdc15b730
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=7b00d615dd7)				f41f01e1e6d  # update manpages (build first)
+	n/a  (cherrypick=d1b4cd592b8)				f41f01e1e6d  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
