@@ -1672,7 +1672,7 @@ checkout v30.0rc1
 		# NOTE: Core PR in #24930
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	k348  Retropex/seeds-knots
-	k350  privkeyio/correct-rdts-invalid-blocks				last=e39a6cfe4c7
+	k350  privkeyio/correct-rdts-invalid-blocks				last=dda6b556b66
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source
