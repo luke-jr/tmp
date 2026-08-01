@@ -675,7 +675,8 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs review: 35003 furszy/2026_abc_io_exception
 	Triage: Review: 35017 instagibbs/2026-04-remove_all_consensusscript
 	Triage: Needs careful review: 35026 javierpmateos/fix-bip68-stale-lockpoints-clean
-	Triage: 35168 fix_exclude_pruned_from_unlinked-28
+	Triage: 35168 fix_exclude_pruned_from_unlinked-29
+		# Includes test framework addition of create_empty_fork from #32587
 	Triage: 35070 stratospher/2026_04_m_blocks_unlinked_ub
 	Needs review: 35071 pinheadmz/reindex-continue
 	# Needs review: 35137 GerardoTaboada/wallet/document-maxconf-default
