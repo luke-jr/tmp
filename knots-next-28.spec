@@ -760,7 +760,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 		TODO: Qt 5.15.17 + CVE-2025-4211
 		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#28.xTODO# FIXME -     depends_qt5kde
-	k345 privkeyio/depends-libevent-2.1.13					last=f3483f7623c
+	k345 privkeyio/depends-libevent-2.1.13					last=0515b85e4f3
 	# Needs review & relevance: 29991 fanquake/sqlite_3_45_3
 	30301 theuni/miniupnp-228-bump
 	(CHECK-LAST)	last= origin-pull-k/196/head
@@ -922,6 +922,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	35195 cache_outpoint_sethash-27							last=16e77fdf132 l0rinc/l0rinc/noexcept-false
 	35197 lld_icf_safe-28									last=09de5363d36 fanquake/lld_icf_safe
 	Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
+	35825 privkeyio/net-addconnection-count-guard-core		last=ca7c1456f56
 	Needs review: k278  privkeyio/feature-runtime-scriptcheck-calibration
 	k287  privkeyio/uncap-scriptcheck-threads				last=f23f08cb01f
 	# TODO: dumptxoutset doesn't return until chain is rolled back forward
@@ -1856,6 +1857,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
+	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		d4c1e555559
 	Triage: 34808 hebasto/260311-qt-ts-source

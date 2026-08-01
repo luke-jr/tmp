@@ -630,7 +630,7 @@ checkout v30.0rc1
 		# 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#30.xTODO# FIXME -     depends_qt5kde
 	Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
-	k345 privkeyio/depends-libevent-2.1.13					last=f3483f7623c
+	k345 privkeyio/depends-libevent-2.1.13					last=0515b85e4f3
 	Needs review: 32655 fanquake/sqlite_3_50_0
 	Needs review: 33851 fanquake/xcb_util_updates
 	Triage: -     fix_secp256k1_bugs-29
@@ -766,6 +766,7 @@ checkout v30.0rc1
 	35195 cache_outpoint_sethash-27							last=16e77fdf132 l0rinc/l0rinc/noexcept-false
 	35197 lld_icf_safe-28									last=09de5363d36 fanquake/lld_icf_safe
 	Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
+	35825 privkeyio/net-addconnection-count-guard-core		last=ca7c1456f56
 	Needs review: k278  privkeyio/feature-runtime-scriptcheck-calibration
 	k287  privkeyio/uncap-scriptcheck-threads				last=f23f08cb01f
 	# TODO: dumptxoutset doesn't return until chain is rolled back forward
@@ -1669,6 +1670,7 @@ checkout v30.0rc1
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
+	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source

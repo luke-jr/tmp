@@ -666,7 +666,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# With Qt6: 33906 hebasto/251118-patch-win11-plugin
 			# 30.x backport in #33609
 		# With Qt6: 33918 hebasto/251120-qt-link
-	k345 privkeyio/depends-libevent-2.1.13					last=f3483f7623c
+	k345 privkeyio/depends-libevent-2.1.13					last=0515b85e4f3
 	# Needs review: 32655 fanquake/sqlite_3_50_0
 	# Needs review: 32665 fanquake/boost_shrink
 	-     fix_secp256k1_bugs-29					d941a2618bc
@@ -811,6 +811,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# Held back 09de5363d36...24ad7419dea: Moved to CMakeLists (applies to non-guix builds) and attempts --icf=safe_thunks (requires LLVM 20+)
 		# When bumping to LLVM 20+, upgrade this to safe_thunks too
 	# Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
+	35825 privkeyio/net-addconnection-count-guard-core		last=ca7c1456f56
 	# Needs review: k278  privkeyio/feature-runtime-scriptcheck-calibration
 	k287  privkeyio/uncap-scriptcheck-threads	aea3e9967e4	last=f23f08cb01f
 	# TODO: dumptxoutset doesn't return until chain is rolled back forward
@@ -1716,12 +1717,13 @@ m	-     def_bloom_local_only					c18dd3c4f99
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 # SOFTFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
-	k238 rdts_combined-29+knots					1e15e28821c	last=f62f5fda667
+m	k238 rdts_combined-29+knots					1e15e28821c	last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
 	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
+	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6434aa11a24
 	# Triage: 34808 hebasto/260311-qt-ts-source
