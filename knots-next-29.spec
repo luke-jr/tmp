@@ -642,6 +642,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
+	k352  MaximeMRF/fix/tor-datadir-spaces
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1725,7 +1726,7 @@ m	k238 rdts_combined-29+knots					1e15e28821c	last=f62f5fda667
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
-	k348  rdts_seeds-29										last=1d62b213e1b Retropex/seeds-knots
+	k348  Retropex/seeds-knots								last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks				last=dda6b556b66
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6434aa11a24
@@ -1758,7 +1759,7 @@ m	7483  svg_icon-29.3+knots					b4bdc15b730
 	n/a  (bump_version=knots20260508)			4efabab0e21
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		c72b1993047
-	n/a   (cherrypick=081d39f7a16)				0b04ddc31b7  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=8fc27748899)				0b04ddc31b7  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1770,7 +1771,7 @@ m	7483  svg_icon-29.3+knots					b4bdc15b730
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
 	n/a  (cherrypick=fab2b1493e7)   # bump to rc1 #29.xTODO# REMOVE
-	n/a  (cherrypick=feba8cdcbb1)				f41f01e1e6d  # update manpages (build first)
+	n/a  (cherrypick=301f01ddcfd)				f41f01e1e6d  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
