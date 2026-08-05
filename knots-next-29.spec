@@ -77,7 +77,8 @@ NM	-     ci_gha_makejobs_8						e6137ba906d
 	# If needed: 34914 Sjors/2026/03/deep-sign (CI macOS codesigning)
 	35161 qa_merkle_mutated_rv-0.19				83e48f935fb	last=f2dbc6a5fd5 l0rinc/l0rinc/doc-merkle-root-mutated
 		# Test only
-	35164 qa_p2sh_sigop_counting-23				ec26bb782fd	last=f1884695736 musaHaruna/test/p2sh-sigop-counting
+	35164 qa_p2sh_sigop_counting-23				ec26bb782fd	last=9d047dbd65a musaHaruna/test/p2sh-sigop-counting
+		# Held back f1884695736...9d047dbd65a for no reason
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25		c7578d676c4
 # FIXES:
@@ -642,7 +643,6 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
-	k352  MaximeMRF/fix/tor-datadir-spaces
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1380,6 +1380,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	ddb6d6985e1
 m	15428 tor_gui_pairing-29+knots				d56405ea1fd	last=ab9ed21dc98 tor_gui_pairing-0.21+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-29+knots				7ba589f7d97	# Latest code now
+		# + knots#352
 		# FIXME: fix automatic tor outbound using subprocess
 		# FIXME: -netinfo doesn't show tor if inbound-only?
 	# TODO: tor guix bundle!
@@ -1727,7 +1728,7 @@ m	k238 rdts_combined-29+knots					1e15e28821c	last=f62f5fda667
 		# NOTE: Core PR in #24930
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	k348  Retropex/seeds-knots								last=3ca6d37783e
-	k350  privkeyio/correct-rdts-invalid-blocks				last=dda6b556b66
+	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6434aa11a24
 	# Triage: 34808 hebasto/260311-qt-ts-source
