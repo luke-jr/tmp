@@ -1771,8 +1771,7 @@ m	7483  svg_icon-29.3+knots					b4bdc15b730
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=f25f4b93b5b)   # bump to rc2 #29.xTODO# REMOVE
-	n/a  (cherrypick=03d337a39da)				f41f01e1e6d  # update manpages (build first)
+	n/a  (cherrypick=2d531eaf4b0)				f41f01e1e6d  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
