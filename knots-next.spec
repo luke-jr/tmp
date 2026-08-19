@@ -1665,8 +1665,8 @@ checkout v30.0rc1
 	# Needs review & optionality: 26451 sdaftuar/2022-11-fixrbf
 	#31.xTODO# Revert #33755 (Relax standardness rules regarding CHECKMULTISIG)
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
-	k354  pdath/rejecttokens
-		FIXME: Needs corepolicy
+	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
+		# Added corepolicy
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667

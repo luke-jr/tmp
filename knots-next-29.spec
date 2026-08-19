@@ -1719,8 +1719,8 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	# Needs refactoring to only happen for -acceptnonstdtxn(?): 26398 instagibbs/relax_too_small_tx_equality
 	# Needs review & optionality: 26451 sdaftuar/2022-11-fixrbf
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
-	k354  pdath/rejecttokens
-		FIXME: Needs corepolicy
+	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
+		# Added corepolicy
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					b2ecf238f32	last=f62f5fda667
