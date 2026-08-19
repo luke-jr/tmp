@@ -611,7 +611,7 @@ checkout v30.0rc1
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
-	k352  MaximeMRF/fix/tor-datadir-spaces
+	k360  privkeyio/fix-checkblockindex-ordering
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1665,7 +1665,7 @@ checkout v30.0rc1
 	# Needs review & optionality: 26451 sdaftuar/2022-11-fixrbf
 	#31.xTODO# Revert #33755 (Relax standardness rules regarding CHECKMULTISIG)
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
-# SOFTFORK:
+# HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
@@ -1676,6 +1676,7 @@ checkout v30.0rc1
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	k348  Retropex/seeds-knots								last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
+	k359  pow_hf_blake2b
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source

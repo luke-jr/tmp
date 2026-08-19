@@ -643,6 +643,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	8c3d83d5c4f
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags			f41e4e3ab7d	last=66dc2de6c25
 	k344 -										966a8f197f6	last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
+	k360 privkeyio/fix-checkblockindex-ordering				last=ed6fb09bfbc
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1718,7 +1719,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	# Needs refactoring to only happen for -acceptnonstdtxn(?): 26398 instagibbs/relax_too_small_tx_equality
 	# Needs review & optionality: 26451 sdaftuar/2022-11-fixrbf
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
-# SOFTFORK:
+# HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					b2ecf238f32	last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
@@ -1729,6 +1730,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	k320  miniscript_guard_tapscript_opif-29	42895f40ded	last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	k348  Retropex/seeds-knots					10042639581	last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks	99543eb23a5	last=e8a82740997
+	k359  pow_hf_blake2b
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
 	# Triage: 34808 hebasto/260311-qt-ts-source
