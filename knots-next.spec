@@ -1665,6 +1665,8 @@ checkout v30.0rc1
 	# Needs review & optionality: 26451 sdaftuar/2022-11-fixrbf
 	#31.xTODO# Revert #33755 (Relax standardness rules regarding CHECKMULTISIG)
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
+	k354  pdath/rejecttokens
+		FIXME: Needs corepolicy
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1673,10 +1675,14 @@ checkout v30.0rc1
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
+	k362  privkeyio/rm-rdts-consent							last=522df02219f
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	k348  Retropex/seeds-knots								last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
+	Needs work: k357  privkeyio/hf-sighash-opt-in
+	Needs work: k358  chrisguida/rdts-flagday-29+knots
+	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source
