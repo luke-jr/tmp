@@ -1583,6 +1583,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	-     rejecttokens-29.1+knots				04bd0368d32
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Currently filters just Runes
+	Needs review: k349  privkeyio/policy-reject-counterparty
 	k78   rejectparasites-29.1+knots			d62df608ebb	last=d978324923a
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Currently filters just CAT-21
@@ -1737,6 +1738,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	Needs work: k357  privkeyio/hf-sighash-opt-in
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
+	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
 	# Triage: 34808 hebasto/260311-qt-ts-source
@@ -1779,7 +1781,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=18662fe8a2f)	# bump to .1rc1 #29.xTODO# REMOVE
+	n/a  (cherrypick=9066350a7ad)	# bump to .1rc1 #29.xTODO# REMOVE
 	n/a  (cherrypick=42f7ed9705d)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config

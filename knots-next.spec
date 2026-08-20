@@ -1523,6 +1523,7 @@ checkout v30.0rc1
 	-     rejecttokens-29.1+knots				00793cbe326
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# Currently filters just Runes
+	Needs review: k349  privkeyio/policy-reject-counterparty
 	k78   rejectparasites-29.1+knots			606644447fa	last=d978324923a
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# Currently filters just CAT-21
@@ -1683,6 +1684,7 @@ checkout v30.0rc1
 	Needs work: k357  privkeyio/hf-sighash-opt-in
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
+	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source

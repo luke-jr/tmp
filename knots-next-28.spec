@@ -1729,6 +1729,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	-     rejecttokens-28+knots					39ec1308346	last=99cde86f433 rejecttokens-29.1+knots
 		#29.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Currently filters just Runes
+	Needs review: k349  privkeyio/policy-reject-counterparty
 	k78   rejectparasites-28+knots				6c5ca3ed56c	last=d978324923a
 	(CHECK-LAST)	last=11bb4add0bc rejectparasites-29.1+knots
 		#29.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
@@ -1870,6 +1871,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	Needs work: k357  privkeyio/hf-sighash-opt-in
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
+	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		d4c1e555559
 	Triage: 34808 hebasto/260311-qt-ts-source
