@@ -75,10 +75,10 @@ NM	-     ci_gha_makejobs_8						c5f86dea3c3
 		# See also: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
 	# Needed in 2027 October (Python 3.16): 34820 maflcko/2603-test-windows-revert
 	# If needed: 34914 Sjors/2026/03/deep-sign (CI macOS codesigning)
-	35161 qa_merkle_mutated_rv-0.19				c071cb0ec83	last=f2dbc6a5fd5 l0rinc/l0rinc/doc-merkle-root-mutated
+	35161 qa_merkle_mutated_rv-0.19				c071cb0ec83	last=ef501a63d9d l0rinc/l0rinc/doc-merkle-root-mutated
 		# Test only
-	35164 qa_p2sh_sigop_counting-23				4111bc69587	last=9d047dbd65a musaHaruna/test/p2sh-sigop-counting
-		# Held back f1884695736...9d047dbd65a for no reason
+	35164 qa_p2sh_sigop_counting-23				4111bc69587	last=d180b891a29 musaHaruna/test/p2sh-sigop-counting
+		# Held back f1884695736...d180b891a29 for no reason
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25		17cfe06a75c
 # FIXES:
@@ -1415,7 +1415,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	8c3d83d5c4f
 	# Needs work/review: g539  RandyMcMillan-g/1643263956-network-graph-issue-532
 	# Needs concept review: 26365 -  # wallet: GetEffectiveBalance
 	# Needs concept & review: Only when sending GETBLOCKTXN anyway? (more likely with Knots) 27086 -  # [WIP] p2p: Add random txn's from mempool to GETBLOCKTXN
-	30951 v2onlyclearnet-29+knots				37cbd48b190	last=d72df0fc836
+	30951 v2onlyclearnet-29+knots				37cbd48b190	last=7c6b70d7286
 		# Made a hidden option
 		# NOTE: -listen=0 required because it doesn't enforce v2 on incoming connections
 	# Needs review: 32065 vasild/i2p_early_create_session

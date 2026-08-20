@@ -81,7 +81,7 @@ checkout v28.2
 		# See also: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
 	# Needed in 2027 October (Python 3.16): 34820 maflcko/2603-test-windows-revert
 	# If needed: 34914 Sjors/2026/03/deep-sign (CI macOS codesigning)
-	35161 qa_merkle_mutated_rv-0.19							last=f2dbc6a5fd5 l0rinc/l0rinc/doc-merkle-root-mutated
+	35161 qa_merkle_mutated_rv-0.19							last=ef501a63d9d l0rinc/l0rinc/doc-merkle-root-mutated
 		# Test only
 	35164 qa_p2sh_sigop_counting-23							last=f1884695736 musaHaruna/test/p2sh-sigop-counting
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
