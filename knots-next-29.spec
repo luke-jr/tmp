@@ -1736,13 +1736,13 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	k348  Retropex/seeds-knots					10042639581	last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks	99543eb23a5	last=e8a82740997
 	k359  pow_hf_blake2b
-	k357  privkeyio/hf-sighash-opt-in						last=f2c6a51b012
+	k357  privkeyio/hf-sighash-opt-in						last=049bc436dba
 		# TODO: Needs work?
-	k358  chrisguida/rdts-flagday-29+knots
+	k358  rdts-flagday-29+knots								last=2fa20294b62 chrisguida/rdts-flagday-29+knots
 		# TODO: Needs work?
-	k363  AcesHigh70/rpc_v2_header_fields
-		# TODO: Needs work?
-	k368  chrisguida/blake2b-servicebit-29+knots
+	k363  rpc_blockheaderv2-29+knots						last=ef16deef147 AcesHigh70/rpc_v2_header_fields
+		# TODO: Needs review?
+	k368  blake2b_servicebit-29+knots						last=d7a06e8d925 chrisguida/blake2b-servicebit-29+knots
 		# TODO: Needs work?
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
@@ -1787,7 +1787,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
 	n/a  (cherrypick=9066350a7ad)	# bump to .1rc1 #29.xTODO# REMOVE
-	n/a  (cherrypick=42f7ed9705d)				2d531eaf4b0  # update manpages (build first)
+	n/a  (cherrypick=23a936a77a3)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
