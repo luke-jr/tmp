@@ -1583,7 +1583,8 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	-     rejecttokens-29.1+knots				04bd0368d32
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Currently filters just Runes
-	Needs review: k349  privkeyio/policy-reject-counterparty
+	k349  privkeyio/policy-reject-counterparty				last=7b1d8136181
+		# TODO: Needs review
 	k78   rejectparasites-29.1+knots			d62df608ebb	last=d978324923a
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Currently filters just CAT-21
@@ -1720,7 +1721,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	# Needs refactoring to only happen for -acceptnonstdtxn(?): 26398 instagibbs/relax_too_small_tx_equality
 	# Needs review & optionality: 26451 sdaftuar/2022-11-fixrbf
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
-	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
+	k354  rejecttokens_def-29+knots							last=792dae6539a pdath/rejecttokens
 		# Added corepolicy
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
@@ -1735,10 +1736,14 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	k348  Retropex/seeds-knots					10042639581	last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks	99543eb23a5	last=e8a82740997
 	k359  pow_hf_blake2b
-	Needs work: k357  privkeyio/hf-sighash-opt-in
-	Needs work: k358  chrisguida/rdts-flagday-29+knots
-	Needs work: k363  AcesHigh70/rpc_v2_header_fields
-	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
+	k357  privkeyio/hf-sighash-opt-in						last=f2c6a51b012
+		# TODO: Needs work?
+	k358  chrisguida/rdts-flagday-29+knots
+		# TODO: Needs work?
+	k363  AcesHigh70/rpc_v2_header_fields
+		# TODO: Needs work?
+	k368  chrisguida/blake2b-servicebit-29+knots
+		# TODO: Needs work?
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
 	# Triage: 34808 hebasto/260311-qt-ts-source
