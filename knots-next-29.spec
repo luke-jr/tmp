@@ -1736,13 +1736,13 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	k348  Retropex/seeds-knots					10042639581	last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks	99543eb23a5	last=e8a82740997
 	k359  pow_hf_blake2b
-	k357  privkeyio/hf-sighash-opt-in						last=049bc436dba
+	k357  privkeyio/hf-sighash-opt-in						last=221d34ad49b
 		# TODO: Needs work?
 	k358  rdts-flagday-29+knots								last=2fa20294b62 chrisguida/rdts-flagday-29+knots
 		# TODO: Needs work?
-	k363  rpc_blockheaderv2-29+knots						last=ef16deef147 AcesHigh70/rpc_v2_header_fields
+	k363  rpc_blockheaderv2-29+knots						last=aac0f1b3366 AcesHigh70/rpc_v2_header_fields
 		# TODO: Needs review?
-	k368  blake2b_servicebit-29+knots						last=d7a06e8d925 chrisguida/blake2b-servicebit-29+knots
+	k368  blake2b_servicebit-29+knots						last=e9f3af467e2 chrisguida/blake2b-servicebit-29+knots
 		# TODO: Needs work?
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
@@ -1786,7 +1786,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=52e312fe010)	# bump to .1rc1 #29.xTODO# REMOVE
+	n/a  (cherrypick=dae6855ec2f)	# bump to .1rc1 #29.xTODO# REMOVE
 	n/a  (cherrypick=951009f90e9)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
