@@ -740,7 +740,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360  privkeyio/fix-checkblockindex-ordering
-	k375  Retropex/testnet-seed
+	k375  dnsseed_tn4_leohaf-28								last=3e3d59a05ba Retropex/testnet-seed
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	

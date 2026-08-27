@@ -644,7 +644,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	8c3d83d5c4f
 	k339 privkeyio/fix-pie-c-link-flags			f41e4e3ab7d	last=66dc2de6c25
 	k344 -										966a8f197f6	last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360 privkeyio/fix-checkblockindex-ordering				last=ed6fb09bfbc
-	k375  Retropex/testnet-seed
+	k375  dnsseed_tn4_leohaf-28								last=3e3d59a05ba Retropex/testnet-seed
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1342,7 +1342,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	8c3d83d5c4f
 		# Held back on old version due to conflict with GUI updates...
 	8550  old_stats_qt-29+knots					595ec8627f8	last=63fb11652f
 		# Held back on old version due to conflict with RPC updates...
-		TODO: knots#377
+		# + knots#377
 	9504  rpc_dumpmasterprivkey					6733cef00d6	last=07fc81109a
 	g444  gui_netwatch-29+knots					ddcd5d1888d	 # Latest code now
 	(CHECK-LAST)	last=191d0fdc9e2 origin-pull-k/330/head
@@ -1730,22 +1730,22 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	k238 rdts_combined-29+knots					b2ecf238f32	last=f62f5fda667
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
 	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
-		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
+	(CHECK-LAST)	last=522df02219f privkeyio/rm-rdts-consent
+		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes + knots#362
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
-	k362  privkeyio/rm-rdts-consent							last=522df02219f
 	k320  miniscript_guard_tapscript_opif-29	42895f40ded	last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	k348  Retropex/seeds-knots					10042639581	last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks	99543eb23a5	last=e8a82740997
 	k359  pow_hf_blake2b
-	k357  privkeyio/hf-sighash-opt-in						last=221d34ad49b
-		# TODO: Needs work?
-	k358  rdts-flagday-29+knots								last=2fa20294b62 chrisguida/rdts-flagday-29+knots
-		# TODO: Needs work?
-	k363  rpc_blockheaderv2-29+knots						last=aac0f1b3366 AcesHigh70/rpc_v2_header_fields
+	k357  sighash_unified-29.3+knots						last=4de04c98846 privkeyio/hf-sighash-opt-in
+		# TODO: Needs review?
+	k358  rdts-flagday-29+knots								last=000feab817b chrisguida/rdts-flagday-29+knots
+		# TODO: Needs review?
+	k363  rpc_blockheaderv2-29+knots						last=2736df8e879 AcesHigh70/rpc_v2_header_fields
 		# TODO: Needs review?
 	k368  blake2b_servicebit-29+knots						last=e9f3af467e2 chrisguida/blake2b-servicebit-29+knots
-		# TODO: Needs work?
+		# TODO: Needs review?
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
 	# Triage: 34808 hebasto/260311-qt-ts-source
