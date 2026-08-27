@@ -1788,8 +1788,8 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=a20c16531e8)	# bump to .1rc2 #29.xTODO# REMOVE
-	n/a  (cherrypick=7f816a45902)				2d531eaf4b0  # update manpages (build first)
+	n/a  (cherrypick=8f0c05b47be)	# bump to .1rc3 #29.xTODO# REMOVE
+	n/a  (cherrypick=afbe91c299e)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
