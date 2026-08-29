@@ -1738,9 +1738,9 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	k348  Retropex/seeds-knots					10042639581	last=3ca6d37783e
 	k350  privkeyio/correct-rdts-invalid-blocks	99543eb23a5	last=e8a82740997
 	k359  pow_hf_blake2b
-	k357  sighash_unified-29.3+knots						last=4de04c98846 privkeyio/hf-sighash-opt-in
+	k357  sighash_unified-29.3+knots						last=342ba104121 privkeyio/hf-sighash-opt-in
 		# TODO: Needs review?
-	k358  rdts-flagday-29+knots								last=000feab817b chrisguida/rdts-flagday-29+knots
+	k358  rdts-flagday-29+knots								last=ce671c29ff5 chrisguida/rdts-flagday-29+knots
 		# TODO: Needs review?
 	k363  rpc_blockheaderv2-29+knots						last=2736df8e879 AcesHigh70/rpc_v2_header_fields
 		# TODO: Needs review?
@@ -1779,7 +1779,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	n/a  (cherrypick=12816ba10df)	# bump to 29.4.1
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		fe4df879cce
-	n/a   (cherrypick=d68c1d00db7)				40c268945fc  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=3061bdef8bf)				40c268945fc  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1790,8 +1790,8 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=caae95d0be9)	# bump to rc4 #29.xTODO# REMOVE
-	n/a  (cherrypick=afbe91c299e)				2d531eaf4b0  # update manpages (build first)
+	n/a  (cherrypick=5cab195dd58)	# bump to rc4 #29.xTODO# REMOVE
+	n/a  (cherrypick=a36b2fed8b5)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
