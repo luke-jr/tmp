@@ -1746,6 +1746,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# TODO: Needs review?
 	k368  blake2b_servicebit-29+knots						last=e9f3af467e2 chrisguida/blake2b-servicebit-29+knots
 		# TODO: Needs review?
+	-     pow_hf_blake2b_params
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
 	# Triage: 34808 hebasto/260311-qt-ts-source
@@ -1775,6 +1776,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	n/a   (cherrypick=488640fe20b)				ad947e12a26	# doc/{bips,files}
 		# TODO: Update with bump_version below !!!!
 	n/a  (bump_version=knots20260508)			1d1bb71449c
+	n/a  (cherrypick=12816ba10df)	# bump to 29.4.1
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		fe4df879cce
 	n/a   (cherrypick=d68c1d00db7)				40c268945fc  # release notes: write/update, including change log and credits
@@ -1788,7 +1790,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=8f0c05b47be)	# bump to .1rc3 #29.xTODO# REMOVE
+	n/a  (cherrypick=caae95d0be9)	# bump to rc4 #29.xTODO# REMOVE
 	n/a  (cherrypick=afbe91c299e)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
