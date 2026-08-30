@@ -1746,7 +1746,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# TODO: Needs review?
 	k368  blake2b_servicebit-29+knots						last=e9f3af467e2 chrisguida/blake2b-servicebit-29+knots
 		# TODO: Needs review?
-	-     pow_hf_blake2b_params
+	k385  pow_hf_blake2b_params
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
 	# Triage: 34808 hebasto/260311-qt-ts-source
