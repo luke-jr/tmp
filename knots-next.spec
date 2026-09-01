@@ -1687,6 +1687,7 @@ checkout v30.0rc1
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
+	Needs work: k386  privkeyio/blake2b-dns-immediate-when-no-hf
 	k385  pow_hf_blake2b_params
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6

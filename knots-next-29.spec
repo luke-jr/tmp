@@ -1746,6 +1746,8 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# TODO: Needs review?
 	k368  blake2b_servicebit-29+knots						last=e9f3af467e2 chrisguida/blake2b-servicebit-29+knots
 		# TODO: Needs review?
+	k386  privkeyio/blake2b-dns-immediate-when-no-hf
+		# TODO: Needs work
 	k385  pow_hf_blake2b_params
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
@@ -1779,6 +1781,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	n/a  (cherrypick=12816ba10df)	# bump to 29.4.1
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		fe4df879cce
+	TODO: clean up release-notes-* additions
 	n/a   (cherrypick=f71a2ddebfa)				40c268945fc  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
