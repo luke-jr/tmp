@@ -1746,8 +1746,8 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# TODO: Needs review?
 	k368  blake2b_servicebit-29+knots						last=e9f3af467e2 chrisguida/blake2b-servicebit-29+knots
 		# TODO: Needs review?
-	k386  privkeyio/blake2b-dns-immediate-when-no-hf
-		# TODO: Needs work
+	k386  blake2b_rapid_dns-29+knots						last=692d73c8ad2 privkeyio/blake2b-dns-immediate-when-no-hf
+		# + tidy fix
 	k385  pow_hf_blake2b_params
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		36e4f738b76
@@ -1781,8 +1781,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 	n/a  (cherrypick=12816ba10df)	# bump to 29.4.1
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		fe4df879cce
-	TODO: clean up release-notes-* additions
-	n/a   (cherrypick=f71a2ddebfa)				40c268945fc  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=c3bcc7e58b7)				40c268945fc  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1793,8 +1792,7 @@ NM	14137 win_taskbar_progress					99a83c92857	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=f5fbb2457b4)	# bump to rc5 #29.xTODO# REMOVE
-	n/a  (cherrypick=306523a567d)				2d531eaf4b0  # update manpages (build first)
+	n/a  (cherrypick=2aa7166d529)				2d531eaf4b0  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
