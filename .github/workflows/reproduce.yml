@@ -1,0 +1,73 @@
+name: Reproduce latest Knots release (byte-exact)
+
+# Job 1: byte-exact reproduction of a published Knots release from
+# public sources only. The most-recent dated spec is run through the
+# historically pinned assembly driver with the reproduction harness
+# (synthesize-refs to release-time SHAs, CHECK-LAST strip,
+# auto/per-release overrides), and the resulting HEAD is compared
+# SHA-for-SHA against the release tag.
+#
+# Expected always-green. A failure means one of:
+#   - upstream public artifacts changed in a way that breaks
+#     byte-exact reproduction (e.g. a fetched ref disappeared), or
+#   - the reproduction harness has a regression.
+#
+# All real work lives in .ci/ scripts; this workflow is thin
+# orchestration so the same code paths run locally via
+# `./.ci/run-all.sh`.
+#
+# The default release is auto-detected from the dated spec with the
+# latest YYYYMMDD suffix in the repo. Override via the workflow
+# dispatch input or as a positional arg to run-all.sh locally; new
+# dated releases pick up automatically when their spec is committed.
+
+on:
+  push:
+    branches: [knots-spec, ci-reproduce]
+  schedule:
+    - cron: "17 4 * * *"   # 04:17 UTC nightly
+  workflow_dispatch:
+    inputs:
+      knots_tag:
+        description: 'Release tag to reproduce (blank = latest dated spec)'
+        required: false
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      TZ: UTC
+      GIT_TERMINAL_PROMPT: "0"
+
+    steps:
+      - name: Checkout assembly repo (with assemble-knots submodule)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Toolchain check
+        run: |
+          perl --version | head -1
+          git --version
+          test -f assemble-knots/assemble-knots.pl
+          test -d assemble-knots-resolutions
+          test -x .ci/run-all.sh
+          test -x extract-remotes.pl
+
+      - name: Reproduce
+        run: ./.ci/run-all.sh ${{ inputs.knots_tag }}
+
+      - name: Upload reproduction artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reproduce-output
+          path: |
+            out/
+          if-no-files-found: warn
