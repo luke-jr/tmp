@@ -1351,9 +1351,10 @@ NM	32187 zmq_devirtual_destructor-0.12
 	(CHECK-LAST)	last=af6f73734e2 bashcomp_bcli_generate-29
 		# Bugfix + Left off re-generation until later
 	k190  -														last=cfc9f871ca3  # Add zsh completion script generation support
+	(CHECK-LAST)	last= feat_zsh_completion-29
 		TODO: Ensure added to distdir like in 30860
-		# NOTE: Core alternatives in #33402 and #34906
 		TODO: + knots#365
+		# NOTE: Core alternatives in #33402 and #34906
 	Needs work: k199 mstampfer/cmake-zsh-completion-only
 	Needs Knots-specific work: 34721 willcl-ark/cmake-shell-completions
 	30886 rpc_descrprocesspsbt_prevtxs-28+knots	1764e95f94c	last=87ceb610a72 instagibbs/2024-09-updateutxo_psbt

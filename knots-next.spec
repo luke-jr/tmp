@@ -1158,8 +1158,8 @@ checkout v30.0rc1
 	Prefer upstream? 30860 bashcomp_bcli_generate-29				92e9b91b676	last=abf6ad42bdb BrandonOdiwuor/bash-completion
 		# Bugfix + Left off re-generation until later
 	k190  feat_zsh_completion-29				c7603c2acd8	last=e3f6d308a97  # Add zsh completion script generation support
+		# + knots#365
 		# NOTE: Core alternatives in #33402 and #34906
-		TODO: + knots#365
 	Needs work: k199 mstampfer/cmake-zsh-completion-only
 	Needs Knots-specific work: 34721 willcl-ark/cmake-shell-completions
 	Prefer upstream? 30886 rpc_descrprocesspsbt_prevtxs-28+knots	b77212d5ccf	last=87ceb610a72 instagibbs/2024-09-updateutxo_psbt

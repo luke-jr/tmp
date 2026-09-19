@@ -1214,8 +1214,8 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	628bd86cfb5
 	30860 bashcomp_bcli_generate-29				ae8b8393d49	last=abf6ad42bdb BrandonOdiwuor/bash-completion
 		# Bugfix + Left off re-generation until later
 	k190  feat_zsh_completion-29				df10fbf2ec6	last=e3f6d308a97  # Add zsh completion script generation support
+		# + knots#365
 		# NOTE: Core alternatives in #33402 and #34906
-		TODO: + knots#365
 	# Needs work: k199 mstampfer/cmake-zsh-completion-only
 	# Needs Knots-specific work: 34721 willcl-ark/cmake-shell-completions
 	30886 rpc_descrprocesspsbt_prevtxs-28+knots	f33ee01de20	last=87ceb610a72 instagibbs/2024-09-updateutxo_psbt
@@ -1488,7 +1488,7 @@ NM	14137 win_taskbar_progress					fad587754f7	last=18eb4dbb8a
 	12146 opt_wallet_segwit2					0e4f9128875
 		# TODO: Split out legacy address preference to be more explicit
 		# FIXME? descriptor wallet migration doesn't take this into account?
-		TODO: Allow addresstype=segwit default for descriptor wallets now that block size has a sane limit?
+		#29.xTODO# Allow addresstype=segwit default for descriptor wallets now that block size has a sane limit?
 	# TODO: Rework 17132 (update notification) over Tor for Knots only (and maybe generic alert instead of update-specific)
 	# TODO: Consider KUserFeedback telemetry?
 	-     gui_wallet_displayname_wo_dat			2c24eaf1c03	# Latest code now
