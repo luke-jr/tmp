@@ -1418,9 +1418,8 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	628bd86cfb5
 	# Needs work/review: g539  RandyMcMillan-g/1643263956-network-graph-issue-532
 	# Needs concept review: 26365 -  # wallet: GetEffectiveBalance
 	# Needs concept & review: Only when sending GETBLOCKTXN anyway? (more likely with Knots) 27086 -  # [WIP] p2p: Add random txn's from mempool to GETBLOCKTXN
-	30951 v2onlyclearnet-29+knots				970ff980fc3	last=7c6b70d7286
+	30951 v2onlyclearnet-29+knots				970ff980fc3	last=2f443a4eed1
 		# Made a hidden option
-		# NOTE: -listen=0 required because it doesn't enforce v2 on incoming connections
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs review: 33044 fanquake/19513_rebased
@@ -1688,7 +1687,7 @@ NM	14137 win_taskbar_progress					fad587754f7	last=18eb4dbb8a
 	# Needs work/option: 24106 -  # policy: treat P2TR outputs with invalid x-only pubkey as non-standard
 	# Disabled just to be safe: -     bloom_default-29+knots				401f2f03e86
 		# Take typo fix from def_bloom_local_only
-	-     def_bloom_local_only					b45011c5881
+m	-     def_bloom_local_only					b45011c5881
 		# NOTE: Includes typo fix
 	-     wallet_avoid_newerchange				a4d73445e59
 	-     enforce_checkpoints					2ad447bd38b
