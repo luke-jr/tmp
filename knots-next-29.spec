@@ -1215,6 +1215,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	628bd86cfb5
 		# Bugfix + Left off re-generation until later
 	k190  feat_zsh_completion-29				df10fbf2ec6	last=e3f6d308a97  # Add zsh completion script generation support
 		# NOTE: Core alternatives in #33402 and #34906
+		TODO: + knots#365
 	# Needs work: k199 mstampfer/cmake-zsh-completion-only
 	# Needs Knots-specific work: 34721 willcl-ark/cmake-shell-completions
 	30886 rpc_descrprocesspsbt_prevtxs-28+knots	f33ee01de20	last=87ceb610a72 instagibbs/2024-09-updateutxo_psbt
@@ -1487,6 +1488,7 @@ NM	14137 win_taskbar_progress					fad587754f7	last=18eb4dbb8a
 	12146 opt_wallet_segwit2					0e4f9128875
 		# TODO: Split out legacy address preference to be more explicit
 		# FIXME? descriptor wallet migration doesn't take this into account?
+		TODO: Allow addresstype=segwit default for descriptor wallets now that block size has a sane limit?
 	# TODO: Rework 17132 (update notification) over Tor for Knots only (and maybe generic alert instead of update-specific)
 	# TODO: Consider KUserFeedback telemetry?
 	-     gui_wallet_displayname_wo_dat			2c24eaf1c03	# Latest code now
@@ -1749,6 +1751,8 @@ NM	14137 win_taskbar_progress					fad587754f7	last=18eb4dbb8a
 	k386  blake2b_rapid_dns-29+knots			000dd869300	last=f4004d5fcf9 privkeyio/blake2b-dns-immediate-when-no-hf
 		# + tidy fix
 	k385  pow_hf_blake2b_params					6074239ef0f
+	k420  difficulty_blake2b
+	k419  tsf_longmaturity
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6c403f501a7
 	# Triage: 34808 hebasto/260311-qt-ts-source

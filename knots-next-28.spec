@@ -1353,6 +1353,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k190  -														last=cfc9f871ca3  # Add zsh completion script generation support
 		TODO: Ensure added to distdir like in 30860
 		# NOTE: Core alternatives in #33402 and #34906
+		TODO: + knots#365
 	Needs work: k199 mstampfer/cmake-zsh-completion-only
 	Needs Knots-specific work: 34721 willcl-ark/cmake-shell-completions
 	30886 rpc_descrprocesspsbt_prevtxs-28+knots	1764e95f94c	last=87ceb610a72 instagibbs/2024-09-updateutxo_psbt
@@ -1642,6 +1643,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	# TODO: some way to add UA comments via rwconf
 	12146 opt_wallet_segwit2-28					b7643238b1f	last=2733d2c4ce7 opt_wallet_segwit2
 		# TODO: Split out legacy address preference to be more explicit
+		TODO: Allow addresstype=segwit default for descriptor wallets now that block size has a sane limit?
 	# TODO: Rework 17132 (update notification) over Tor for Knots only (and maybe generic alert instead of update-specific)
 	# TODO: Consider KUserFeedback telemetry?
 	-     gui_wallet_displayname_wo_dat			1d45ac88ee0	# Latest code now
@@ -1876,6 +1878,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 	Needs work: k386  privkeyio/blake2b-dns-immediate-when-no-hf
 	k385  pow_hf_blake2b_params
+	k420  difficulty_blake2b
+	k419  tsf_longmaturity
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		d4c1e555559
 	Triage: 34808 hebasto/260311-qt-ts-source

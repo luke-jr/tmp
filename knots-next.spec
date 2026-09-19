@@ -1159,6 +1159,7 @@ checkout v30.0rc1
 		# Bugfix + Left off re-generation until later
 	k190  feat_zsh_completion-29				c7603c2acd8	last=e3f6d308a97  # Add zsh completion script generation support
 		# NOTE: Core alternatives in #33402 and #34906
+		TODO: + knots#365
 	Needs work: k199 mstampfer/cmake-zsh-completion-only
 	Needs Knots-specific work: 34721 willcl-ark/cmake-shell-completions
 	Prefer upstream? 30886 rpc_descrprocesspsbt_prevtxs-28+knots	b77212d5ccf	last=87ceb610a72 instagibbs/2024-09-updateutxo_psbt
@@ -1422,6 +1423,7 @@ checkout v30.0rc1
 	12146 opt_wallet_segwit2					752f58d2474
 		# TODO: Split out legacy address preference to be more explicit
 		# FIXME? descriptor wallet migration doesn't take this into account?
+		TODO: Allow addresstype=segwit default for descriptor wallets now that block size has a sane limit?
 	# TODO: Rework 17132 (update notification) over Tor for Knots only (and maybe generic alert instead of update-specific)
 	# TODO: Consider KUserFeedback telemetry?
 	-     gui_wallet_displayname_wo_dat			6d64610bcad	# Latest code now
@@ -1689,6 +1691,8 @@ checkout v30.0rc1
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 	Needs work: k386  privkeyio/blake2b-dns-immediate-when-no-hf
 	k385  pow_hf_blake2b_params
+	k420  difficulty_blake2b
+	k419  tsf_longmaturity
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source
