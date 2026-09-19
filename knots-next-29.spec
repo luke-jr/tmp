@@ -1781,10 +1781,10 @@ m	-     def_bloom_local_only					b45011c5881
 	n/a   (cherrypick=488640fe20b)				08ef756ea4b	# doc/{bips,files}
 		# TODO: Update with bump_version below !!!!
 	n/a  (bump_version=knots20260508)			bd2bfed0acc
-	n/a  (cherrypick=12816ba10df)				3acee1b5069	# bump to 29.4.1
+	n/a   (cherrypick=d0e4e242731)				3acee1b5069	# bump to 29.4.2
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		8309251af1d
-	n/a   (cherrypick=b9682b0a548)				b9682b0a548  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=7ea9f23d0a0)				b9682b0a548  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1795,7 +1795,8 @@ m	-     def_bloom_local_only					b45011c5881
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=8c85b1585da)				8c85b1585da  # update manpages (build first)
+	n/a  (cherrypick=639391838fa)	# bump to rc1 #29.xTODO# REMOVE
+	n/a  (cherrypick=4e97fe392be)				8c85b1585da  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
