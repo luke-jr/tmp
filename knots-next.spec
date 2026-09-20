@@ -567,6 +567,7 @@ checkout v30.0rc1
 	35227 fix_bdbro_check_lastpage_pr35227-28				last=e2b0984f995 l0rinc/l0rinc/check-bdb-last-page-lsn
 	Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
 	35384 fix_settings_writeerror_handling-27
+	35766 seedaddrs_assume_p2pv2-28
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early				91f5662ec3d
@@ -1682,7 +1683,7 @@ checkout v30.0rc1
 		# NOTE: Core PR in #24930
 	k362  privkeyio/rm-rdts-consent							last=522df02219f
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
-	k348  Retropex/seeds-knots								last=3ca6d37783e
+	-     seeds_update-29+knots
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
