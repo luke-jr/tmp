@@ -1794,7 +1794,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	n/a   (cherrypick=488640fe20b)				37b6ff5929f	# doc/{bips,files}
 		# TODO: Update with bump_version below !!!!
 	n/a  (bump_version=knots20260508)			39900a25630
-	n/a   (cherrypick=05089efa62a)				05089efa62a	# bump to 29.4.2
+	n/a   (cherrypick=a03aa78ca8f)				05089efa62a	# bump to 29.4.3
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		b905c7939a3
 	n/a   (cherrypick=fcb5053e061)				fcb5053e061  # release notes: write/update, including change log and credits
@@ -1808,6 +1808,8 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
+	n/a   (cherrypick=05ebf220fbb)	# release notes for 29.4.3
+	n/a  (cherrypick=7165779bb91)	# bump to rc1 #29.xTODO# REMOVE
 	n/a  (cherrypick=58398baf33e)				58398baf33e  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
