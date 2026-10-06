@@ -614,6 +614,8 @@ checkout v30.0rc1
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360  privkeyio/fix-checkblockindex-ordering
 	k375  dnsseed_tn4_leohaf-28								last=3e3d59a05ba Retropex/testnet-seed
+	k430  -												last=0782ae80278 chrisguida/invalid_chain_warnings-29
+		# Backport of #33553
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1318,6 +1320,7 @@ checkout v30.0rc1
 		# NOTE: Stripped out benchmark change
 		#30.xTODO# Watch for Makefile.am or other changes for shared libbitcoinkernel on Windows
 	15218 postibd_flush-28						d5106e44a19	last=8887d28a014  andrewtoth/flush-after-ibd
+	Needs review: k441 privkeyio/postibd_flush_crashfix
 	15428 tor_gui_pairing-29+knots				5269b208e29	last=ab9ed21dc98 tor_gui_pairing-0.21+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-29+knots				5efc573ae60	# Latest code now
@@ -1694,6 +1697,15 @@ checkout v30.0rc1
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
+	k429  -												last=a049372c27f chrisguida/long-coinbase-maturity-rdts-expiry-29+knots
+	k425  privkeyio/fix_pow_boundary_sync+nofork	last=789275b2287 !privkeyio/fix_pow_boundary_sync+nofork
+		# + sync headers from legacy peers when BLAKE2b is not scheduled
+	k398  -												last=b947864cb45 privkeyio/blake2b-outbound-slot-preference
+	k394  privkeyio/seeds_blake2b-29+knots		last=a086b35a933 !privkeyio/seeds_blake2b-29+knots
+		# Rebased onto pre-branding from jasonsopko/seeds-blake2b 44571c691dc
+		# + keep the cjdns seeds and the testnet4 fixed seeds
+	k437  privkeyio/dnsseed_lionpool-29+knots	last=300b4501c64 !privkeyio/dnsseed_lionpool-29+knots
+		# Rebased onto pre-branding from LionThunderFingers/chainparams-add-lionseed e76eaac5bdf
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source
