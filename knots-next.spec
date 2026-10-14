@@ -619,6 +619,8 @@ checkout v30.0rc1
 		# Backport of #33553, without log/alert message changes
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
+	k445  chrisguida/fuzz_spkm_migration-29					last=f9cba55ad70
+		# Backport of #32624 + #32977 commit ba015852298; fixes the spkm_migration fuzz UAF that fails CI on k429
 	
 	# FIXME: How to unify listtransactions and GUI tx list? GUI has net changes, while RPC just has positive fees
 	# FIXME: watchonly indicator is confusing.
@@ -1590,6 +1592,13 @@ checkout v30.0rc1
 	k292  Retropex/rework-opnet
 	#31.xTODO# Consider reverting parts of #33489 (build: Drop support for EOL macOS 13) and #33573
 	# TODO? Dust multiplier by # of outputs: https://x.com/snapolino/status/1976708308603224518
+	k319  privkeyio/fix-bip110-envelope-datacarrier		last=5e3153edef4
+		# count bare data envelopes (OP_2DROP/pushnum runs) as datacarrier; jasonsopko approved; base of k422
+	k422  privkeyio/policy-unproven-pubkey-datacarrier	last=eea24673b4d
+		# count pubkeys no signature can prove as datacarrier bytes, incl. tapscript keys; jasonsopko approved; contains the k319 commits; eea24673b4d = 177e5cad729 + the two CI fixes (MSVC narrowing, UBSan test helper)
+	# Needs review: k389 jasonsopko/policy-fake-outputs (data in output hashes and keys; rooted on the 29.4.2 tip, needs a rebased copy)
+	# Needs review: k400 jasonsopko/policy-dead-branch-data (data in a dead conditional branch; rooted on the 29.4.2 tip, needs a rebased copy)
+	# Needs review: k457 privkeyio/datacarrier_reject_type-29+knots (TX_NOT_STANDARD for datacarrier rejections)
 	30.xTODO: Consider #33892 policy: allow <minrelay txns in package context if paid for by cpfp
 	30.xTODO: Consider #33926 Align legacy script policy with P2SH policy in AreInputsStandard
 # Non-upstreamed Knots compatibility:
@@ -1607,6 +1616,8 @@ checkout v30.0rc1
 	-     compat_rpc_dumptxoutset_hr			16da2d97b3f
 		# FIXME: 'type' param attempts to parse as JSON ? (with 28.x bitcoin-cli tho)
 		# FIXME: 'rollback' param rejects height ?
+	k443  chrisguida/dumptxoutset-rollback-copy-29+knots	last=fac46e45db0 chrisguida/dumptxoutset-rollback-copy
+		# Backport of #33477 (dumptxoutset rollback on a copy of the UTXO set); copy of the PR branch rebased onto the compat_rpc_dumptxoutset_hr merge above (the PR branch is rooted on the 29.4.2 tip), so it must follow it
 	-     compat_jsonrpc_weirdversions			4a1ec7a8257
 	29530 rpc_getpeerinfo_misbehaving_score-29+k	f09235f455c	last=87efb6f0cfd
 		# NOTE: Held back 976d61c974e...87efb6f0cfd which degrades docs and adds a test incompatible with Knots
@@ -1698,14 +1709,21 @@ checkout v30.0rc1
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
-	k429  chrisguida/long-coinbase-maturity-rdts-expiry-29+knots	last=a049372c27f
+	k429  chrisguida/long-coinbase-maturity-rdts-expiry-29+knots	last=6d1b0706a83
+		# since a049372c27f: Luke's round-2 items, fuzz UAF fix (the backport is k445), policy hold limited to covered coins (jasonsopko)
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
+	k459  chrisguida/rdts-testnet4-extension-k429-29+knots	last=f4d49816516 chrisguida/rdts-testnet4-extension-29+knots
+		# testnet4: RDTS expiry extended to 2027-04-01 retroactively (chainstate revalidation from 152963); keeps k429 a softfork on 29.4.2 on testnet4
+		# copy of the PR commit rebased onto k429's head with k425 merged in (k425 edits the line above the testnet4 expiry; k429 rewrote the revalidation-deployment test, so the test lookup is adapted)
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=44571c691dc jasonsopko/seeds-blake2b
+	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
 		# + keep the cjdns seeds and the testnet4 fixed seeds
+		# 8e50d772c1a restores the testnet4 and cjdns fixed seeds in the PR itself (the same fix the privkeyio copy carries)
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
+	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
+		# assumeutxo snapshot at 976000 (first entry past the BLAKE2b fork); approved by luke-jr and kwsantiago; copy of the PR branch rebased onto the k385 merge (the PR branch is rooted on the 29.4.2 tip)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source
 	7483  svg_icon-29.3+knots					093b55fc9ce
