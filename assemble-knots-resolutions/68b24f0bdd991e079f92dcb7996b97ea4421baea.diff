@@ -1,0 +1,46 @@
+diff --git a/src/rpc/blockchain.cpp b/src/rpc/blockchain.cpp
+index 65c2781f35..62e4dbf1e8 100644
+--- a/src/rpc/blockchain.cpp
++++ b/src/rpc/blockchain.cpp
+@@ -3537,7 +3537,7 @@ static RPCHelpMan dumptxoutset()
+     const UniValue& hr_format = [&]() -> const UniValue& {
+         if (options["format"].isNull() && request.params[1].isArray()) {
+             // Knots 0.20.0-28.1 compatibility
+-            snapshot_type = "latest";
++            if (!options.exists("rollback")) snapshot_type = "latest";
+             return request.params[1];
+         }
+         snapshot_type = self.Arg<std::string>("type");
+diff --git a/src/rpc/client.cpp b/src/rpc/client.cpp
+index 3473a789be..b89d4cb73e 100644
+--- a/src/rpc/client.cpp
++++ b/src/rpc/client.cpp
+@@ -104,7 +104,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
+     { "sweepprivkeys", 0, "options" },
+     { "sweepprivkeys", 0, "privkeys" },
+     { "scantxoutset", 1, "scanobjects" },
+-    { "dumptxoutset", 1, "format" },
++    { "dumptxoutset", 1, "format", /*also_string=*/true },
+     { "dumptxoutset", 2, "format" },
+     { "dumptxoutset", 2, "show_header" },
+     { "addmultisigaddress", 0, "nrequired" },
+diff --git a/test/functional/rpc_dumptxoutset.py b/test/functional/rpc_dumptxoutset.py
+index 223af222bc..b302f84888 100755
+--- a/test/functional/rpc_dumptxoutset.py
++++ b/test/functional/rpc_dumptxoutset.py
+@@ -154,5 +154,15 @@ class DumptxoutsetTest(BitcoinTestFramework):
+         self.log.info("Testing dumptxoutset with chain fork at target height")
+         self.test_dumptxoutset_with_fork()
+ 
++        self.log.info("Test that bitcoin-cli passes the type positionally as a string")
++        out = node.cli.dumptxoutset('cli_latest.dat', 'latest')
++        assert_equal(out['base_height'], 100)
++
++        self.log.info("Test a named format with rollback and no type")
++        out = node.dumptxoutset(path='rollback_hr.dat', rollback=99, format=[])
++        assert_equal(out['base_height'], 99)
++        with open(node.chain_path / 'rollback_hr.dat', 'r', encoding='utf-8') as f:
++            assert f.readline().startswith('#(blockhash {} )'.format(node.getblockhash(99)))
++
+ if __name__ == '__main__':
+     DumptxoutsetTest(__file__).main()

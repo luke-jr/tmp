@@ -704,6 +704,9 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
 	35384 fix_settings_writeerror_handling-27
 	35766 seedaddrs_assume_p2pv2-28
+	35691 privkeyio/rm_dnsseed_sipa-29.4					last=d9080639804
+		# Without the contrib/seeds/README.md change, left to the Knots seed branches
+	36218 privkeyio/darwin_no_pipe2-29						last=9c7748315d3
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early-28+knots		dec38cfcc7b	last=e49dfac3241 fix_rpccookieperms_early
@@ -715,6 +718,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k126  fix_qt_progressbar_fittext
 	k150  fix_rpc_mixed_params_edgecases
 		# Held back (4d24d60836f) support for positional options + named params (breaks tests)
+	k471  2rdzy/rpc-named-options-positional				last=217972cd37f
 	Needs work: k182 proxy input validation fixes
 	# Needs work: k228 1440000bytes/fix-corruptwallet-crash
 	-     qt_nowalletpage_alerts-23
@@ -739,12 +743,17 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
+	k341  privkeyio/fix-bitcoind-help-version-datadir		last=0bed563ff9e
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360  privkeyio/fix-checkblockindex-ordering
 	k375  dnsseed_tn4_leohaf-28								last=3e3d59a05ba Retropex/testnet-seed
 	k430  chrisguida/invalid_chain_warnings-29				last=0782ae80278
 	(CHECK-LAST)	last=4b471136988 mzumsande/202510_headersync_loop
 		# Backport of #33553, without log/alert message changes
+	k445  chrisguida/fuzz_spkm_migration-29					last=f9cba55ad70
+	(CHECK-LAST)	last=779e7825dbf origin-pull/32624/head
+	(CHECK-LAST)	last=60d1042b9a4 origin-pull/32977/head
+		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -894,6 +903,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs 28.x review: 34253 lockless_isibd-26+knots							last=557b41a38cc l0rinc/l0rinc/cache-ibd-status
 		# NOTE: diff-minimised, and did not backport refactor commits
 		# NOTE: various libbitcoinkernel changes needed, if libbitcoinkernel features (#30595 in particular) are backported
+	Needs 28.x review: k451  2rdzy/fix-reindex-init-deadlock
 	# Needs review: 34400 -  # wallet: parallel fast rescan (approx 5x speed up with 16 threads)
 		# + #34667 ? +#34907 ?
 	# Needs review: 34405 -  # wallet: skip APS when no partial spend exists
@@ -1033,6 +1043,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	(CHECK-LAST)	last=65d0697fe34 origin-pull/18689/head
 	(CHECK-LAST)	last= rpc_dumptxoutset_hr-29+knots
 	(CHECK-LAST)	last= compat_rpc_dumptxoutset_hr
+	Needs work: k443  chrisguida/dumptxoutset-rollback-copy-29+knots
 		# Diff-minimised
 		# NOTE: Was #18689
 		# FIXME: blockhash+header line is weird https://github.com/bitcoin/bitcoin/pull/24202#discussion_r801191486
@@ -1542,13 +1553,15 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#29.xTODO# Watch for Makefile.am or other changes for shared libbitcoinkernel on Windows
 	-     dsha256_power8_asm_pragmas-27			9a6be594a70
 	15218 postibd_flush-28						f6400ffc581	last=8887d28a014  andrewtoth/flush-after-ibd
-	Needs review: k441 privkeyio/postibd_flush_crashfix
+	Included in k468: k441 privkeyio/postibd_flush_crashfix
 	15428 tor_gui_pairing-28+knots				ea31fd84e38	last=0fbe6e9c46b tor_gui_pairing-29+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-28+knots				0ef06937110	last=1c95be5e3ab tor_subprocess-29+knots
 		TODO: + knots#352
 		# FIXME: fix automatic tor outbound using subprocess
 		# FIXME: -netinfo doesn't show tor if inbound-only?
+	k462  privkeyio/tor-launch-interruptible				last=d762ab702b1
+	k464  privkeyio/tor-stop-launched-process				last=7b34977a926
 	# TODO: tor guix bundle!
 	#29.xTODO# 16490 maflcko/1907-rpcMempoolWhyReplacable
 	#	TODO: Diff-minimise
@@ -1582,6 +1595,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	30951 v2onlyclearnet-28+knots				8bcb122421f	last=5e3fa6758ba
 		# Made a hidden option
 	(CHECK-LAST)	last= v2onlyclearnet-29+knots
+	k454  LionThunderFingers/fix/v2onlyclearnet-assumed-onion-inbound	last=fc74e6f09fd
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs review: 33044 fanquake/19513_rebased
@@ -1633,6 +1647,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#28.xTODO# FIXME: Should blockmintxfee apply to blockprioritysize??
 		# If mempool-knots.dat is ever extended to store easily manipulatable data, port Xor stuff over
 		# Reverts (needed and better performance & memusage): d0cd2e804ec [refactor] rewrite BlockAssembler inBlock and failedTx as sets of txids
+	k446  connorslab/policy-priority-fee-floor				last=c9a6b466ec4
 	5861 gui_restore_addresses					39668f36473
 	5891  qt_console_history_persist			76638518995	last=d7bc5138e19 qt_console_history_persist
 	(CHECK-LAST)	last=6a5537ab675 origin-pull-k/203/head
@@ -1662,6 +1677,9 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# Revert of #23927
 	-     rpc_getblockfrompeer_wo_header		b7fb698aa73
 		# Prior Knots bundled this in with #20295
+	k450  2rdzy/fix-fetchblock-cs-main						last=63badaedc46
+	(CHECK-LAST)	last=359680b74db origin-pull/35498/head
+		# Backport of #35498
 	# TODO? * 4b6813a95bd wallet: trigger MaybeResendWalletTxs() at startup (+ 1 second)
 		# See #25922, backported with this in 21.x
 	# Needs concept acceptance: 26469 -  # rpc: getblock: implement with block height as input parameter.
@@ -1789,9 +1807,13 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	k162  qt_bad_external_signer_msg-22							last=111c401fc5a bigshiny90/fix-invalid-scriptsigner-errordialog
 	Needs work: k271  privkeyio/policy-tapscript-dust-limit
 	Needs work: k272  privkeyio/policy-subdust-fee-penalty
+	Needs work: k438  connorslab/policy-monetary-defaults
 	Needs review: k275  privkeyio/feature-rbf-feerate-mode
 	Needs review: k280  privkeyio/feature-priority-vsize-discount
 	k292  Retropex/rework-opnet
+	k319  privkeyio/fix-bip110-envelope-datacarrier			last=5e3153edef4
+	k422  privkeyio/policy-unproven-pubkey-datacarrier		last=fa51824f2d7
+	k463  privkeyio/datacarrier_bpub-29+knots				last=ad24234c8e4
 	# TODO? Dust multiplier by # of outputs: https://x.com/snapolino/status/1976708308603224518
 # Non-upstreamed Knots compatibility:
 	n/a   rpc_compat_error_index-25+knots		1ebc7d004d3
@@ -1865,6 +1887,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
+	k400  jasonsopko/policy-dead-branch-data				last=df767118a99
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1883,16 +1906,18 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 	Needs work: k386  privkeyio/blake2b-dns-immediate-when-no-hf
+	Needs work: k428  privkeyio/dns-immediate-test-flake
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
-	k429  chrisguida/long-coinbase-maturity-rdts-expiry-29+knots	last=a049372c27f
+	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=3395470f519 BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
+	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=44571c691dc jasonsopko/seeds-blake2b
-		# + keep the cjdns seeds and the testnet4 fixed seeds
+	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
+	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		d4c1e555559
 	Triage: 34808 hebasto/260311-qt-ts-source
