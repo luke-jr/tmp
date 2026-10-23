@@ -1400,7 +1400,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	da7a2310746
 		# NOTE: Stripped out benchmark change
 		#29.xTODO# Watch for Makefile.am or other changes for shared libbitcoinkernel on Windows
 	15218 postibd_flush-28						fbf9ffa3480	last=8887d28a014  andrewtoth/flush-after-ibd
-	# Included in k468: k441 privkeyio/postibd_flush_crashfix
+	k441  privkeyio/postibd_flush_crashfix					last=9effdfcae24
 	15428 tor_gui_pairing-29+knots				50a1968b3aa	last=ab9ed21dc98 tor_gui_pairing-0.21+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-29+knots				3f623375d03	# Latest code now
@@ -1791,12 +1791,13 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k385  pow_hf_blake2b_params					a6b32ff9e03
 	k420  difficulty_blake2b					8c04afce107
 	k419  tsf_longmaturity						049c5553a64
-	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=3395470f519 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k429  chrisguida/long-coinbase-maturity-rdts-expiry-29+knots	last=6d1b0706a83
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
-	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
+	k459  chrisguida/rdts-testnet4-extension-k429-29+knots	last=f4d49816516 chrisguida/rdts-testnet4-extension-29+knots
+		# + revalidation deployment test adapted to k429
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
+	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)

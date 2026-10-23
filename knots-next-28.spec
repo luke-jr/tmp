@@ -1553,7 +1553,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#29.xTODO# Watch for Makefile.am or other changes for shared libbitcoinkernel on Windows
 	-     dsha256_power8_asm_pragmas-27			9a6be594a70
 	15218 postibd_flush-28						f6400ffc581	last=8887d28a014  andrewtoth/flush-after-ibd
-	Included in k468: k441 privkeyio/postibd_flush_crashfix
+	k441  privkeyio/postibd_flush_crashfix					last=9effdfcae24
 	15428 tor_gui_pairing-28+knots				ea31fd84e38	last=0fbe6e9c46b tor_gui_pairing-29+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-28+knots				0ef06937110	last=1c95be5e3ab tor_subprocess-29+knots
@@ -1910,12 +1910,13 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
-	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=3395470f519 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k429  chrisguida/long-coinbase-maturity-rdts-expiry-29+knots	last=6d1b0706a83
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
-	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
+	k459  chrisguida/rdts-testnet4-extension-k429-29+knots	last=f4d49816516 chrisguida/rdts-testnet4-extension-29+knots
+		# + revalidation deployment test adapted to k429
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
+	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
