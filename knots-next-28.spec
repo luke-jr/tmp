@@ -1910,12 +1910,12 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
-	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=3395470f519 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=24cbd569355 BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
+	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
