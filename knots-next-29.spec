@@ -1791,7 +1791,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k385  pow_hf_blake2b_params					a6b32ff9e03
 	k420  difficulty_blake2b					8c04afce107
 	k419  tsf_longmaturity						049c5553a64
-	k468  privkeyio/cbm-180d-rolling-until-rdts-v2-29+knots	last=8a4ca1b2230 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k468  privkeyio/cbm-180d-rolling-until-rdts-v2-29+knots	last=8a4ca1b223a BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
