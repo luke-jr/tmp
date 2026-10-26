@@ -1669,7 +1669,9 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	# Needs work: k271  privkeyio/policy-tapscript-dust-limit
 	k272  subdustfeepenalty-29.3+knots			1d805859e44	last=af7d6f6adba privkeyio/policy-subdust-fee-penalty
 		# Partial: remaining in rwconf_policy
-	k438  connorslab/policy-monetary-defaults				last=30d3ee5024c
+	k438  privkeyio/policy-monetary-defaults-29+knots-rc5	last=97e278ecf9d connorslab/policy-monetary-defaults
+		# Held back 30d3ee5024c...97e278ecf9d: mempool persistence fix, merged separately as k484
+	k484  privkeyio/mempool-persist-explicit-deltas			last=651d6593941
 	# Needs review: k275  privkeyio/feature-rbf-feerate-mode
 	# Needs review: k280  privkeyio/feature-priority-vsize-discount
 	k292  datacarrier_opnet-29+knots			a7027f894ab	last=6938c68fe68 Retropex/rework-opnet
