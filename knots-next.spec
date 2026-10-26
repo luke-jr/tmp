@@ -517,6 +517,9 @@ checkout v30.0rc1
 	Needs concept & review: 34812 w0xlt/fix-33471-cjdns-externalip
 	n/a   fix_typos_from_pr33152-29.3
 	34870 fix_wallet_bump_fail_crash-29.3						last=6072a2a6a1f furszy/2026_feebumper_crash_fix
+	k458  2rdzy/wallet-descriptor-range-overflow			last=c5890125ce9
+	(CHECK-LAST)	last=93c8aec3fbc origin-pull/35989/head
+		# Backport of #35989
 	Needs work: 34872 w0xlt/wallet-mixed-input-history-only
 	34888 furszy/2026_wallet_total_amount_bad_comparison
 	Review: 34893 w0xlt/psbt-proprietary-merge-fix
@@ -568,6 +571,9 @@ checkout v30.0rc1
 	Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
 	35384 fix_settings_writeerror_handling-27
 	35766 seedaddrs_assume_p2pv2-28
+	35691 privkeyio/rm_dnsseed_sipa-29.4					last=d9080639804
+		# Without the contrib/seeds/README.md change, left to the Knots seed branches
+	36218 privkeyio/darwin_no_pipe2-29						last=9c7748315d3
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early				91f5662ec3d
@@ -582,6 +588,7 @@ checkout v30.0rc1
 	k126  fix_qt_progressbar_fittext			09ad9b31507
 	k150  fix_rpc_mixed_params_edgecases		9afea118086
 		# Held back (4d24d60836f) support for positional options + named params (breaks tests)
+	k471  2rdzy/rpc-named-options-positional				last=217972cd37f
 	Needs work: k182 proxy input validation fixes
 	# Needs work: k228 1440000bytes/fix-corruptwallet-crash
 	-     qt_nowalletpage_alerts-23				2eb43494221
@@ -611,12 +618,17 @@ checkout v30.0rc1
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
+	k341  privkeyio/fix-bitcoind-help-version-datadir		last=0bed563ff9e
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360  privkeyio/fix-checkblockindex-ordering
 	k375  dnsseed_tn4_leohaf-28								last=3e3d59a05ba Retropex/testnet-seed
 	k430  chrisguida/invalid_chain_warnings-29				last=0782ae80278
 	(CHECK-LAST)	last=4b471136988 mzumsande/202510_headersync_loop
 		# Backport of #33553, without log/alert message changes
+	k445  chrisguida/fuzz_spkm_migration-29					last=f9cba55ad70
+	(CHECK-LAST)	last=779e7825dbf origin-pull/32624/head
+	(CHECK-LAST)	last=60d1042b9a4 origin-pull/32977/head
+		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -738,6 +750,9 @@ checkout v30.0rc1
 	34253 lockless_isibd-26+knots							last=557b41a38cc l0rinc/l0rinc/cache-ibd-status
 		# NOTE: diff-minimised, and did not backport refactor commits
 		# NOTE: various libbitcoinkernel changes needed, if libbitcoinkernel features (#30595 in particular) are backported
+	k451  2rdzy/fix-reindex-init-deadlock					last=3296b30e78f
+	(CHECK-LAST)	last=c1313b199fe origin-pull/35652/head
+		# Backport of #35652, with the test adapted to 29.x
 	# Needs review: 34400 -  # wallet: parallel fast rescan (approx 5x speed up with 16 threads)
 		# + #34667 ? +#34907 ?
 	# Needs review: 34405 -  # wallet: skip APS when no partial spend exists
@@ -1321,13 +1336,15 @@ checkout v30.0rc1
 		# NOTE: Stripped out benchmark change
 		#30.xTODO# Watch for Makefile.am or other changes for shared libbitcoinkernel on Windows
 	15218 postibd_flush-28						d5106e44a19	last=8887d28a014  andrewtoth/flush-after-ibd
-	Needs review: k441 privkeyio/postibd_flush_crashfix
+	Included in k468: k441 privkeyio/postibd_flush_crashfix
 	15428 tor_gui_pairing-29+knots				5269b208e29	last=ab9ed21dc98 tor_gui_pairing-0.21+knots
 		# Implicitly relies on gui#506 for QR Code without text being centred (dropped buggy 4a881554991)
 	15421 tor_subprocess-29+knots				5efc573ae60	# Latest code now
 		# + knots#352
 		# FIXME: fix automatic tor outbound using subprocess
 		# FIXME: -netinfo doesn't show tor if inbound-only?
+	k462  privkeyio/tor-launch-interruptible				last=d762ab702b1
+	k464  privkeyio/tor-stop-launched-process				last=7b34977a926
 	# TODO: tor guix bundle!
 	#30.xTODO# 16490 maflcko/1907-rpcMempoolWhyReplacable
 	#	TODO: Diff-minimise
@@ -1362,6 +1379,7 @@ checkout v30.0rc1
 	30951 v2onlyclearnet-29+knots				ba75af3f9b2	last=263c16b537e
 		# Held back 27e90008835...1e61206583d (listen=0 forced antifeature, confusing help string, refactoring)
 		# Made a hidden option
+	k454  LionThunderFingers/fix/v2onlyclearnet-assumed-onion-inbound	last=fc74e6f09fd
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs concept & review: 35027 8144225309/net-bind-outgoing
@@ -1441,6 +1459,9 @@ checkout v30.0rc1
 		# Revert of #23927
 	-     rpc_getblockfrompeer_wo_header		5362fefac62
 		# Prior Knots bundled this in with #20295
+	k450  2rdzy/fix-fetchblock-cs-main						last=63badaedc46
+	(CHECK-LAST)	last=359680b74db origin-pull/35498/head
+		# Backport of #35498
 	# TODO? * 4b6813a95bd wallet: trigger MaybeResendWalletTxs() at startup (+ 1 second)
 		# See #25922, backported with this in 21.x
 	# Needs concept acceptance: 26469 -  # rpc: getblock: implement with block height as input parameter.
@@ -1498,6 +1519,7 @@ checkout v30.0rc1
 		# If mempool-knots.dat is ever extended to store easily manipulatable data, port Xor stuff over
 		# Reverts (needed and better performance & memusage): d0cd2e804ec [refactor] rewrite BlockAssembler inBlock and failedTx as sets of txids
 		# Reverts (needed for lock logic): 192dac1d337 [refactor] Cleanup BlockAssembler mempool usage
+	k446  connorslab/policy-priority-fee-floor				last=c9a6b466ec4
 	7219  rbf_opts-29+knots						7f4ab04e735	# Latest code now
 		#31.xTODO# Revert #34911,#34917 probably
 	-     truc_opts-29.2+knots					f15f7e9994a
@@ -1518,9 +1540,11 @@ checkout v30.0rc1
 		TODO: Review knots#268
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		#30.xTODO# Add tests and make sure boundaries are correct
+	k465  privkeyio/saturate-gettxsize						last=ba89815a9e9
 	-     acceptnonstddatacarrier-29+knots		8a91d7f00f0
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# FIXME: Data before OP_RETURN (and non-push opcodes??) should count the data as non-standard (but can't predict everything, so wait until there's a need? 75f1652b447)
+	k457  privkeyio/datacarrier_reject_type-29+knots		last=d640ba21c1f
 	# ---- END DATACARRIER ----
 	k136  pol_permitephemeral					379b005b239
 		# Also includes permitbare{anchor,datacarrier} options
@@ -1585,9 +1609,13 @@ checkout v30.0rc1
 	Needs work: k271  privkeyio/policy-tapscript-dust-limit
 	k272  subdustfeepenalty-29.3+knots						last=af7d6f6adba privkeyio/policy-subdust-fee-penalty
 		# Partial: remaining in rwconf_policy
+	k438  connorslab/policy-monetary-defaults				last=30d3ee5024c
 	Needs review: k275  privkeyio/feature-rbf-feerate-mode
 	Needs review: k280  privkeyio/feature-priority-vsize-discount
 	k292  Retropex/rework-opnet
+	k319  privkeyio/fix-bip110-envelope-datacarrier			last=5e3153edef4
+	k422  privkeyio/policy-unproven-pubkey-datacarrier		last=fa51824f2d7
+	k463  privkeyio/datacarrier_bpub-29+knots				last=ad24234c8e4
 	#31.xTODO# Consider reverting parts of #33489 (build: Drop support for EOL macOS 13) and #33573
 	# TODO? Dust multiplier by # of outputs: https://x.com/snapolino/status/1976708308603224518
 	30.xTODO: Consider #33892 policy: allow <minrelay txns in package context if paid for by cpfp
@@ -1607,6 +1635,10 @@ checkout v30.0rc1
 	-     compat_rpc_dumptxoutset_hr			16da2d97b3f
 		# FIXME: 'type' param attempts to parse as JSON ? (with 28.x bitcoin-cli tho)
 		# FIXME: 'rollback' param rejects height ?
+	k443  chrisguida/dumptxoutset-rollback-copy-29+knots	last=fac46e45db0 chrisguida/dumptxoutset-rollback-copy
+	(CHECK-LAST)	last=fc736013a59 origin-pull/33477/head
+		# Backport of #33477, adapted to the human-readable dumptxoutset format
+	k472  2rdzy/dumptxoutset-cli-type-format				last=e2939977eb0
 	-     compat_jsonrpc_weirdversions			4a1ec7a8257
 	29530 rpc_getpeerinfo_misbehaving_score-29+k	f09235f455c	last=87efb6f0cfd
 		# NOTE: Held back 976d61c974e...87efb6f0cfd which degrades docs and adds a test incompatible with Knots
@@ -1677,6 +1709,7 @@ checkout v30.0rc1
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
+	k400  jasonsopko/policy-dead-branch-data				last=df767118a99
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1695,16 +1728,18 @@ checkout v30.0rc1
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
 	Needs work: k386  privkeyio/blake2b-dns-immediate-when-no-hf
+	Needs work: k428  privkeyio/dns-immediate-test-flake
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
-	k429  chrisguida/long-coinbase-maturity-rdts-expiry-29+knots	last=a049372c27f
+	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=3395470f519 BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
+	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=44571c691dc jasonsopko/seeds-blake2b
-		# + keep the cjdns seeds and the testnet4 fixed seeds
+	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
+	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
 	n/a   (delete_release_notes_fragments)		6b5354d10d6
 	Triage: 34808 hebasto/260311-qt-ts-source

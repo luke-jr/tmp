@@ -1,0 +1,120 @@
+diff --git a/doc/release-notes-rdts-testnet4.md b/doc/release-notes-rdts-testnet4.md
+new file mode 100644
+index 0000000000..70265d3064
+--- /dev/null
++++ b/doc/release-notes-rdts-testnet4.md
+@@ -0,0 +1,3 @@
++RDTS on testnet4: expiry extended to 2027 April 1st
++
++The testnet4 deployment of RDTS expired on 2026 October 13th 15:00 UTC under the previous parameters. It is extended to 2027 April 1st 00:00 UTC, so that testnet4 keeps exercising the RDTS rules ahead of the mainnet expiry in 2027 September. The extension applies to the blocks already mined since the original expiry: a node that connected block 152963 or any later block with the previous parameters checks those blocks again at its first start, rewinding to block 152962 and reconnecting from there. Blocks that break an RDTS rule are rejected by that check. Mainnet is unchanged.
+diff --git a/src/kernel/chainparams.cpp b/src/kernel/chainparams.cpp
+index 5b520eebb2..9d3191de40 100644
+--- a/src/kernel/chainparams.cpp
++++ b/src/kernel/chainparams.cpp
+@@ -428,7 +428,9 @@ public:
+ 
+         consensus.Blake2bHeight = 150308;
+         m_stale_peer_common_height = consensus.Blake2bHeight - 1;
+-        consensus.RdtsExpiryTime = 1791903600; // October 13th, 2026 15:00:00 UTC
++        // Extended from 1791903600 (October 13th, 2026 15:00:00 UTC) after
++        // that time had passed; see the revalidation deployment below.
++        consensus.RdtsExpiryTime = 1806537600; // April 1st, 2027 00:00:00 UTC
+ 
+         consensus.CoinbaseMaturityLongStartHeight = 151406;
+         consensus.CoinbaseMaturityLongEnforceHeight = 151550;
+@@ -436,6 +438,16 @@ public:
+         consensus.CoinbaseMaturityLong = consensus.CoinbaseMaturityLongReleaseHeight - consensus.CoinbaseMaturityLongStartHeight;
+         AddLongCoinbaseMaturityRevalidationDeployment(consensus);
+ 
++        // Block 152963 is the first whose parent's median-time-past had
++        // reached the previous RDTS expiry. Nodes that connected it, or any
++        // later block, with the previous parameters applied no RDTS rule to
++        // them and must check them again.
++        consensus.chainstate_revalidation_deployments.push_back({
++            .name = "rdts_testnet4_extension_20270401",
++            .start_height = 152963,
++            .stop_height = std::numeric_limits<int>::max(),
++        });
++
+         consensus.nMinimumChainWork = uint256{"0000000000000000000000000000000000000000000001d6dce8651b6094e4c1"};
+         consensus.defaultAssumeValid = uint256{"0000000000003ed4f08dbdf6f7d6b271a6bcffce25675cb40aa9fa43179a89f3"}; // 72600
+ 
+diff --git a/src/test/coinbase_maturity_tests.cpp b/src/test/coinbase_maturity_tests.cpp
+index 5a48cbc300..2229427e39 100644
+--- a/src/test/coinbase_maturity_tests.cpp
++++ b/src/test/coinbase_maturity_tests.cpp
+@@ -13,6 +13,8 @@
+ 
+ #include <boost/test/unit_test.hpp>
+ 
++#include <algorithm>
++
+ #include <limits>
+ 
+ BOOST_AUTO_TEST_SUITE(coinbase_maturity_tests)
+@@ -38,11 +40,14 @@ BOOST_AUTO_TEST_CASE(long_maturity_derived_from_schedule)
+         const auto& consensus{testnet4->GetConsensus()};
+         BOOST_CHECK_EQUAL(consensus.CoinbaseMaturityLong, consensus.CoinbaseMaturityLongReleaseHeight - consensus.CoinbaseMaturityLongStartHeight);
+         BOOST_CHECK_GT(consensus.CoinbaseMaturityLong, COINBASE_MATURITY);
+-        BOOST_REQUIRE_EQUAL(consensus.chainstate_revalidation_deployments.size(), 1);
+-        const auto& deployment{consensus.chainstate_revalidation_deployments.front()};
+-        BOOST_CHECK_EQUAL(deployment.name, "long_coinbase_maturity");
+-        BOOST_CHECK_EQUAL(deployment.start_height, consensus.CoinbaseMaturityLongEnforceHeight);
+-        BOOST_CHECK_EQUAL(deployment.stop_height, consensus.CoinbaseMaturityLongReleaseHeight - 1);
++        // Other rules may add their own revalidation deployments (testnet4 has
++        // one for the RDTS extension), so look this one up by name.
++        const auto& deployments{consensus.chainstate_revalidation_deployments};
++        const auto deployment_it{std::find_if(deployments.begin(), deployments.end(),
++                                              [](const auto& d) { return d.name == "long_coinbase_maturity"; })};
++        BOOST_REQUIRE(deployment_it != deployments.end());
++        BOOST_CHECK_EQUAL(deployment_it->start_height, consensus.CoinbaseMaturityLongEnforceHeight);
++        BOOST_CHECK_EQUAL(deployment_it->stop_height, consensus.CoinbaseMaturityLongReleaseHeight - 1);
+     }
+ 
+     const auto& main_consensus{main->GetConsensus()};
+diff --git a/src/test/rdts_params_tests.cpp b/src/test/rdts_params_tests.cpp
+index c28a250358..b3ca309cc0 100644
+--- a/src/test/rdts_params_tests.cpp
++++ b/src/test/rdts_params_tests.cpp
+@@ -9,6 +9,7 @@
+ 
+ #include <boost/test/unit_test.hpp>
+ 
++#include <algorithm>
+ #include <limits>
+ 
+ BOOST_FIXTURE_TEST_SUITE(rdts_params_tests, BasicTestingSetup)
+@@ -60,4 +61,33 @@ BOOST_AUTO_TEST_CASE(rdts_mainnet_schedule)
+     BOOST_CHECK(c.Blake2bHeight == std::numeric_limits<int>::max() || c.Blake2bHeight < 965664 + 52416);
+ }
+ 
++// Testnet4: the expiry was extended after the original one (October 13th,
++// 2026 15:00:00 UTC) had passed. Pin the new date, that the rule applies
++// again at the old boundary, and the revalidation deployment that makes a
++// node which connected blocks without the rule check them again.
++BOOST_AUTO_TEST_CASE(rdts_testnet4_extension)
++{
++    const auto testnet4{CreateChainParams(ArgsManager{}, ChainType::TESTNET4)};
++    const Consensus::Params& c{testnet4->GetConsensus()};
++    constexpr int64_t ORIGINAL_EXPIRY{1791903600};
++    constexpr int FIRST_UNCHECKED_HEIGHT{152963};
++    BOOST_CHECK_EQUAL(c.RdtsExpiryTime, 1806537600); // April 1st, 2027 00:00 UTC
++    BOOST_CHECK(c.RdtsActiveAt(FIRST_UNCHECKED_HEIGHT, ORIGINAL_EXPIRY));
++    BOOST_CHECK(c.RdtsActiveAt(FIRST_UNCHECKED_HEIGHT, c.RdtsExpiryTime - 1));
++    BOOST_CHECK(!c.RdtsActiveAt(FIRST_UNCHECKED_HEIGHT, c.RdtsExpiryTime));
++
++    const auto& deployments{c.chainstate_revalidation_deployments};
++    const auto it{std::find_if(deployments.begin(), deployments.end(),
++                               [](const auto& d) { return d.name == "rdts_testnet4_extension_20270401"; })};
++    BOOST_REQUIRE(it != deployments.end());
++    BOOST_CHECK_EQUAL(it->start_height, FIRST_UNCHECKED_HEIGHT);
++    BOOST_CHECK_EQUAL(it->stop_height, std::numeric_limits<int>::max());
++
++    // Mainnet keeps its own schedule and needs no revalidation.
++    const auto mainnet{CreateChainParams(ArgsManager{}, ChainType::MAIN)};
++    for (const auto& d : mainnet->GetConsensus().chainstate_revalidation_deployments) {
++        BOOST_CHECK(d.name != "rdts_testnet4_extension_20270401");
++    }
++}
++
+ BOOST_AUTO_TEST_SUITE_END()
