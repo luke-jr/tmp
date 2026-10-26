@@ -1,0 +1,151 @@
+diff --git a/contrib/tracing/log_utxocache_flush.py b/contrib/tracing/log_utxocache_flush.py
+index 8ff9cd5e03..979d90a458 100755
+--- a/contrib/tracing/log_utxocache_flush.py
++++ b/contrib/tracing/log_utxocache_flush.py
+@@ -45,7 +45,8 @@ FLUSH_MODES = [
+     'NONE',
+     'IF_NEEDED',
+     'PERIODIC',
+-    'ALWAYS'
++    'ALWAYS',
++    'FORCE_SYNC',
+ ]
+ 
+ 
+diff --git a/doc/tracing.md b/doc/tracing.md
+index 4f68d45a54..f849e1283f 100644
+--- a/doc/tracing.md
++++ b/doc/tracing.md
+@@ -186,7 +186,7 @@ Is called *after* the in-memory UTXO cache is flushed.
+ Arguments passed:
+ 1. Time it took to flush the cache microseconds as `int64`
+ 2. Flush state mode as `uint32`. It's an enumerator class with values `0`
+-   (`NONE`), `1` (`IF_NEEDED`), `2` (`PERIODIC`), `3` (`ALWAYS`)
++   (`NONE`), `1` (`IF_NEEDED`), `2` (`PERIODIC`), `3` (`ALWAYS`), `4` (`FORCE_SYNC`)
+ 3. Cache size (number of coins) before the flush as `uint64`
+ 4. Cache memory usage in bytes as `uint64`
+ 5. If pruning caused the flush as `bool`
+diff --git a/src/init.cpp b/src/init.cpp
+index 6f64e75a38..e575a951dd 100644
+--- a/src/init.cpp
++++ b/src/init.cpp
+@@ -1267,7 +1267,8 @@ static void SyncCoinsTipAfterChainSync(const NodeContext& node)
+     }
+ 
+     LogDebug(BCLog::COINDB, "Finished syncing to tip, syncing chainstate to disk\n");
+-    node.chainman->ActiveChainstate().CoinsTip().Sync();
++    BlockValidationState state;
++    node.chainman->ActiveChainstate().FlushStateToDisk(state, FlushStateMode::FORCE_SYNC);
+ }
+ 
+ bool AppInitInterfaces(NodeContext& node)
+diff --git a/src/validation.cpp b/src/validation.cpp
+index 98f0212b06..8a3493ad35 100644
+--- a/src/validation.cpp
++++ b/src/validation.cpp
+@@ -2859,7 +2859,7 @@ bool Chainstate::FlushStateToDisk(
+         // It's been a while since we wrote the block index and chain state to disk. Do this frequently, so we don't need to redownload or reindex after a crash.
+         bool fPeriodicWrite = mode == FlushStateMode::PERIODIC && nNow >= m_next_write;
+         // Combine all conditions that result in a write to disk.
+-        bool should_write = (mode == FlushStateMode::ALWAYS) || fCacheLarge || fCacheCritical || fPeriodicWrite || fFlushForPrune;
++        bool should_write = (mode == FlushStateMode::ALWAYS) || (mode == FlushStateMode::FORCE_SYNC) || fCacheLarge || fCacheCritical || fPeriodicWrite || fFlushForPrune;
+         // Write blocks, block index and best chain related state to disk.
+         if (should_write) {
+             // Ensure we can write block index
+diff --git a/src/validation.h b/src/validation.h
+index 4d41df830b..78394c9967 100644
+--- a/src/validation.h
++++ b/src/validation.h
+@@ -443,7 +443,8 @@ enum class FlushStateMode {
+     NONE,
+     IF_NEEDED,
+     PERIODIC,
+-    ALWAYS
++    ALWAYS,
++    FORCE_SYNC,
+ };
+ 
+ /**
+diff --git a/test/functional/feature_postibd_sync_crash.py b/test/functional/feature_postibd_sync_crash.py
+new file mode 100755
+index 0000000000..4599bbbf5c
+--- /dev/null
++++ b/test/functional/feature_postibd_sync_crash.py
+@@ -0,0 +1,53 @@
++#!/usr/bin/env python3
++# Copyright (c) 2026 The Bitcoin Knots developers
++# Distributed under the MIT software license, see the accompanying
++# file COPYING or http://www.opensource.org/licenses/mit-license.php.
++"""Test that a crash during the post-IBD chainstate sync leaves a node that restarts.
++
++The coins database records the block it is moving to before a partial write, so
++the block index must already be on disk when that write starts. Otherwise a
++crash in the middle of it leaves the coins database pointing at a block the
++block index does not have, and the node cannot start again without
++-reindex-chainstate.
++"""
++
++from test_framework.test_framework import BitcoinTestFramework
++from test_framework.util import assert_equal
++
++SYNC_CHECK_INTERVAL = 30
++
++
++class PostIBDSyncCrashTest(BitcoinTestFramework):
++    def set_test_params(self):
++        self.setup_clean_chain = True
++        self.num_nodes = 1
++        # Crash on the first partial write of the coins database.
++        self.extra_args = [["-dbcrashratio=1", "-dbbatchsize=1"]]
++
++    def run_test(self):
++        node = self.nodes[0]
++        self.generate(node, 10)
++        height = node.getblockcount()
++
++        self.log.info("Crash in the middle of the post-IBD chainstate sync")
++        # The first check sees a new height and reschedules; the second syncs
++        # and the node crashes. A slow machine can already have run the first
++        # check in real time, so either call may be the one that crashes it.
++        for _ in range(2):
++            try:
++                node.mockscheduler(SYNC_CHECK_INTERVAL)
++            except Exception:
++                break
++        node.wait_until_stopped()
++        with open(node.debug_log_path, encoding="utf-8") as f:
++            log = f.read()
++        assert "Finished syncing to tip, syncing chainstate to disk" in log
++        assert "Simulating a crash" in log
++
++        self.log.info("Verify the node restarts at the same height")
++        self.start_node(0, extra_args=[])
++        assert_equal(node.getblockcount(), height)
++
++
++if __name__ == '__main__':
++    PostIBDSyncCrashTest(__file__).main()
+diff --git a/test/functional/interface_usdt_utxocache.py b/test/functional/interface_usdt_utxocache.py
+index 0c9c696fae..4382f1b558 100755
+--- a/test/functional/interface_usdt_utxocache.py
++++ b/test/functional/interface_usdt_utxocache.py
+@@ -110,6 +110,7 @@ FLUSHMODE_NAME = {
+     1: "IF_NEEDED",
+     2: "PERIODIC",
+     3: "ALWAYS",
++    4: "FORCE_SYNC",
+ }
+ 
+ 
+diff --git a/test/functional/test_runner.py b/test/functional/test_runner.py
+index f253e65ec1..6607354b61 100755
+--- a/test/functional/test_runner.py
++++ b/test/functional/test_runner.py
+@@ -126,6 +126,7 @@ BASE_SCRIPTS = [
+     'wallet_avoidreuse.py --legacy-wallet',
+     'wallet_avoidreuse.py --descriptors',
+     'feature_abortnode.py',
++    'feature_postibd_sync_crash.py',
+     'wallet_address_types.py --legacy-wallet',
+     'wallet_address_types.py --descriptors',
+     'p2p_orphan_handling.py',
