@@ -1791,12 +1791,12 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k385  pow_hf_blake2b_params					a6b32ff9e03
 	k420  difficulty_blake2b					8c04afce107
 	k419  tsf_longmaturity						049c5553a64
-	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=3395470f519 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=24cbd569355 BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
-	k394  privkeyio/seeds_blake2b-29+knots					last=8e50d772c1a jasonsopko/seeds-blake2b
+	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
@@ -1842,7 +1842,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a   (cherrypick=4b99d600b26)	# bump to rc2 #29.xTODO# REMOVE
+	n/a   (cherrypick=f74fc270c89)	# bump to rc4 #29.xTODO# REMOVE
 	n/a  (cherrypick=58398baf33e)				58398baf33e  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
