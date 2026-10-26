@@ -1799,6 +1799,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k459  privkeyio/rdts-testnet4-extension-29+knots		last=f4d49816516 chrisguida/rdts-testnet4-extension-29+knots
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
 	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
+		# Held back f405195911b: makeseeds uptime window option, not needed now the network is over 30 days old
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
 # Pre-BRANDING: (might need to be part of F patch to eliminate binary files)
