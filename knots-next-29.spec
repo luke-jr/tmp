@@ -794,7 +794,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	da7a2310746
 	34253 lockless_isibd-26+knots				79045eca69e	last=557b41a38cc l0rinc/l0rinc/cache-ibd-status
 		# NOTE: diff-minimised, and did not backport refactor commits
 		# NOTE: various libbitcoinkernel changes needed, if libbitcoinkernel features (#30595 in particular) are backported
-	k451  2rdzy/fix-reindex-init-deadlock					last=3296b30e78f
+	k451  privkeyio/fix-reindex-init-deadlock-29+knots		last=3296b30e78f 2rdzy/fix-reindex-init-deadlock
 	(CHECK-LAST)	last=c1313b199fe origin-pull/35652/head
 		# Backport of #35652, with the test adapted to 29.x
 	# Needs review: 34400 -  # wallet: parallel fast rescan (approx 5x speed up with 16 threads)
@@ -1692,7 +1692,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k443  chrisguida/dumptxoutset-rollback-copy-29+knots	last=fac46e45db0 chrisguida/dumptxoutset-rollback-copy
 	(CHECK-LAST)	last=fc736013a59 origin-pull/33477/head
 		# Backport of #33477, adapted to the human-readable dumptxoutset format
-	k472  2rdzy/dumptxoutset-cli-type-format				last=e2939977eb0
+	k472  privkeyio/dumptxoutset-cli-type-format-29+knots	last=e2939977eb0 2rdzy/dumptxoutset-cli-type-format
 	-     compat_jsonrpc_weirdversions			6b76e9d6a51
 	29530 rpc_getpeerinfo_misbehaving_score-29+k	aa3d4f02b8d	last=87efb6f0cfd
 		# NOTE: Held back 976d61c974e...87efb6f0cfd which degrades docs and adds a test incompatible with Knots
@@ -1794,7 +1794,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k468  privkeyio/cbm-180d-rolling-until-rdts-v2-29+knots	last=8a4ca1b223a BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
-	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
+	k459  privkeyio/rdts-testnet4-extension-29+knots		last=f4d49816516 chrisguida/rdts-testnet4-extension-29+knots
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
 	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
