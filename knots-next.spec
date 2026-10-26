@@ -1732,7 +1732,7 @@ checkout v30.0rc1
 	k385  pow_hf_blake2b_params
 	k420  difficulty_blake2b
 	k419  tsf_longmaturity
-	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=24cbd569355 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k468  privkeyio/cbm-180d-rolling-until-rdts-v2-29+knots	last=8a4ca1b223a BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516

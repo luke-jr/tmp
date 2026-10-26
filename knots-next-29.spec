@@ -1791,7 +1791,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k385  pow_hf_blake2b_params					a6b32ff9e03
 	k420  difficulty_blake2b					8c04afce107
 	k419  tsf_longmaturity						049c5553a64
-	k468  privkeyio/cbm-180d-rolling-until-rdts-29+knots	last=24cbd569355 BitcoinMechanic/cbm-180d-rolling-until-rdts
+	k468  privkeyio/cbm-180d-rolling-until-rdts-v2-29+knots	last=8a4ca1b223a BitcoinMechanic/cbm-180d-rolling-until-rdts
 	k425  privkeyio/fix_pow_boundary_sync+nofork			last=fd186ab21a9 fix_pow_boundary_sync
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
@@ -1831,7 +1831,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	n/a   (cherrypick=12b8288afc7)				05089efa62a	# bump to 29.4.3
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		b905c7939a3
-	n/a   (cherrypick=eaa61294ddd)				fcb5053e061  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=778332b1445)				fcb5053e061  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1842,7 +1842,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a   (cherrypick=f74fc270c89)	# bump to rc4 #29.xTODO# REMOVE
+	n/a   (cherrypick=c71c66e9675)	# bump to rc5 #29.xTODO# REMOVE
 	n/a  (cherrypick=58398baf33e)				58398baf33e  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
