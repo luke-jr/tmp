@@ -1,0 +1,154 @@
+diff --git a/cmake/bitcoin-build-config.h.in b/cmake/bitcoin-build-config.h.in
+index 060451502a..7bea1ee9ae 100644
+--- a/cmake/bitcoin-build-config.h.in
++++ b/cmake/bitcoin-build-config.h.in
+@@ -97,6 +97,8 @@
+ 
+ #cmakedefine01 HAVE_IOPRIO_SYSCALL
+ 
++#cmakedefine01 HAVE_WINDOWS_IOPRIO
++
+ /* Define this symbol if platform supports unix domain sockets */
+ #cmakedefine HAVE_SOCKADDR_UN 1
+ 
+diff --git a/cmake/iopriority.cmake b/cmake/iopriority.cmake
+index 71b0f1c4e6..2903710382 100644
+--- a/cmake/iopriority.cmake
++++ b/cmake/iopriority.cmake
+@@ -29,3 +29,27 @@ check_cxx_source_compiles([[
+   }
+   ]] HAVE_IOPRIO_SYSCALL
+ )
++
++check_cxx_source_compiles([[
++  #define _WIN32_WINNT 0x0601
++  #include <windows.h>
++  #include <io.h>
++  #include <stddef.h>
++  #include <stdint.h>
++  #include <stdio.h>
++
++  int main()
++  {
++    FILE_IO_PRIORITY_HINT_INFO priorityHint = {
++        .PriorityHint = IoPriorityHintLow,
++    };
++    FILE * const F = fopen("test", "r");
++    intptr_t osfhandle = _get_osfhandle(_fileno(F));
++    if (osfhandle == (intptr_t)INVALID_HANDLE_VALUE) osfhandle = 0;
++    HANDLE hFile = (HANDLE)osfhandle;
++
++    bool rv = SetFileInformationByHandle(hFile, FileIoPriorityHintInfo, &priorityHint, sizeof(priorityHint));
++    return rv;
++  }
++  ]] HAVE_WINDOWS_IOPRIO
++)
+diff --git a/src/node/blockstorage.cpp b/src/node/blockstorage.cpp
+index 06df04bec2..380450ea7f 100644
+--- a/src/node/blockstorage.cpp
++++ b/src/node/blockstorage.cpp
+@@ -1205,6 +1205,8 @@ bool BlockManager::ReadRawBlock(std::vector<uint8_t>& block, const FlatFilePos&
+         return false;
+     }
+ 
++    if (lowprio) filein.SetIdlePriority();
++
+     try {
+         MessageStartChars blk_start;
+         unsigned int blk_size;
+diff --git a/src/streams.cpp b/src/streams.cpp
+index 356ea553ec..813f6a97ef 100644
+--- a/src/streams.cpp
++++ b/src/streams.cpp
+@@ -6,6 +6,7 @@
+ #include <span.h>
+ #include <streams.h>
+ #include <util/fs_helpers.h>
++#include <util/ioprio.h>
+ #include <util/obfuscation.h>
+ 
+ #include <array>
+@@ -117,6 +118,11 @@ bool AutoFile::Commit()
+     return ::FileCommit(m_file);
+ }
+ 
++void AutoFile::SetIdlePriority()
++{
++    ioprio_set_file_idle(m_file);
++}
++
+ bool AutoFile::Truncate(uint64_t size)
+ {
+     m_was_written = true;
+diff --git a/src/streams.h b/src/streams.h
+index 037d2c09e1..5f7ba93548 100644
+--- a/src/streams.h
++++ b/src/streams.h
+@@ -449,6 +449,8 @@ public:
+     /** Wrapper around FileCommit(). */
+     bool Commit();
+ 
++    void SetIdlePriority();
++
+     /** Wrapper around TruncateFile(). */
+     bool Truncate(uint64_t size);
+ 
+diff --git a/src/util/ioprio.cpp b/src/util/ioprio.cpp
+index abc4779722..f5d761706e 100644
+--- a/src/util/ioprio.cpp
++++ b/src/util/ioprio.cpp
+@@ -53,3 +53,27 @@ int ioprio_set_idle() {
+ }
+ 
+ #endif
++
++
++#if HAVE_WINDOWS_IOPRIO
++
++#include <windows.h>
++#include <io.h>
++#include <cstddef>
++#include <cstdint>
++#include <cstdio>
++
++bool ioprio_set_file_idle(FILE * const F) {
++    FILE_IO_PRIORITY_HINT_INFO priorityHint = {
++        .PriorityHint = IoPriorityHintLow,
++    };
++    intptr_t osfhandle = _get_osfhandle(_fileno(F));
++    if (osfhandle == (intptr_t)INVALID_HANDLE_VALUE || osfhandle == (intptr_t)-2) {
++        return false;
++    }
++    HANDLE hFile = (HANDLE)osfhandle;
++
++    return SetFileInformationByHandle(hFile, FileIoPriorityHintInfo, &priorityHint, sizeof(priorityHint));
++}
++
++#endif
+diff --git a/src/util/ioprio.h b/src/util/ioprio.h
+index d6f8e856cd..e0f6f55714 100644
+--- a/src/util/ioprio.h
++++ b/src/util/ioprio.h
+@@ -52,4 +52,10 @@ public:
+ #define IOPRIO_IDLER(lowprio)  (void)lowprio;
+ #endif
+ 
++#if HAVE_WINDOWS_IOPRIO
++bool ioprio_set_file_idle(FILE *);
++#else
++#define ioprio_set_file_idle(f)  ((void)false)
++#endif
++
+ #endif // BITCOIN_UTIL_IOPRIO_H
+diff --git a/src/validation.cpp b/src/validation.cpp
+index 1fc9858603..94e1266e18 100644
+--- a/src/validation.cpp
++++ b/src/validation.cpp
+@@ -5095,6 +5095,7 @@ void ChainstateManager::LoadExternalBlockFile(
+     int nLoaded = 0;
+     try {
+         IOPRIO_IDLER(/*lowprio=*/true);
++        file_in.SetIdlePriority();
+ 
+         BufferedFile blkdat{file_in, 2 * MAX_BLOCK_SERIALIZED_SIZE, MAX_BLOCK_SERIALIZED_SIZE + 8};
+         // nRewind indicates where to resume scanning in case something goes wrong,
