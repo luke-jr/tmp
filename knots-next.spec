@@ -629,6 +629,8 @@ checkout v30.0rc1
 	(CHECK-LAST)	last=779e7825dbf origin-pull/32624/head
 	(CHECK-LAST)	last=60d1042b9a4 origin-pull/32977/head
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
+	k484  fix_mempool_persist_only_explicit					last=651d6593941
+	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -787,6 +789,7 @@ checkout v30.0rc1
 	35156 l0rinc/l0rinc/ScopedDataStreamUsage
 	35195 cache_outpoint_sethash-27							last=16e77fdf132 l0rinc/l0rinc/noexcept-false
 	35197 lld_icf_safe-28									last=09de5363d36 fanquake/lld_icf_safe
+		NOTE: Temporarily removed in 29.4.3 due to churn in Core
 	Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
 	35825 privkeyio/net-addconnection-count-guard-core		last=ca7c1456f56
 	Needs review: k278  privkeyio/feature-runtime-scriptcheck-calibration
@@ -1610,6 +1613,7 @@ checkout v30.0rc1
 	k272  subdustfeepenalty-29.3+knots						last=af7d6f6adba privkeyio/policy-subdust-fee-penalty
 		# Partial: remaining in rwconf_policy
 	k438  connorslab/policy-monetary-defaults				last=30d3ee5024c
+		# NOTE: Split 30d3ee5024c..97e278ecf9d out into fix_mempool_persist_only_explicit
 	Needs review: k275  privkeyio/feature-rbf-feerate-mode
 	Needs review: k280  privkeyio/feature-priority-vsize-discount
 	k292  Retropex/rework-opnet

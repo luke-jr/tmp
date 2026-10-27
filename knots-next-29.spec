@@ -661,6 +661,8 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	da7a2310746
 	(CHECK-LAST)	last=779e7825dbf origin-pull/32624/head
 	(CHECK-LAST)	last=60d1042b9a4 origin-pull/32977/head
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
+	k484  fix_mempool_persist_only_explicit					last=651d6593941
+	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -830,7 +832,8 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	da7a2310746
 	# TODO: 35128 l0rinc/l0rinc/dbwrapper-key-spanreader
 	# TODO: 35156 l0rinc/l0rinc/ScopedDataStreamUsage
 	35195 cache_outpoint_sethash-27				2d8440a7b1d	last=16e77fdf132 l0rinc/l0rinc/noexcept-false
-	35197 lld_icf_safe-28						3be1d18d28e	last=24ad7419dea fanquake/lld_icf_safe
+NM	35197 lld_icf_safe-28						3be1d18d28e	last=24ad7419dea fanquake/lld_icf_safe
+		# NOTE: Temporarily removed in 29.4.3 due to churn in Core
 		# Held back 09de5363d36...24ad7419dea: Moved to CMakeLists (applies to non-guix builds) and attempts --icf=safe_thunks (requires LLVM 20+)
 		# When bumping to LLVM 20+, upgrade this to safe_thunks too
 	# Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
@@ -1670,8 +1673,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	k272  subdustfeepenalty-29.3+knots			1d805859e44	last=af7d6f6adba privkeyio/policy-subdust-fee-penalty
 		# Partial: remaining in rwconf_policy
 	k438  privkeyio/policy-monetary-defaults-29+knots-rc5	last=97e278ecf9d connorslab/policy-monetary-defaults
-		# Held back 30d3ee5024c...97e278ecf9d: mempool persistence fix, merged separately as k484
-	k484  privkeyio/mempool-persist-explicit-deltas			last=651d6593941
+		# NOTE: Split 30d3ee5024c..97e278ecf9d out into fix_mempool_persist_only_explicit
 	# Needs review: k275  privkeyio/feature-rbf-feerate-mode
 	# Needs review: k280  privkeyio/feature-priority-vsize-discount
 	k292  datacarrier_opnet-29+knots			a7027f894ab	last=6938c68fe68 Retropex/rework-opnet
@@ -1831,10 +1833,10 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 	n/a   (cherrypick=488640fe20b)				37b6ff5929f	# doc/{bips,files}
 		# TODO: Update with bump_version below !!!!
 	n/a  (bump_version=knots20260508)			39900a25630
-	n/a   (cherrypick=12b8288afc7)				05089efa62a	# bump to 29.4.3
+	n/a   (cherrypick=bbe11dc9967)				05089efa62a	# bump to 29.4.3
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		b905c7939a3
-	n/a   (cherrypick=778332b1445)				fcb5053e061  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=a905d2e1451)				fcb5053e061  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1845,8 +1847,7 @@ NM	14137 win_taskbar_progress					ca96c2575ea	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a   (cherrypick=c71c66e9675)	# bump to rc5 #29.xTODO# REMOVE
-	n/a  (cherrypick=58398baf33e)				58398baf33e  # update manpages (build first)
+	n/a  (cherrypick=39a8f244fe0)				58398baf33e  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
