@@ -582,7 +582,7 @@ checkout v30.0rc1
 	-     qt_dialogs_less_modal					8f75f42a9c0
 	-     docfix_getorphantxs_vsize				d293d5feaad
 		# Originally bundled in Knots with #30793 rpc_getorphantxs
-	-     fix_guix_boost_mirror-29				e4618471df1
+	-     guix_prefetch-29						e4618471df1
 	-     fix_qt_startup_unknown_unit			cff1f2c0a82
 	-     fix_qt_psbtops_filename_amount		adacf79e159
 	k126  fix_qt_progressbar_fittext			09ad9b31507

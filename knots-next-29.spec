@@ -619,7 +619,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	38ebd28d853
 	-     qt_dialogs_less_modal					99081d09b3f
 	-     docfix_getorphantxs_vsize				472146e47f3
 		# Originally bundled in Knots with #30793 rpc_getorphantxs
-	-     fix_guix_boost_mirror-29				59a26e8ee4c
+	-     guix_prefetch-29						59a26e8ee4c
 	-     fix_qt_startup_unknown_unit			e64c8e613e3
 	-     fix_qt_psbtops_filename_amount		7d6d8d8be6c
 	k126  fix_qt_progressbar_fittext			e1a35d490ad

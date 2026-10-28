@@ -713,6 +713,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	-     qt_intro_nojumpy						4ee79cc6ff2
 	-     restore_guix_ppc64le-28				72fda2e9327
 	-     qt_dialogs_less_modal					2822662e04d
+	Triage: -     guix_prefetch-29
 	Triage: -     fix_qt_startup_unknown_unit
 	Triage: -     fix_qt_psbtops_filename_amount
 	k126  fix_qt_progressbar_fittext
