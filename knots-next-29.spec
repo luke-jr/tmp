@@ -404,7 +404,7 @@ TM	33050 cve2025_46598_pt3-29.1                            ad3556d76c3
 	# Needs review: 33135 Sjors/2025/08/older-safety
 	# Needs review: 33164 hebasto/250809-fallback-fallocate
 		# NOT SUFFICIENT WITHOUT:
-	33228 privkeyio/fix_preallocate-29.5		1841934f388	last=2c113ebc2d3 fix_preallocate
+m	33228 privkeyio/fix_preallocate-29.5		1841934f388	last=2c113ebc2d3 fix_preallocate
 		# Includes less-than-ideal workaround for https://github.com/bitcoin/bitcoin/issues/33128#issuecomment-3203396013
 	k498  luke-jr/fix_seektell_narrowing					last=5182017e47e
 	k499  privkeyio/allocatefilerange_stdio-29.5+knots		last=0606a2e28d9 privkeyio/allocatefilerange_stdio-29.5
@@ -457,7 +457,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	c9d8b5dc0f4	last=b807dfcdc59 ismae
 	# Needs review: 33854 -  # fix assumevalid is ignored during reindex
 	# MSVC-specific: 33865 hebasto/251112-plugin-path
 	33956 fix_p2pv2_useafterfree_pr33956-26		6ac1d9dbbec
-	33960 privkeyio/loglevel_corrections-29.5+knots	4ee07548c9d	last=c26fe1cfe89 loglevel_corrections-29+knots
+m	33960 privkeyio/loglevel_corrections-29.5+knots	4ee07548c9d	last=c26fe1cfe89 loglevel_corrections-29+knots
 		# NOTE: Silently dropped a change somewhat equivalent to #33813 (which is GUI-loud)
 	-     loglevel_corrections_bdb-29+knots		a5ed68f398f
 	# Triage: IPC-specific: Needs review: 33965 Sjors/2025/11/ipc-reserve
@@ -1362,7 +1362,7 @@ NM	35197 lld_icf_safe-28						1fee3d290d1	last=24ad7419dea fanquake/lld_icf_safe
 	9245 ionice-29+knots						4f421995512
 		# low prio: p2p requests, loading/verifying blocks on disk
 		# normal prio: connecting blocks, indexes, user requests
-	-     privkeyio/ionice_win-29.5+knots		c41f23589cf	last=e6205ce855a ionice_win-29+knots
+m	-     privkeyio/ionice_win-29.5+knots		c41f23589cf	last=e6205ce855a ionice_win-29+knots
 	8501  old_stats_rpc-29						c11e13e6eb5	last=7af0ea43b2
 		# Many fixes (incl knots#226)
 		# Held back on old version due to conflict with GUI updates...
@@ -1783,7 +1783,7 @@ NM	14137 win_taskbar_progress					0ed55a41686	last=18eb4dbb8a
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 	k320  miniscript_guard_tapscript_opif-29	70d4ff8cea1	last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
-	-     privkeyio/seeds_update-29.5+knots		476084ddc70	last=ae8cbd93307 seeds_update-29+knots
+m	-     privkeyio/seeds_update-29.5+knots		476084ddc70	last=ae8cbd93307 seeds_update-29+knots
 	k350  privkeyio/correct-rdts-invalid-blocks	c23003bf270	last=e8a82740997
 	k359  pow_hf_blake2b						9c9c5b73d2b
 	k357  sighash_unified-29.3+knots			5919bc158dc	last=54d757f269d privkeyio/hf-sighash-opt-in
