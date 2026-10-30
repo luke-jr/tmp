@@ -406,6 +406,8 @@ TM	33050 cve2025_46598_pt3-29.1                            ad3556d76c3
 		# NOT SUFFICIENT WITHOUT:
 	33228 privkeyio/fix_preallocate-29.5		1841934f388	last=2c113ebc2d3 fix_preallocate
 		# Includes less-than-ideal workaround for https://github.com/bitcoin/bitcoin/issues/33128#issuecomment-3203396013
+	k498  luke-jr/fix_seektell_narrowing					last=5182017e47e
+	k499  privkeyio/allocatefilerange_stdio-29.5+knots		last=0606a2e28d9 privkeyio/allocatefilerange_stdio-29.5
 	33215 fix_debuglog_refs_hardcoded-28+knots	d720fc09685
 		# Includes gui#884 hebasto-g/250819-debuglog
 	# Needs review? 33223 murchandamus/2025-08-tiebreak-SRD
@@ -661,7 +663,7 @@ TM	36218 privkeyio/darwin_no_pipe2-29			0e6dd748bb9	last=9c7748315d3
 	(CHECK-LAST)	last=779e7825dbf origin-pull/32624/head
 	(CHECK-LAST)	last=60d1042b9a4 origin-pull/32977/head
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
-	k484  fix_mempool_persist_only_explicit		127f847ada7	last=651d6593941
+	k484  fix_mempool_persist_only_explicit		127f847ada7	last=f4bb2bd961d
 	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
@@ -744,6 +746,7 @@ TM	36218 privkeyio/darwin_no_pipe2-29			0e6dd748bb9	last=9c7748315d3
 	# Needs Knots review & diff-minimise: 30987 davidgumberg/zero_after_free_allocator_change
 	# Needs review: 31132 andrewtoth/threaded-inputs
 	31144 opti_multibyte_xor-29+knots			91eca442d44
+	k491  privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots	last=039ac0db17f luke-jr/fix_autofile_fseek_failure_cacheinv
 	31179 -										42d47a7b54a	last=5d82d92aff7  # opti_rpc_uv_reserve-25
 	31645 opti_dbbatchsize_64-29				dc8ab37e8bf	last=b6f8c48946c l0rinc/l0rinc/utxo-dump-batching
 		# Held back 868413340f8...b6f8c48946c (reduce to 32 MiB) for now
@@ -1446,6 +1449,8 @@ NM	35197 lld_icf_safe-28						1fee3d290d1	last=24ad7419dea fanquake/lld_icf_safe
 	30951 v2onlyclearnet-29+knots				f44768459bd	last=2f443a4eed1
 		# Made a hidden option
 	k454  LionThunderFingers/fix/v2onlyclearnet-assumed-onion-inbound	d53d2989358	last=fc74e6f09fd
+	(CHECK-LAST)	last=85c34752585 origin-pull-k/486/head
+		# + knots#486
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs review: 33044 fanquake/19513_rebased
@@ -1767,7 +1772,7 @@ NM	14137 win_taskbar_progress					0ed55a41686	last=18eb4dbb8a
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots				e684f544d5f	last=792dae6539a pdath/rejecttokens
 		# Added corepolicy
-	k400  jasonsopko/policy-dead-branch-data	1d7f05a1df2	last=df767118a99
+	k400  privkeyio/policy-dead-branch-data-29.5	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					c8a96edbba0	last=f62f5fda667
