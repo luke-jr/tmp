@@ -82,6 +82,7 @@ checkout v30.0rc1
 	35164 qa_p2sh_sigop_counting-23							last=f1884695736 musaHaruna/test/p2sh-sigop-counting
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25
+	Triage: k503  privkeyio/ci-macos-15						last=ce302aa6a71
 # FIXES:
 	33433 qafix_rpc_bind_nonloopback_unavail	6b3aa212298
 	13789 asm_bypass_cxxflags					9de0f072503
@@ -347,7 +348,10 @@ checkout v30.0rc1
 	# Needs review: 33164 hebasto/250809-fallback-fallocate
 		# NOT SUFFICIENT WITHOUT:
 	33228 fix_preallocate						f3387637c36
+	(CHECK-LAST)	last= privkeyio/fix_preallocate-29.5
 		# Includes less-than-ideal workaround for https://github.com/bitcoin/bitcoin/issues/33128#issuecomment-3203396013
+	k498  fix_seektell_narrowing					last=5182017e47e
+	k499  privkeyio/allocatefilerange_stdio-29.5+knots		last=0606a2e28d9 privkeyio/allocatefilerange_stdio-29.5
 	33215 fix_debuglog_refs_hardcoded-28+knots	4d34552abfc
 		MERGED # Includes gui#884 hebasto-g/250819-debuglog
 	# Needs review? 33223 murchandamus/2025-08-tiebreak-SRD
@@ -406,6 +410,7 @@ checkout v30.0rc1
 	Triage: 33952 fanquake/close_out_29977
 	33956 fix_p2pv2_useafterfree_pr33956-26
 	Triage: 33960 maflcko/2511-log
+	(CHECK-LAST)	last= privkeyio/loglevel_corrections-29.5+knots
 	# IPC-specific: Needs review: 33965 Sjors/2025/11/ipc-reserve
 	33993 doc_stopatheight_imprecise-21
 	34008 0xB10C/2025-12-dont-ratelimit-new-inbound-peer-connected-with-debug=net
@@ -706,6 +711,8 @@ checkout v30.0rc1
 		# TODO: Make interval configurable
 	# Needs Knots review & diff-minimise: 30987 davidgumberg/zero_after_free_allocator_change
 	# Needs review: 31132 andrewtoth/threaded-inputs
+	k491  privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots	last=039ac0db17f fix_autofile_fseek_failure_cacheinv
+	(CHECK-LAST)	last=5de8f59e305 privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots
 	31645 opti_dbbatchsize_64-29				a18c844d4d7	last=b6f8c48946c l0rinc/l0rinc/utxo-dump-batching
 		# Held back 868413340f8...b6f8c48946c (reduce to 32 MiB) for now
 		# TODO: Test even higher or incrementing-as-we-flush
@@ -1296,6 +1303,7 @@ checkout v30.0rc1
 		# low prio: p2p requests, loading/verifying blocks on disk
 		# normal prio: connecting blocks, indexes, user requests
 	-    ionice_win-29+knots					c424b55ed99
+	(CHECK-LAST)	last= privkeyio/ionice_win-29.5+knots
 	8501  old_stats_rpc-29						a49391df3dc	last=7af0ea43b2
 		TODO: knots#226
 		# Held back on old version due to conflict with GUI updates...
@@ -1383,6 +1391,8 @@ checkout v30.0rc1
 		# Held back 27e90008835...1e61206583d (listen=0 forced antifeature, confusing help string, refactoring)
 		# Made a hidden option
 	k454  LionThunderFingers/fix/v2onlyclearnet-assumed-onion-inbound	last=fc74e6f09fd
+	(CHECK-LAST)    last=85c34752585 origin-pull-k/486/head
+		# + knots#486
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs concept & review: 35027 8144225309/net-bind-outgoing
@@ -1713,7 +1723,8 @@ checkout v30.0rc1
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
-	k400  jasonsopko/policy-dead-branch-data				last=df767118a99
+	k400  privkeyio/policy-dead-branch-data-29.5	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
+	(CHECK-LAST)	last= privkeyio/policy-dead-branch-data-29.5
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1724,7 +1735,8 @@ checkout v30.0rc1
 		# NOTE: Core PR in #24930
 	k362  privkeyio/rm-rdts-consent							last=522df02219f
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
-	-     seeds_update-29+knots
+	-     privkeyio/seeds_update-29.5+knots					last=ae8cbd93307 seeds_update-29+knots
+	(CHECK-LAST)	last=43d6ab018ec privkeyio/seeds_update-29.5+knots
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in

@@ -81,6 +81,7 @@ NM	-     ci_gha_makejobs_8						71b435cbd88
 		# Held back f1884695736...d180b891a29 for no reason
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25		345b978d382
+	k503  privkeyio/ci-macos-15								last=ce302aa6a71
 # FIXES:
 	33433 qafix_rpc_bind_nonloopback_unavail	ab92a1c42e4
 	13789 asm_bypass_cxxflags					4f6dc420488
@@ -406,7 +407,7 @@ TM	33050 cve2025_46598_pt3-29.1                            ad3556d76c3
 		# NOT SUFFICIENT WITHOUT:
 m	33228 privkeyio/fix_preallocate-29.5		1841934f388	last=2c113ebc2d3 fix_preallocate
 		# Includes less-than-ideal workaround for https://github.com/bitcoin/bitcoin/issues/33128#issuecomment-3203396013
-	k498  luke-jr/fix_seektell_narrowing					last=5182017e47e
+	k498  fix_seektell_narrowing					last=5182017e47e
 	k499  privkeyio/allocatefilerange_stdio-29.5+knots		last=0606a2e28d9 privkeyio/allocatefilerange_stdio-29.5
 	33215 fix_debuglog_refs_hardcoded-28+knots	d720fc09685
 		# Includes gui#884 hebasto-g/250819-debuglog
@@ -746,7 +747,8 @@ TM	36218 privkeyio/darwin_no_pipe2-29			0e6dd748bb9	last=9c7748315d3
 	# Needs Knots review & diff-minimise: 30987 davidgumberg/zero_after_free_allocator_change
 	# Needs review: 31132 andrewtoth/threaded-inputs
 	31144 opti_multibyte_xor-29+knots			91eca442d44
-	k491  privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots	last=039ac0db17f luke-jr/fix_autofile_fseek_failure_cacheinv
+	k491  privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots	last=039ac0db17f fix_autofile_fseek_failure_cacheinv
+	(CHECK-LAST)	last=a912b45a801 privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots
 	31179 -										42d47a7b54a	last=5d82d92aff7  # opti_rpc_uv_reserve-25
 	31645 opti_dbbatchsize_64-29				dc8ab37e8bf	last=b6f8c48946c l0rinc/l0rinc/utxo-dump-batching
 		# Held back 868413340f8...b6f8c48946c (reduce to 32 MiB) for now
@@ -1841,7 +1843,7 @@ m	-     privkeyio/seeds_update-29.5+knots		476084ddc70	last=ae8cbd93307 seeds_up
 TM	n/a   (cherrypick=60960ffdcb9)				60960ffdcb9	# bump to 29.4.3
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		7770495b805
-	n/a   (cherrypick=1259dde4ea6)				e9fe32cca5f  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=6070c19e12b)				e9fe32cca5f  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R

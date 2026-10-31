@@ -86,6 +86,7 @@ checkout v28.2
 	35164 qa_p2sh_sigop_counting-23							last=f1884695736 musaHaruna/test/p2sh-sigop-counting
 	# Needs concept & review: 35216 hebasto/260505-illumos-bind
 	35218 qafix_fuzz_p2sh_offset_pr35218-25
+	Triage: k503  privkeyio/ci-macos-15						last=ce302aa6a71
 # FIXES:
 	33433 qafix_rpc_bind_nonloopback_unavail
 	18818 guix_reltar_autogen_distclean			5bd6cb2eb0a	last=b5a164d9155 fix_gitian_src_202004
@@ -486,9 +487,12 @@ NM	32187 zmq_devirtual_destructor-0.12
 	# Needs review: 33164 hebasto/250809-fallback-fallocate
 		# NOT SUFFICIENT WITHOUT:
 	33228 fix_preallocate
+	(CHECK-LAST)	last= privkeyio/fix_preallocate-29.5
 		# Includes less-than-ideal workaround for https://github.com/bitcoin/bitcoin/issues/33128#issuecomment-3203396013
 	Review: 33212 mzumsande/202508_index_nocommit
 		# NOTE: 29.x backport in #33251
+	Triage: k498  fix_seektell_narrowing					last=5182017e47e
+	Triage: k499  privkeyio/allocatefilerange_stdio-29.5+knots		last=0606a2e28d9 privkeyio/allocatefilerange_stdio-29.5
 	33215 fix_debuglog_refs_hardcoded-28+knots
 		# Includes gui#884 hebasto-g/250819-debuglog
 	Needs review? 33223 murchandamus/2025-08-tiebreak-SRD
@@ -545,6 +549,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Triage: 33952 fanquake/close_out_29977
 	33956 fix_p2pv2_useafterfree_pr33956-26
 	Triage: 33960 maflcko/2511-log
+	(CHECK-LAST)	last= privkeyio/loglevel_corrections-29.5+knots
 	# Triage: IPC-specific: Needs review: 33965 Sjors/2025/11/ipc-reserve
 	33993 doc_stopatheight_imprecise-21
 	34028 fix_seenlocal_max-26								last=33103d5c4fe
@@ -713,7 +718,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	-     qt_intro_nojumpy						4ee79cc6ff2
 	-     restore_guix_ppc64le-28				72fda2e9327
 	-     qt_dialogs_less_modal					2822662e04d
-	Triage: -     guix_prefetch-29
+	Triage: -     guix_prefetch-29f35218
 	Triage: -     fix_qt_startup_unknown_unit
 	Triage: -     fix_qt_psbtops_filename_amount
 	k126  fix_qt_progressbar_fittext
@@ -853,6 +858,8 @@ NM	32187 zmq_devirtual_destructor-0.12
 	# Needs Knots review & diff-minimise: 30987 davidgumberg/zero_after_free_allocator_change
 	# Needs review: 31132 andrewtoth/threaded-inputs
 	31144 l0rinc/l0rinc/optimize-xor
+	k491  privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots	last=039ac0db17f fix_autofile_fseek_failure_cacheinv
+	(CHECK-LAST)	last=5de8f59e305 privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots
 	31179 opti_rpc_uv_reserve-25				fd9df84d86b	last=5d82d92aff7
 	31364 opti_no_copy_pr31364-28				3614ce28149
 	# Needs review: 31490 l0rinc/l0rinc/undo
@@ -1510,6 +1517,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# low prio: p2p requests, loading/verifying blocks on disk
 		# normal prio: connecting blocks, indexes, user requests
 	-    ionice_win-28							990ff83c56d	last=930bb1f2fd0 ionice_win
+	(CHECK-LAST)	last= privkeyio/ionice_win-29.5+knots
 	8501  old_stats_rpc-28						8646f7adcf9	last=7af0ea43b2
 	(CHECK-LAST)	last=904b263379c old_stats_rpc-29
 		TODO: knots#226
@@ -1600,6 +1608,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# Made a hidden option
 	(CHECK-LAST)	last= v2onlyclearnet-29+knots
 	k454  LionThunderFingers/fix/v2onlyclearnet-assumed-onion-inbound	last=fc74e6f09fd
+	(CHECK-LAST)    last=85c34752585 origin-pull-k/486/head
+		# + knots#486
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs review: 33044 fanquake/19513_rebased
@@ -1892,7 +1902,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
-	k400  jasonsopko/policy-dead-branch-data				last=df767118a99
+	k400  privkeyio/policy-dead-branch-data-29.5	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
+	(CHECK-LAST)	last= privkeyio/policy-dead-branch-data-29.5
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1903,7 +1914,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# NOTE: Core PR in #24930
 	k362  privkeyio/rm-rdts-consent							last=522df02219f
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
-	-     seeds_update-29+knots
+	-     privkeyio/seeds_update-29.5+knots					last=ae8cbd93307 seeds_update-29+knots
+	(CHECK-LAST)	last=43d6ab018ec privkeyio/seeds_update-29.5+knots
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
