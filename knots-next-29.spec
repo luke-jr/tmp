@@ -3,7 +3,7 @@ timestamp 2026-05-07 03:45:44
 
 #.. checked up to PR #35239 / gui#936 / knots#303
 
-checkout v29.4
+checkout v29.5
 @29.x-syslibs
 # BUILD BUGS:
 	# Needs review: 33550 ryanofsky/pr/winstream
@@ -404,8 +404,10 @@ TM	33050 cve2025_46598_pt3-29.1                            ad3556d76c3
 	# Needs review: 33135 Sjors/2025/08/older-safety
 	# Needs review: 33164 hebasto/250809-fallback-fallocate
 		# NOT SUFFICIENT WITHOUT:
-	33228 fix_preallocate						1841934f388
+m	33228 privkeyio/fix_preallocate-29.5		1841934f388	last=2c113ebc2d3 fix_preallocate
 		# Includes less-than-ideal workaround for https://github.com/bitcoin/bitcoin/issues/33128#issuecomment-3203396013
+	k498  luke-jr/fix_seektell_narrowing					last=5182017e47e
+	k499  privkeyio/allocatefilerange_stdio-29.5+knots		last=0606a2e28d9 privkeyio/allocatefilerange_stdio-29.5
 	33215 fix_debuglog_refs_hardcoded-28+knots	d720fc09685
 		# Includes gui#884 hebasto-g/250819-debuglog
 	# Needs review? 33223 murchandamus/2025-08-tiebreak-SRD
@@ -455,7 +457,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	c9d8b5dc0f4	last=b807dfcdc59 ismae
 	# Needs review: 33854 -  # fix assumevalid is ignored during reindex
 	# MSVC-specific: 33865 hebasto/251112-plugin-path
 	33956 fix_p2pv2_useafterfree_pr33956-26		6ac1d9dbbec
-	33960 loglevel_corrections-29+knots			4ee07548c9d
+m	33960 privkeyio/loglevel_corrections-29.5+knots	4ee07548c9d	last=c26fe1cfe89 loglevel_corrections-29+knots
 		# NOTE: Silently dropped a change somewhat equivalent to #33813 (which is GUI-loud)
 	-     loglevel_corrections_bdb-29+knots		a5ed68f398f
 	# Triage: IPC-specific: Needs review: 33965 Sjors/2025/11/ipc-reserve
@@ -494,7 +496,7 @@ NM	33475 fix_block_full_enough_underflow-29+k	c9d8b5dc0f4	last=b807dfcdc59 ismae
 	# Needs review/work: 34213 brunoerg/2026-01-net-anchors-networkactive
 	34224 fix_init_int_ec-27					a86756dedb8
 	34235 fix_miniminer_feeassert_pr34235-26	a8c3fa8178b
-	34252 doc_bips_add433-28					01178fa58da
+TM	34252 doc_bips_add433-28					01178fa58da
 	-     qt_scope_bringToFront_workaround-28	e22851de2ee
 		# Related to gui#914 hebasto-g/251121-wayland
 	# Needs review: g915 -  # Defer transaction signing until user clicks Send
@@ -607,10 +609,10 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	38ebd28d853
 	35227 fix_bdbro_check_lastpage_pr35227-28	6643b27d090	last=e2b0984f995 l0rinc/l0rinc/check-bdb-last-page-lsn
 	# Needs review? 35233 l0rinc/l0rinc/external-signer-skip-canceled-duplicates
 	35384 fix_settings_writeerror_handling-27	e534f39cff2
-	35766 seedaddrs_assume_p2pv2-28				a852154f06f
-	35691 privkeyio/rm_dnsseed_sipa-29.4		f7db7dec902	last=d9080639804
+TM	35766 seedaddrs_assume_p2pv2-28				a852154f06f
+TM	35691 privkeyio/rm_dnsseed_sipa-29.4		f7db7dec902	last=d9080639804
 		# Without the contrib/seeds/README.md change, left to the Knots seed branches
-	36218 privkeyio/darwin_no_pipe2-29			0e6dd748bb9	last=9c7748315d3
+TM	36218 privkeyio/darwin_no_pipe2-29			0e6dd748bb9	last=9c7748315d3
 	-     fix_qt_sync_pct_truncate-28			09fdb91e5ff	last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
 	-     fix_rpccookieperms_early				46e4e84897c
@@ -661,7 +663,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	38ebd28d853
 	(CHECK-LAST)	last=779e7825dbf origin-pull/32624/head
 	(CHECK-LAST)	last=60d1042b9a4 origin-pull/32977/head
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
-	k484  fix_mempool_persist_only_explicit		127f847ada7	last=651d6593941
+	k484  fix_mempool_persist_only_explicit		127f847ada7	last=f4bb2bd961d
 	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
@@ -744,6 +746,7 @@ TM	35209 fix_precomptxdata_lifetime_CVE_2024_52911-27	38ebd28d853
 	# Needs Knots review & diff-minimise: 30987 davidgumberg/zero_after_free_allocator_change
 	# Needs review: 31132 andrewtoth/threaded-inputs
 	31144 opti_multibyte_xor-29+knots			91eca442d44
+	k491  privkeyio/fix_autofile_fseek_failure_cacheinv-29+knots	last=039ac0db17f luke-jr/fix_autofile_fseek_failure_cacheinv
 	31179 -										42d47a7b54a	last=5d82d92aff7  # opti_rpc_uv_reserve-25
 	31645 opti_dbbatchsize_64-29				dc8ab37e8bf	last=b6f8c48946c l0rinc/l0rinc/utxo-dump-batching
 		# Held back 868413340f8...b6f8c48946c (reduce to 32 MiB) for now
@@ -1359,7 +1362,7 @@ NM	35197 lld_icf_safe-28						1fee3d290d1	last=24ad7419dea fanquake/lld_icf_safe
 	9245 ionice-29+knots						4f421995512
 		# low prio: p2p requests, loading/verifying blocks on disk
 		# normal prio: connecting blocks, indexes, user requests
-	-    ionice_win-29+knots					c41f23589cf
+m	-     privkeyio/ionice_win-29.5+knots		c41f23589cf	last=e6205ce855a ionice_win-29+knots
 	8501  old_stats_rpc-29						c11e13e6eb5	last=7af0ea43b2
 		# Many fixes (incl knots#226)
 		# Held back on old version due to conflict with GUI updates...
@@ -1446,6 +1449,8 @@ NM	35197 lld_icf_safe-28						1fee3d290d1	last=24ad7419dea fanquake/lld_icf_safe
 	30951 v2onlyclearnet-29+knots				f44768459bd	last=2f443a4eed1
 		# Made a hidden option
 	k454  LionThunderFingers/fix/v2onlyclearnet-assumed-onion-inbound	d53d2989358	last=fc74e6f09fd
+	(CHECK-LAST)	last=85c34752585 origin-pull-k/486/head
+		# + knots#486
 	# Needs review: 32065 vasild/i2p_early_create_session
 	# Needs review & concept: 32726,32728 -  # Add initial OpenAPI/Swagger specification for Bitcoin Core RPC and REST interfaces
 	# Needs review: 33044 fanquake/19513_rebased
@@ -1767,7 +1772,7 @@ NM	14137 win_taskbar_progress					0ed55a41686	last=18eb4dbb8a
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots				e684f544d5f	last=792dae6539a pdath/rejecttokens
 		# Added corepolicy
-	k400  jasonsopko/policy-dead-branch-data	1d7f05a1df2	last=df767118a99
+	k400  privkeyio/policy-dead-branch-data-29.5	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					c8a96edbba0	last=f62f5fda667
@@ -1778,7 +1783,7 @@ NM	14137 win_taskbar_progress					0ed55a41686	last=18eb4dbb8a
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 	k320  miniscript_guard_tapscript_opif-29	70d4ff8cea1	last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
-	-     seeds_update-29+knots					476084ddc70
+m	-     privkeyio/seeds_update-29.5+knots		476084ddc70	last=ae8cbd93307 seeds_update-29+knots
 	k350  privkeyio/correct-rdts-invalid-blocks	c23003bf270	last=e8a82740997
 	k359  pow_hf_blake2b						9c9c5b73d2b
 	k357  sighash_unified-29.3+knots			5919bc158dc	last=54d757f269d privkeyio/hf-sighash-opt-in
@@ -1833,10 +1838,10 @@ NM	14137 win_taskbar_progress					0ed55a41686	last=18eb4dbb8a
 	n/a   (cherrypick=488640fe20b)				aefd68f1f9b	# doc/{bips,files}
 		# TODO: Update with bump_version below !!!!
 	n/a  (bump_version=knots20260508)			dca7c534abc
-	n/a   (cherrypick=60960ffdcb9)				60960ffdcb9	# bump to 29.4.3
+TM	n/a   (cherrypick=60960ffdcb9)				60960ffdcb9	# bump to 29.4.3
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		7770495b805
-	n/a   (cherrypick=e9fe32cca5f)				e9fe32cca5f  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=1259dde4ea6)				e9fe32cca5f  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1847,7 +1852,8 @@ NM	14137 win_taskbar_progress					0ed55a41686	last=18eb4dbb8a
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a  (cherrypick=a7c4617524c)				a7c4617524c  # update manpages (build first)
+	n/a   (cherrypick=e014e42a58e)	# bump to rc1 #29.xTODO# REMOVE
+	n/a  (cherrypick=5f4b042d843)				a7c4617524c  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
