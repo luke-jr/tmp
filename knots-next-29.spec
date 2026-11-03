@@ -692,7 +692,7 @@ TM	36218 privkeyio/darwin_no_pipe2-29			0e6dd748bb9	last=9c7748315d3
 			# 30.x backport in #33609
 		# With Qt6: 33918 hebasto/251120-qt-link
 	k345 privkeyio/depends-libevent-2.1.13		2d93e8f5796	last=0515b85e4f3
-	# Needs review: 32655 fanquake/sqlite_3_50_0
+	-     upd_sqlite
 	# Needs review: 32665 fanquake/boost_shrink
 	-     fix_secp256k1_bugs-29					1b3a66dff0c
 		# bitcoin-core/secp256k1#1731,1749,1821 (diff-minimised and fix-only)

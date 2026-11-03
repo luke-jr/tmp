@@ -785,7 +785,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 		TODO: 5.15.19 Opensource released: https://lists.qt-project.org/pipermail/announce/2026-May/000626.html
 	#28.xTODO# FIXME -     depends_qt5kde
 	k345 privkeyio/depends-libevent-2.1.13					last=0515b85e4f3
-	# Needs review & relevance: 29991 fanquake/sqlite_3_45_3
+	-     upd_sqlite
 	30301 theuni/miniupnp-228-bump
 	(CHECK-LAST)	last= origin-pull-k/196/head
 		TODO: Include knots#196

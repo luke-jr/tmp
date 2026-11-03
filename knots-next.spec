@@ -657,7 +657,7 @@ checkout v30.0rc1
 	#30.xTODO# FIXME -     depends_qt5kde
 	Needs review: k231  privkeyio/kwsantiago/qt6-depends-upgrade
 	k345 privkeyio/depends-libevent-2.1.13					last=0515b85e4f3
-	Needs review: 32655 fanquake/sqlite_3_50_0
+	-     upd_sqlite
 	Needs review: 33851 fanquake/xcb_util_updates
 	Triage: -     fix_secp256k1_bugs-29
 		# bitcoin-core/secp256k1#1731,1749,1821 (diff-minimised and fix-only)
