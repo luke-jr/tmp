@@ -1843,7 +1843,7 @@ m	-     privkeyio/seeds_update-29.5+knots		476084ddc70	last=ae8cbd93307 seeds_up
 TM	n/a   (cherrypick=60960ffdcb9)				60960ffdcb9	# bump to 29.4.3
 #	n/a  knots_historical_relnotes				61100a2
 	n/a   rm_historical_relnotes_from_dist		7770495b805
-	n/a   (cherrypick=b8d1ccf91d1)				e9fe32cca5f  # release notes: write/update, including change log and credits
+	n/a   (cherrypick=048fa19163d)				e9fe32cca5f  # release notes: write/update, including change log and credits
 		# WHEN UPDATING: Remember to check for new authors/co-authors for credits
 		# git log --pretty=%s v0.20.0..v0.20.1.knots20200815 >lol && perl -nle 'm[^- #(\d+) (.*) \(.*?\)$] && print "$1 $2"' doc/release-notes.md | while read prnum subj; do grep "\\b$prnum\\b\|\\Q$prbody\\E" lol; done
 		# git log --pretty=%s v0.18.0..v0.17.1.knots20181229 >lol && lol v0.18.0..|while IFS= read -r g; do s=$(perl -nle 'm/^.*\*[ \\|]* ([\da-f]{10,})( \(.*?\))? (.*)$/ or exit; $_=$3;s/^(Merge [gk]?\d+ ).*/$1/;print' <<<"$g"); if [ "$s" = "" ]; then echo "$g"; elif fgrep -q "$s" lol; then echo "$g"; else echo $'\033'"[0;31m$g"$'\033'"[0m"; fi; done|less -R
@@ -1854,8 +1854,8 @@ TM	n/a   (cherrypick=60960ffdcb9)				60960ffdcb9	# bump to 29.4.3
 		# git diff|grep '^+.*`'|cut -d'`' -f2|while read c; do grep -q $c lol || echo $c; done
 		# When re-added, #28824 notes in 9db5d23d559
 		# When re-added, #33259 notes in 32695dff9e6
-	n/a   (cherrypick=98e8ced55e9)	# bump to rc2 #29.xTODO# REMOVE
-	n/a   (cherrypick=ce43d547dbe)				a7c4617524c  # update manpages (build first)
+	n/a   (cherrypick=9c4b25b10f2)	# bump to rc2 #29.xTODO# REMOVE
+	n/a   (cherrypick=90f25d18fac)				a7c4617524c  # update manpages (build first)
 		# WARNING: Don't forget to add zsh completion!
 		# WARNING: Need to build as CMAKE_BUILD_TYPE=Release to avoid 'lock' log level being in manpages/config
 		#30.xTODO# check all applicable build options are enabled (see also #33085 and #33828, plus miniupnpc)
