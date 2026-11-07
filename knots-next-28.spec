@@ -742,7 +742,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs work: k263  privkeyio/fix-vsize-sigops-datacarrier
 	k266  extsigner_sanitychk_fingerprint-26				last=acc78e798fa privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28						last=87fca974185 Bortlesboat/fix-ban-table-refresh
-	Needs review: k298 param_bounds_checks_202604
+	Triage: k298  param_bounds_checks_202604				last=deac42e1f27
 	k301 qt_always_show_alerts-27							last=3437824d39b privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
@@ -762,6 +762,9 @@ NM	32187 zmq_devirtual_destructor-0.12
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
 	k484  fix_mempool_persist_only_explicit					last=651d6593941
 	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
+	k492  2rdzy/backport-36048-replaceall					last=36941b647cc
+	k497  2rdzy/backport-944-rpc-console-empty-command		last=424a0c40ccf
+	k504  2rdzy/backport-34358-removeprunedfunds-conflicts	last=16d0a5e0537
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1574,6 +1577,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# FIXME: -netinfo doesn't show tor if inbound-only?
 	k462  privkeyio/tor-launch-interruptible				last=d762ab702b1
 	k464  privkeyio/tor-stop-launched-process				last=7b34977a926
+	k508  privkeyio/tor-reap-launched-process				last=2bbaaab28b6
 	# TODO: tor guix bundle!
 	#29.xTODO# 16490 maflcko/1907-rpcMempoolWhyReplacable
 	#	TODO: Diff-minimise
@@ -1651,6 +1655,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#29.xTODO# Squash fixes
 		#29.xTODO# Move blockreconstructionextratxn (and others?) from rwconf_policy?
 		# TODO: when we can enable block filters post-pruning, revert 81d696e132c
+	Triage: k460  privkeyio/intro-keep-existing-prune-29+knots	last=fe5fb9487cd privkeyio/intro-keep-existing-prune
+	(CHECK-LAST)	last=98fb34a4cb0 privkeyio/intro-keep-existing-prune-29+knots
 	559   accept_nonstdtxn-26					e72688bf354	last=2e2f48f871c accept_nonstdtxn
 	 929 tbc-25									fe176fa7028	last=32c37e2d493 tbc
 		# TODO: Drop ᵇTBC and ˢTBC units for newbies who are getting TBC via tbc_font
@@ -1919,6 +1925,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
+	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
@@ -1932,6 +1939,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
+	k502  privkeyio/ladder-stale-outbound					last=33d93aae4d1
+	k513  privkeyio/blake2b-slots-feeler-race				last=50b81eed274
 	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
