@@ -616,7 +616,7 @@ checkout v30.0rc1
 	Needs work: k263  privkeyio/fix-vsize-sigops-datacarrier
 	k266  extsigner_sanitychk_fingerprint-26				last=acc78e798fa privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28						last=87fca974185 Bortlesboat/fix-ban-table-refresh
-	Needs review: k298 param_bounds_checks_202604
+	k298  param_bounds_checks_202604						last=deac42e1f27
 	k301 qt_always_show_alerts-27							last=3437824d39b privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
@@ -636,6 +636,9 @@ checkout v30.0rc1
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
 	k484  fix_mempool_persist_only_explicit					last=651d6593941
 	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
+	k492  2rdzy/backport-36048-replaceall					last=36941b647cc
+	k497  2rdzy/backport-944-rpc-console-empty-command		last=424a0c40ccf
+	k504  2rdzy/backport-34358-removeprunedfunds-conflicts	last=16d0a5e0537
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1356,6 +1359,7 @@ checkout v30.0rc1
 		# FIXME: -netinfo doesn't show tor if inbound-only?
 	k462  privkeyio/tor-launch-interruptible				last=d762ab702b1
 	k464  privkeyio/tor-stop-launched-process				last=7b34977a926
+	k508  privkeyio/tor-reap-launched-process				last=2bbaaab28b6
 	# TODO: tor guix bundle!
 	#30.xTODO# 16490 maflcko/1907-rpcMempoolWhyReplacable
 	#	TODO: Diff-minimise
@@ -1440,6 +1444,8 @@ checkout v30.0rc1
 		#30.xTODO# Squash fixes
 		#30.xTODO# Move blockreconstructionextratxn (and others?) from rwconf_policy?
 		# TODO: when we can enable block filters post-pruning, revert 81d696e132c
+	k460  privkeyio/intro-keep-existing-prune-29+knots		last=fe5fb9487cd privkeyio/intro-keep-existing-prune
+	(CHECK-LAST)	last=98fb34a4cb0 privkeyio/intro-keep-existing-prune-29+knots
 	559   accept_nonstdtxn						52ea2f1b79b
 		#30.xTODO# Revert or redefine #29843 if it got merged
 	929   tbc									f6f6bd0b253
@@ -1539,7 +1545,7 @@ checkout v30.0rc1
 	#TODO/Needs work: 10823 greenaddress/replace-by-fee-old-transactions
 	29309 permitbarepubkey-29+knots				36725800750	last=1dfe27e49ab
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
-	-     bytespersigopstrict-29+knots			eb475ae2a11
+m	-     bytespersigopstrict-29+knots			eb475ae2a11
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 	9749  unique_spk_mempool-29.2+knots			8c08e23a7f1
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
@@ -1549,7 +1555,8 @@ checkout v30.0rc1
 		30.xTODO: TODO: Delete TBD "maxdatacarriersize" from #29954 (MERGED) (see b02aab950af) (or at least fix the description)
 		# Adds sendraw_force compat & config option to restore old behaviour (for -corepolicy later)
 		# TODO? Revise byte counting to consider input/output waste
-	-     datacarriercost-29+knots				7b727bd1c8a
+m	-     privkeyio/datacarriercost-29+param_bounds	7b727bd1c8a	last=86cf9d6ee8f datacarriercost-29+knots
+	(CHECK-LAST)	last=8e42709ee93 privkeyio/datacarriercost-29+param_bounds
 		TODO: Review knots#268
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		#30.xTODO# Add tests and make sure boundaries are correct
@@ -1589,7 +1596,8 @@ checkout v30.0rc1
 	# Needs concept ACK and review: k107 Retropex/maxfee
 	# Needs concept ACK: 29843 ajtowns/202303-acceptnonstdscript  # allow using upgradable nops
 	# Leaving out #27261 (Ignore datacarrier limits for dataless OP_RETURN outputs) because same behaviour already exists for -datacarriersize=1 and this adds corepoicy complexity - REVISIT IF PR is changed to allow only necessary outputs (value burnt or lone output)
-	-     maxscriptsize-29+knots				0ec7963005d
+m	-     privkeyio/maxscriptsize-29+param_bounds	0ec7963005d	last=64c4beb1645 maxscriptsize-29+knots
+	(CHECK-LAST)	last=80cd65bc68e privkeyio/maxscriptsize-29+param_bounds
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# Alternate to(?) #29769
 	# Needs concept & impl: Policy: limit script sigops to N (default to MAX_OPS_PER_SCRIPT which is consensus pre-taproot)
@@ -1723,8 +1731,9 @@ checkout v30.0rc1
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
-	k400  privkeyio/policy-dead-branch-data-29.5	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
+m	k400  privkeyio/policy-dead-branch-data-29.5+param_bounds	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
 	(CHECK-LAST)	last= privkeyio/policy-dead-branch-data-29.5
+	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+param_bounds
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1740,6 +1749,7 @@ checkout v30.0rc1
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
+	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
@@ -1753,6 +1763,8 @@ checkout v30.0rc1
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
+	k502  privkeyio/ladder-stale-outbound					last=33d93aae4d1
+	k513  privkeyio/blake2b-slots-feeler-race				last=50b81eed274
 	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000
