@@ -856,7 +856,7 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 	# Needs review: 35041 brunoerg/2026-04-descriptor
 	# TODO: 35128 l0rinc/l0rinc/dbwrapper-key-spanreader
 	# TODO: 35156 l0rinc/l0rinc/ScopedDataStreamUsage
-	35195 cache_outpoint_sethash-27				55f12efe516	last=16e77fdf132 l0rinc/l0rinc/noexcept-false
+	35195 cache_outpoint_sethash-27				55f12efe516	last=61046c54b91 l0rinc/l0rinc/noexcept-false
 NM	35197 lld_icf_safe-28						774960e112b	last=24ad7419dea fanquake/lld_icf_safe
 		# NOTE: Temporarily removed in 29.4.3 due to churn in Core
 		# Held back 09de5363d36...24ad7419dea: Moved to CMakeLists (applies to non-guix builds) and attempts --icf=safe_thunks (requires LLVM 20+)

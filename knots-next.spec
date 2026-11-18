@@ -814,7 +814,7 @@ checkout v30.0rc1
 	Needs review: 35041 brunoerg/2026-04-descriptor
 	35128 l0rinc/l0rinc/dbwrapper-key-spanreader
 	35156 l0rinc/l0rinc/ScopedDataStreamUsage
-	35195 cache_outpoint_sethash-27							last=16e77fdf132 l0rinc/l0rinc/noexcept-false
+	35195 cache_outpoint_sethash-27							last=61046c54b91 l0rinc/l0rinc/noexcept-false
 	35197 lld_icf_safe-28									last=09de5363d36 fanquake/lld_icf_safe
 		NOTE: Temporarily removed in 29.4.3 due to churn in Core
 	Needs review: 35215 l0rinc/l0rinc/siphash-jumbo
