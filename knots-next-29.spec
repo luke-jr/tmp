@@ -652,8 +652,6 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 	k336 qt_locale_datetime_prk336-29+k			562c7334af2	last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags			5ccff9f9e57	last=66dc2de6c25
-	k237  privkeyio/159-build-checks-29.5					last=49e69180ed5 privkeyio/159-build-checks
-		# + knots#254
 	k341  privkeyio/fix-bitcoind-help-version-datadir	36dc8cac23a	last=0bed563ff9e
 	k344 -										1159c173496	last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360 privkeyio/fix-checkblockindex-ordering	545ac1ae962	last=ed6fb09bfbc
@@ -685,6 +683,9 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
+	k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+	(CHECK-LAST)	last=8df006f2338 origin-pull/35984/head
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -912,7 +913,8 @@ NM	35197 lld_icf_safe-28						774960e112b	last=24ad7419dea fanquake/lld_icf_safe
 	# TODO: MAYBE OPTIONAL 12578 promag:2018-03-fee-transaction-record
 	# TODO: 12705 kallewoof/importmulti-wif-support
 	# TODO ? 12792 w/ renamed param
-	18479 rpc_sign_show_fees					ef50ba8749b	last=47b2ba29df2 !origin-pull/12911/head
+m	18479 privkeyio/rpc_sign_show_fees-29+knots	ef50ba8749b	last=47b2ba29df2 !origin-pull/12911/head
+	(CHECK-LAST)	last=2c3d05e012a privkeyio/rpc_sign_show_fees-29+knots
 		# Dropped rel notes file
 		# NOTE: Originally #12911
 		#29.xTODO# FIXME: "feerate" fails to account for sigops (see 21d85b5c0e); most of a fix in stash 835c2d3afba
@@ -1521,8 +1523,6 @@ NM	14137 win_taskbar_progress					50867095af1	last=18eb4dbb8a
 		#30.xTODO# Squash fixes
 		#30.xTODO# Move blockreconstructionextratxn (and others?) from rwconf_policy?
 		# TODO: when we can enable block filters post-pruning, revert 81d696e132c
-	k460  privkeyio/intro-keep-existing-prune-29+knots		last=fe5fb9487cd privkeyio/intro-keep-existing-prune
-	(CHECK-LAST)	last=98fb34a4cb0 privkeyio/intro-keep-existing-prune-29+knots
 	559   accept_nonstdtxn						80fba879307
 		#30.xTODO# Revert or redefine #29843 if it got merged
 	929   tbc									3895067b38c
@@ -1628,8 +1628,8 @@ m	-     bytespersigopstrict-29+knots			6a7369ce9ee
 		#30.xTODO# TODO: Delete TBD "maxdatacarriersize" from #29954 (see b02aab950af) (or at least fix the description)
 		# Adds sendraw_force compat & config option to restore old behaviour (for -corepolicy later)
 		# TODO? Revise byte counting to consider input/output waste
-m	-     privkeyio/datacarriercost-29+param_bounds	3a6b077ba0d	last=86cf9d6ee8f datacarriercost-29+knots
-	(CHECK-LAST)	last=8e42709ee93 privkeyio/datacarriercost-29+param_bounds
+m	-     privkeyio/datacarriercost-29+knots		3a6b077ba0d	last=86cf9d6ee8f datacarriercost-29+knots
+	(CHECK-LAST)	last=8e42709ee93 privkeyio/datacarriercost-29+knots
 		# + knots#268 (partial; remaining in rwconf_policy)
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		#30.xTODO# Add tests and make sure boundaries are correct
@@ -1670,8 +1670,8 @@ m	-     privkeyio/datacarriercost-29+param_bounds	3a6b077ba0d	last=86cf9d6ee8f d
 	# Needs concept ACK and review: k107 Retropex/maxfee
 	# Needs concept ACK: 29843 ajtowns/202303-acceptnonstdscript  # allow using upgradable nops
 	# Leaving out #27261 (Ignore datacarrier limits for dataless OP_RETURN outputs) because same behaviour already exists for -datacarriersize=1 and this adds corepoicy complexity - REVISIT IF PR is changed to allow only necessary outputs (value burnt or lone output)
-m	-     privkeyio/maxscriptsize-29+param_bounds	438e9a6e36d	last=64c4beb1645 maxscriptsize-29+knots
-	(CHECK-LAST)	last=80cd65bc68e privkeyio/maxscriptsize-29+param_bounds
+m	-     privkeyio/maxscriptsize-29+knots			438e9a6e36d	last=64c4beb1645 maxscriptsize-29+knots
+	(CHECK-LAST)	last=80cd65bc68e privkeyio/maxscriptsize-29+knots
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Alternate to(?) #29769
 	# Needs concept & impl: Policy: limit script sigops to N (default to MAX_OPS_PER_SCRIPT which is consensus pre-taproot)
@@ -1800,8 +1800,8 @@ m	-     privkeyio/maxscriptsize-29+param_bounds	438e9a6e36d	last=64c4beb1645 max
 	k354  rejecttokens_def-29+knots				73054de4878	last=792dae6539a pdath/rejecttokens
 		# Added corepolicy
 	k489  privkeyio/policy-token-messages-29+knots			last=14c95e7c954 jasonsopko/policy-token-messages
-m	k400  privkeyio/policy-dead-branch-data-29.5+param_bounds	aff9ac6c8f9	last=df767118a99 jasonsopko/policy-dead-branch-data
-	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+param_bounds
+m	k400  privkeyio/policy-dead-branch-data-29.5+knots			aff9ac6c8f9	last=df767118a99 jasonsopko/policy-dead-branch-data
+	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+knots
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					a34dbe04dd9	last=f62f5fda667
@@ -1816,11 +1816,10 @@ m	k400  privkeyio/policy-dead-branch-data-29.5+param_bounds	aff9ac6c8f9	last=df7
 	-     privkeyio/seeds_update-29.5+knots		99ccb6b3777	last=ae8cbd93307 seeds_update-29+knots
 	k350  privkeyio/correct-rdts-invalid-blocks	451a67754b3	last=e8a82740997
 	k359  pow_hf_blake2b						0915a20186a
-	k357  sighash_unified-29.3+knots			92ea5cf1513	last=54d757f269d privkeyio/hf-sighash-opt-in
+m	k357  privkeyio/sighash_unified-29.3+knots	92ea5cf1513	last=54d757f269d privkeyio/hf-sighash-opt-in
+	(CHECK-LAST)	last=6a03bbfdc76 privkeyio/sighash_unified-29.3+knots
+	(CHECK-LAST)	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
 		# TODO: Needs review?
-	k493  2rdzy/backport-35984-psbt-sighash-single			last=7d54593012c
-	(CHECK-LAST)	last=8df006f2338 origin-pull/35984/head
-		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	k358  rdts-flagday-29+knots					53358b7f855	last=ce671c29ff5 chrisguida/rdts-flagday-29+knots
 		# TODO: Needs review?
 	k363  rpc_blockheaderv2-29+knots			938f8a0d2cb	last=2736df8e879 AcesHigh70/rpc_v2_header_fields

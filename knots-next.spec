@@ -623,8 +623,6 @@ checkout v30.0rc1
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
-	k237  privkeyio/159-build-checks						last=49e69180ed5
-		# + knots#254
 	k341  privkeyio/fix-bitcoind-help-version-datadir		last=0bed563ff9e
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360  privkeyio/fix-checkblockindex-ordering
@@ -656,6 +654,8 @@ checkout v30.0rc1
 	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
+	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1461,8 +1461,6 @@ checkout v30.0rc1
 		#30.xTODO# Squash fixes
 		#30.xTODO# Move blockreconstructionextratxn (and others?) from rwconf_policy?
 		# TODO: when we can enable block filters post-pruning, revert 81d696e132c
-	k460  privkeyio/intro-keep-existing-prune-29+knots		last=fe5fb9487cd privkeyio/intro-keep-existing-prune
-	(CHECK-LAST)	last=98fb34a4cb0 privkeyio/intro-keep-existing-prune-29+knots
 	559   accept_nonstdtxn						52ea2f1b79b
 		#30.xTODO# Revert or redefine #29843 if it got merged
 	929   tbc									f6f6bd0b253
@@ -1573,8 +1571,8 @@ m	-     bytespersigopstrict-29+knots			eb475ae2a11
 		30.xTODO: TODO: Delete TBD "maxdatacarriersize" from #29954 (MERGED) (see b02aab950af) (or at least fix the description)
 		# Adds sendraw_force compat & config option to restore old behaviour (for -corepolicy later)
 		# TODO? Revise byte counting to consider input/output waste
-m	-     privkeyio/datacarriercost-29+param_bounds	7b727bd1c8a	last=86cf9d6ee8f datacarriercost-29+knots
-	(CHECK-LAST)	last=8e42709ee93 privkeyio/datacarriercost-29+param_bounds
+m	-     privkeyio/datacarriercost-29+knots		7b727bd1c8a	last=86cf9d6ee8f datacarriercost-29+knots
+	(CHECK-LAST)	last=8e42709ee93 privkeyio/datacarriercost-29+knots
 		TODO: Review knots#268
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		#30.xTODO# Add tests and make sure boundaries are correct
@@ -1615,8 +1613,8 @@ m	-     privkeyio/datacarriercost-29+param_bounds	7b727bd1c8a	last=86cf9d6ee8f d
 	# Needs concept ACK and review: k107 Retropex/maxfee
 	# Needs concept ACK: 29843 ajtowns/202303-acceptnonstdscript  # allow using upgradable nops
 	# Leaving out #27261 (Ignore datacarrier limits for dataless OP_RETURN outputs) because same behaviour already exists for -datacarriersize=1 and this adds corepoicy complexity - REVISIT IF PR is changed to allow only necessary outputs (value burnt or lone output)
-m	-     privkeyio/maxscriptsize-29+param_bounds	0ec7963005d	last=64c4beb1645 maxscriptsize-29+knots
-	(CHECK-LAST)	last=80cd65bc68e privkeyio/maxscriptsize-29+param_bounds
+m	-     privkeyio/maxscriptsize-29+knots			0ec7963005d	last=64c4beb1645 maxscriptsize-29+knots
+	(CHECK-LAST)	last=80cd65bc68e privkeyio/maxscriptsize-29+knots
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# Alternate to(?) #29769
 	# Needs concept & impl: Policy: limit script sigops to N (default to MAX_OPS_PER_SCRIPT which is consensus pre-taproot)
@@ -1750,9 +1748,9 @@ m	-     privkeyio/maxscriptsize-29+param_bounds	0ec7963005d	last=64c4beb1645 max
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
-m	k400  privkeyio/policy-dead-branch-data-29.5+param_bounds	1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
+m	k400  privkeyio/policy-dead-branch-data-29.5+knots			1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
 	(CHECK-LAST)	last= privkeyio/policy-dead-branch-data-29.5
-	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+param_bounds
+	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+knots
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
@@ -1769,8 +1767,6 @@ m	k400  privkeyio/policy-dead-branch-data-29.5+param_bounds	1d7f05a1df2	last=df7
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
-	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
-		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots

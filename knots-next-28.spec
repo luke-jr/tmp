@@ -749,8 +749,6 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k336 qt_locale_datetime_prk336-29+k						last=2f53648f1a2 privkeyio/fix-gui-datetime-locale
 		# Second commit included later in softwareexpiry
 	k339 privkeyio/fix-pie-c-link-flags						last=66dc2de6c25
-	k237  privkeyio/159-build-checks						last=49e69180ed5
-		# + knots#254
 	k341  privkeyio/fix-bitcoind-help-version-datadir		last=0bed563ff9e
 	k344 -													last=2b54c093cf1 privkeyio/fix-rpcconsole-wallet-selection-consistency
 	k360  privkeyio/fix-checkblockindex-ordering
@@ -782,6 +780,8 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
+	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1672,8 +1672,6 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#29.xTODO# Squash fixes
 		#29.xTODO# Move blockreconstructionextratxn (and others?) from rwconf_policy?
 		# TODO: when we can enable block filters post-pruning, revert 81d696e132c
-	Triage: k460  privkeyio/intro-keep-existing-prune-29+knots	last=fe5fb9487cd privkeyio/intro-keep-existing-prune
-	(CHECK-LAST)	last=98fb34a4cb0 privkeyio/intro-keep-existing-prune-29+knots
 	559   accept_nonstdtxn-26					e72688bf354	last=2e2f48f871c accept_nonstdtxn
 	 929 tbc-25									fe176fa7028	last=32c37e2d493 tbc
 		# TODO: Drop ᵇTBC and ˢTBC units for newbies who are getting TBC via tbc_font
@@ -1945,8 +1943,6 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
-	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
-		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
