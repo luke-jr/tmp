@@ -680,9 +680,6 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 	k453  privkeyio/fix-muhash-self-division-29.5			last=03ecebfff8f 2rdzy/fix-muhash-self-division
 	(CHECK-LAST)	last=b388f9bd0d2 origin-pull/36286/head
 		# Backport of #36286, plus a pragma silencing clang's self-assign warning in the test
-	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
-	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
-		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
