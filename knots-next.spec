@@ -1595,7 +1595,7 @@ m	-     privkeyio/datacarriercost-29+knots		7b727bd1c8a	last=86cf9d6ee8f datacar
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# Currently filters just Runes
 	Needs review: k349  privkeyio/policy-reject-counterparty
-	Needs review: k489  jasonsopko/policy-token-messages
+	Needs work: k489  jasonsopko/policy-token-messages
 	k78   rejectparasites-29.1+knots			606644447fa	last=d978324923a
 		30.xTODO: TODO: Add to getmempoolinfo like #29954 (MERGED) (see b02aab950af)
 		# Currently filters just CAT-21
@@ -1750,9 +1750,10 @@ m	-     privkeyio/maxscriptsize-29+knots			0ec7963005d	last=64c4beb1645 maxscrip
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots							last=8228ad0d6d9 pdath/rejecttokens
 		# Added corepolicy
-m	k400  privkeyio/policy-dead-branch-data-29.5+knots			1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
+m	k400  pol_dead_branch_data-29.5+knots		1d7f05a1df2	last=df767118a99 jasonsopko/policy-dead-branch-data
 	(CHECK-LAST)	last= privkeyio/policy-dead-branch-data-29.5
 	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+knots
+		# + further fixes
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots								last=f62f5fda667
