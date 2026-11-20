@@ -742,7 +742,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	Needs work: k263  privkeyio/fix-vsize-sigops-datacarrier
 	k266  extsigner_sanitychk_fingerprint-26				last=acc78e798fa privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28						last=87fca974185 Bortlesboat/fix-ban-table-refresh
-	Needs review: k298 param_bounds_checks_202604
+	Triage: k298  param_bounds_checks_202604				last=deac42e1f27
 	k301 qt_always_show_alerts-27							last=3437824d39b privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir				last=4f5c53851fa
@@ -762,6 +762,26 @@ NM	32187 zmq_devirtual_destructor-0.12
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
 	k484  fix_mempool_persist_only_explicit					last=651d6593941
 	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
+	k492  2rdzy/backport-36048-replaceall					last=36941b647cc
+	(CHECK-LAST)	last=db39de56010 origin-pull/36048/head
+		# Backport of #36048, with feature_notifications.py adapted to 29.x
+	k497  2rdzy/backport-944-rpc-console-empty-command		last=424a0c40ccf
+	(CHECK-LAST)	last=fef99e6563a origin-pull-g/944/head
+		# Backport of gui#944
+	k504  2rdzy/backport-34358-removeprunedfunds-conflicts	last=16d0a5e0537
+	(CHECK-LAST)	last=1f60ca360eb origin-pull/34358/head
+		# Backport of #34358, with the test adapted to 29.x
+	k496  2rdzy/backport-36339-listtransactions-overflow	last=75eb3917266
+	(CHECK-LAST)	last=9cff82fd5b1 origin-pull/36339/head
+		# Backport of #36339, keeping int parsing and the -8 errors for a negative count or skip
+	k453  2rdzy/fix-muhash-self-division					last=03ecebfff8f
+	(CHECK-LAST)	last=b388f9bd0d2 origin-pull/36286/head
+		# Backport of #36286
+	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
+	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
+		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
+	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1574,6 +1594,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# FIXME: -netinfo doesn't show tor if inbound-only?
 	k462  privkeyio/tor-launch-interruptible				last=d762ab702b1
 	k464  privkeyio/tor-stop-launched-process				last=7b34977a926
+	k508  privkeyio/tor-reap-launched-process				last=2bbaaab28b6
 	# TODO: tor guix bundle!
 	#29.xTODO# 16490 maflcko/1907-rpcMempoolWhyReplacable
 	#	TODO: Diff-minimise
@@ -1748,6 +1769,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#29.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 	9749  unique_spk_mempool-28+knots			84eff5944da	last=b1b8f27e75f unique_spk_mempool-29.2+knots
 		#29.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
+	k514  privkeyio/fix-spkreuse-package					last=8ce66753e63
 	-     dustdynamic-28+knots					5dd1f1ee25e	last=f10a0071c95 dustdynamic-29.1+knots
 	28408 match_more_datacarrier-28+knots		570cb5cb1dc	last=4d2ec0671a3 match_more_datacarrier
 	(CHECK-LAST)	last= match_more_datacarrier-29+knots
@@ -1772,6 +1794,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		#29.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Currently filters just Runes
 	Needs review: k349  privkeyio/policy-reject-counterparty
+	Needs review: k489  jasonsopko/policy-token-messages
 	k78   rejectparasites-28+knots				6c5ca3ed56c	last=d978324923a
 	(CHECK-LAST)	last=11bb4add0bc rejectparasites-29.1+knots
 		#29.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
@@ -1913,6 +1936,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 	k362  privkeyio/rm-rdts-consent							last=522df02219f
+	k470  privkeyio/policy-verified-key-datacarrier-credit-29+knots	last=b15b6e16bb4 LionThunderFingers/policy-verified-key-datacarrier-credit
 	k320  miniscript_guard_tapscript_opif-29				last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	-     privkeyio/seeds_update-29.5+knots					last=ae8cbd93307 seeds_update-29+knots
 	(CHECK-LAST)	last=43d6ab018ec privkeyio/seeds_update-29.5+knots
@@ -1932,6 +1956,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  chrisguida/rdts-testnet4-extension-29+knots		last=f4d49816516
 	k398  privkeyio/blake2b-outbound-slot-preference		last=b947864cb45
+	k502  privkeyio/ladder-stale-outbound					last=33d93aae4d1
+	k513  privkeyio/blake2b-slots-feeler-race				last=50b81eed274
 	k394  privkeyio/seeds_blake2b_regen-29+knots			last=95538ca3599 jasonsopko/seeds-blake2b
 	k437  privkeyio/dnsseed_lionpool-29+knots				last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
 	k444  chrisguida/assumeutxo-976000-29+knots				last=6ce57028d6c chrisguida/assumeutxo-976000

@@ -516,7 +516,6 @@ TM	34252 doc_bips_add433-28					6bf72f0593e
 		# + #34437
 	# Needs review: 34348 -  # lib: call RandFailure() if RDRAND fails
 	# Needs review? And/or minimal fix instead? 34349 maflcko/2601-sp-popen-less
-	# Triage: Needs review? 34358 mzumsande/202601_importprunedfund_bug
 	34369 qa_timeout_factor_netshutdown-29		0c5a3ac7c67
 	# Triage: Needs review: 34371 -  # wallet: allow importprunedfunds for spending transactions
 	# Needs review: 34379 rkrux/gethdkeys
@@ -646,7 +645,7 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 	# Needs work: k263  privkeyio/fix-vsize-sigops-datacarrier
 	k266  extsigner_sanitychk_fingerprint-26	b5567692591	last=304598b5cc5 privkeyio/fix-external-signer-fingerprint-validation
 	k277  fix_qt_ban_expiry_update-28			d8061e0d1a4	last=87fca974185 Bortlesboat/fix-ban-table-refresh
-	# Needs review: k298 param_bounds_checks_202604
+	k298  param_bounds_checks_202604						last=deac42e1f27
 	k301 qt_always_show_alerts-27				d81d9e5ddc0	last=3437824d39b privkeyio/fix-warnings-no-wallet-tabs
 	k303 rm_dnsseed_pt							227d74aee67
 	k329 privkeyio/fix-gen-bitcoin-conf-datadir	3772d4e79fd	last=4f5c53851fa
@@ -666,6 +665,27 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 		# Backport of #32624, plus the MigrateToDescriptor commit from #32977
 	k484  fix_mempool_persist_only_explicit		ce6d4cf6987	last=f4bb2bd961d
 	(CHECK-LAST)	last=97e278ecf9d connorslab/policy-monetary-defaults
+	k492  2rdzy/backport-36048-replaceall					last=36941b647cc
+	(CHECK-LAST)	last=db39de56010 origin-pull/36048/head
+		# Backport of #36048, with feature_notifications.py adapted to 29.x
+	k497  2rdzy/backport-944-rpc-console-empty-command		last=424a0c40ccf
+	(CHECK-LAST)	last=fef99e6563a origin-pull-g/944/head
+		# Backport of gui#944
+	k504  2rdzy/backport-34358-removeprunedfunds-conflicts	last=16d0a5e0537
+	(CHECK-LAST)	last=1f60ca360eb origin-pull/34358/head
+		# Backport of #34358, with the test adapted to 29.x
+	k496  2rdzy/backport-36339-listtransactions-overflow	last=75eb3917266
+	(CHECK-LAST)	last=9cff82fd5b1 origin-pull/36339/head
+		# Backport of #36339, keeping int parsing and the -8 errors for a negative count or skip
+	k453  privkeyio/fix-muhash-self-division-29.5			last=03ecebfff8f 2rdzy/fix-muhash-self-division
+	(CHECK-LAST)	last=b388f9bd0d2 origin-pull/36286/head
+		# Backport of #36286
+	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
+	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
+		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
+	k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+	(CHECK-LAST)	last=8df006f2338 origin-pull/35984/head
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -893,7 +913,8 @@ NM	35197 lld_icf_safe-28						774960e112b	last=24ad7419dea fanquake/lld_icf_safe
 	# TODO: MAYBE OPTIONAL 12578 promag:2018-03-fee-transaction-record
 	# TODO: 12705 kallewoof/importmulti-wif-support
 	# TODO ? 12792 w/ renamed param
-	18479 rpc_sign_show_fees					ef50ba8749b	last=47b2ba29df2 !origin-pull/12911/head
+m	18479 privkeyio/rpc_sign_show_fees-29+knots	ef50ba8749b	last=47b2ba29df2 !origin-pull/12911/head
+	(CHECK-LAST)	last=2c3d05e012a privkeyio/rpc_sign_show_fees-29+knots
 		# Dropped rel notes file
 		# NOTE: Originally #12911
 		#29.xTODO# FIXME: "feerate" fails to account for sigops (see 21d85b5c0e); most of a fix in stash 835c2d3afba
@@ -1417,6 +1438,7 @@ NM	35197 lld_icf_safe-28						774960e112b	last=24ad7419dea fanquake/lld_icf_safe
 		# FIXME: -netinfo doesn't show tor if inbound-only?
 	k462  privkeyio/tor-launch-interruptible	3b87ef61620	last=d762ab702b1
 	k464  privkeyio/tor-stop-launched-process	26887a37492	last=7b34977a926
+	k508  privkeyio/tor-reap-launched-process				last=2bbaaab28b6
 	# TODO: tor guix bundle!
 	#30.xTODO# 16490 maflcko/1907-rpcMempoolWhyReplacable
 	#	TODO: Diff-minimise
@@ -1595,17 +1617,19 @@ NM	14137 win_taskbar_progress					50867095af1	last=18eb4dbb8a
 	#TODO/Needs work: 10823 greenaddress/replace-by-fee-old-transactions
 	29309 permitbarepubkey-29+knots				9b83bc55fe2	last=1dfe27e49ab
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
-	-     bytespersigopstrict-29+knots			6a7369ce9ee
+m	-     bytespersigopstrict-29+knots			6a7369ce9ee
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 	9749  unique_spk_mempool-29.2+knots			33f7da3074c
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
+	k514  privkeyio/fix-spkreuse-package-29+knots			last=8ce66753e63 privkeyio/fix-spkreuse-package
 	-     dustdynamic-29.1+knots				0a4ae5b1237
 	# ---- BEGIN DATACARRIER ---- (OLGA not backported)
 	28408 match_more_datacarrier-29+knots		0e838e7bc9c	last=4d2ec0671a3 match_more_datacarrier
 		#30.xTODO# TODO: Delete TBD "maxdatacarriersize" from #29954 (see b02aab950af) (or at least fix the description)
 		# Adds sendraw_force compat & config option to restore old behaviour (for -corepolicy later)
 		# TODO? Revise byte counting to consider input/output waste
-	-     datacarriercost-29+knots				3a6b077ba0d
+m	-     privkeyio/datacarriercost-29+knots		3a6b077ba0d	last=86cf9d6ee8f datacarriercost-29+knots
+	(CHECK-LAST)	last=8e42709ee93 privkeyio/datacarriercost-29+knots
 		# + knots#268 (partial; remaining in rwconf_policy)
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		#30.xTODO# Add tests and make sure boundaries are correct
@@ -1646,7 +1670,8 @@ NM	14137 win_taskbar_progress					50867095af1	last=18eb4dbb8a
 	# Needs concept ACK and review: k107 Retropex/maxfee
 	# Needs concept ACK: 29843 ajtowns/202303-acceptnonstdscript  # allow using upgradable nops
 	# Leaving out #27261 (Ignore datacarrier limits for dataless OP_RETURN outputs) because same behaviour already exists for -datacarriersize=1 and this adds corepoicy complexity - REVISIT IF PR is changed to allow only necessary outputs (value burnt or lone output)
-	-     maxscriptsize-29+knots				438e9a6e36d
+m	-     privkeyio/maxscriptsize-29+knots			438e9a6e36d	last=64c4beb1645 maxscriptsize-29+knots
+	(CHECK-LAST)	last=80cd65bc68e privkeyio/maxscriptsize-29+knots
 		#30.xTODO# TODO: Add to getmempoolinfo like #29954 (see b02aab950af)
 		# Alternate to(?) #29769
 	# Needs concept & impl: Policy: limit script sigops to N (default to MAX_OPS_PER_SCRIPT which is consensus pre-taproot)
@@ -1774,7 +1799,9 @@ NM	14137 win_taskbar_progress					50867095af1	last=18eb4dbb8a
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots				73054de4878	last=792dae6539a pdath/rejecttokens
 		# Added corepolicy
-	k400  privkeyio/policy-dead-branch-data-29.5	aff9ac6c8f9	last=df767118a99 jasonsopko/policy-dead-branch-data
+	k489  privkeyio/policy-token-messages-29+knots			last=14c95e7c954 jasonsopko/policy-token-messages
+m	k400  privkeyio/policy-dead-branch-data-29.5+knots			aff9ac6c8f9	last=df767118a99 jasonsopko/policy-dead-branch-data
+	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+knots
 # HARDFORK:
 	# Disabled: k289  rdts_not_enforced_prompt
 	k238 rdts_combined-29+knots					a34dbe04dd9	last=f62f5fda667
@@ -1784,11 +1811,14 @@ NM	14137 win_taskbar_progress					50867095af1	last=18eb4dbb8a
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes + knots#362
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
+	k470  privkeyio/policy-verified-key-datacarrier-credit-29+knots	last=b15b6e16bb4 LionThunderFingers/policy-verified-key-datacarrier-credit
 	k320  miniscript_guard_tapscript_opif-29	73329d02a55	last=74a8dd54ae8 privkeyio/rdts-guard-opif-tapscript
 	-     privkeyio/seeds_update-29.5+knots		99ccb6b3777	last=ae8cbd93307 seeds_update-29+knots
 	k350  privkeyio/correct-rdts-invalid-blocks	451a67754b3	last=e8a82740997
 	k359  pow_hf_blake2b						0915a20186a
-	k357  sighash_unified-29.3+knots			92ea5cf1513	last=54d757f269d privkeyio/hf-sighash-opt-in
+m	k357  privkeyio/sighash_unified-29.3+knots	92ea5cf1513	last=54d757f269d privkeyio/hf-sighash-opt-in
+	(CHECK-LAST)	last=6a03bbfdc76 privkeyio/sighash_unified-29.3+knots
+	(CHECK-LAST)	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
 		# TODO: Needs review?
 	k358  rdts-flagday-29+knots					53358b7f855	last=ce671c29ff5 chrisguida/rdts-flagday-29+knots
 		# TODO: Needs review?
@@ -1807,6 +1837,8 @@ NM	14137 win_taskbar_progress					50867095af1	last=18eb4dbb8a
 		# + sync headers from legacy peers when BLAKE2b is not scheduled
 	k459  privkeyio/rdts-testnet4-extension-29+knots	b53fdfab44b	last=f4d49816516 chrisguida/rdts-testnet4-extension-29+knots
 	k398  privkeyio/blake2b-outbound-slot-preference	7eeea62f125	last=b947864cb45
+	k502  privkeyio/ladder-stale-outbound					last=33d93aae4d1
+	k513  privkeyio/blake2b-slots-feeler-race				last=50b81eed274
 	k394  privkeyio/seeds_blake2b_regen-29+knots	ac1ae38eb72	last=95538ca3599 jasonsopko/seeds-blake2b
 		# + drop the README note to pass -u 7, stale now the network is over 30 days old
 	k437  privkeyio/dnsseed_lionpool-29+knots	f51b0e9e9e0	last=e76eaac5bdf LionThunderFingers/chainparams-add-lionseed
