@@ -681,8 +681,8 @@ TM	36218 privkeyio/darwin_no_pipe2-29			3428b70f76c	last=9c7748315d3
 	k453  privkeyio/fix-muhash-self-division-29.5			last=03ecebfff8f 2rdzy/fix-muhash-self-division
 	(CHECK-LAST)	last=b388f9bd0d2 origin-pull/36286/head
 		# Backport of #36286, plus a pragma silencing clang's self-assign warning in the test
-	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
-	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
+	# Needs work: k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
+	#(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
 	# Needs review: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
 	#(CHECK-LAST)	last=8df006f2338 origin-pull/35984/head
