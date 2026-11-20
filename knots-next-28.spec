@@ -711,6 +711,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	35766 seedaddrs_assume_p2pv2-28
 	35691 privkeyio/rm_dnsseed_sipa-29.4					last=d9080639804
 		# Without the contrib/seeds/README.md change, left to the Knots seed branches
+	35878 secfix_inv_dedup-27
 	36218 privkeyio/darwin_no_pipe2-29						last=9c7748315d3
 	-     fix_qt_sync_pct_truncate-28						last=a3dac13371c origin-pull-g/935/head
 		# Rewrote from gui#935 to avoid floating point rounding at any stage
@@ -780,7 +781,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
-	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+	Needs review: Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
 		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
@@ -1139,6 +1140,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 		# TODO: Code review & make sure no wallet db changes (if it does, store in RAM for Knots for now?)
 	# TODO: 21283 achow101/psbt2
 		# TODO: diff-minimise??
+		# NOTE: Needs reconciling with #35984 backport (omitted test changes)
 	21260 rpcwallet_tx_in_mempool-28+knots		3be97e6ce15	last=46bf0b7b5d8
 	(CHECK-LAST)	last=86f76777c6b rpcwallet_tx_in_mempool-29+knots
 		# Includes squashed fixes for RPC doc
@@ -1933,6 +1935,7 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
 	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes
+		TODO:  + knots#362 + knots#520
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
 	k362  privkeyio/rm-rdts-consent							last=522df02219f
