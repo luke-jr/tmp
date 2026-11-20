@@ -778,7 +778,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k453  2rdzy/fix-muhash-self-division					last=03ecebfff8f
 	(CHECK-LAST)	last=b388f9bd0d2 origin-pull/36286/head
 		# Backport of #36286, plus a pragma silencing clang's self-assign warning in the test
-	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
+	Needs work: k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
 	Needs review: Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
@@ -1946,6 +1946,8 @@ MERGED	31407 macos_notarization-28					530a83a27bf	last=e181bda061c achow101/mac
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
+	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots

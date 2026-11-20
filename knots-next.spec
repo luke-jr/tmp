@@ -524,7 +524,7 @@ checkout v30.0rc1
 	34870 fix_wallet_bump_fail_crash-29.3						last=6072a2a6a1f furszy/2026_feebumper_crash_fix
 	k458  2rdzy/wallet-descriptor-range-overflow			last=c5890125ce9
 	(CHECK-LAST)	last=93c8aec3fbc origin-pull/35989/head
-		# Backport of #35989
+		# Backport of #35989, without the descriptor range overflow fix (29.x checks low > high first), and with the import check in wallet/rpc/backup.cpp
 	Needs work: 34872 w0xlt/wallet-mixed-input-history-only
 	34888 furszy/2026_wallet_total_amount_bad_comparison
 	Review: 34893 w0xlt/psbt-proprietary-merge-fix
@@ -652,7 +652,7 @@ checkout v30.0rc1
 	k453  2rdzy/fix-muhash-self-division					last=03ecebfff8f
 	(CHECK-LAST)	last=b388f9bd0d2 origin-pull/36286/head
 		# Backport of #36286, plus a pragma silencing clang's self-assign warning in the test
-	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
+	Needs work: k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
 	Needs review: Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
@@ -1770,6 +1770,8 @@ m	k400  privkeyio/policy-dead-branch-data-29.5+knots			1d7f05a1df2	last=df767118
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
+	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
