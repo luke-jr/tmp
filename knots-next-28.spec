@@ -780,7 +780,7 @@ NM	32187 zmq_devirtual_destructor-0.12
 	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
-	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=b7858c2e83a
+	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
 		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	#28.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
