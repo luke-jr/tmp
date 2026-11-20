@@ -654,8 +654,6 @@ checkout v30.0rc1
 	k494  2rdzy/backport-34931-utxo-abort-on-error			last=baf67908a4c
 	(CHECK-LAST)	last=75f64e50c67 origin-pull/34931/head
 		# Backport of #34931, adding util::Expected and without the coin Assert from #34207
-	Triage: k493  privkeyio/backport-35984-psbt-sighash-single-29	last=7d54593012c 2rdzy/backport-35984-psbt-sighash-single
-		# Backport of #35984, with the test skipping bech32m on legacy wallets and run after test_input_confs_control, and no PSBTv2 test changes
 	#30.xTODO# "Knots feature request: system notification for a txn should show the net wallet balance delta assuming the txn confirms, not whatever it does now that gives me a heart attack every time I use a large-ish UTXO lol" -Jason (currently only the first send of a sendmany is shown) https://github.com/bitcoin-core/gui/issues/853
 	# TODO: prunenotify to run a command after each prune (eg, for fstrim or such)
 	
@@ -1767,6 +1765,8 @@ m	k400  privkeyio/policy-dead-branch-data-29.5+knots			1d7f05a1df2	last=df767118
 	k350  privkeyio/correct-rdts-invalid-blocks				last=e8a82740997
 	k359  pow_hf_blake2b
 	Needs work: k357  privkeyio/hf-sighash-opt-in
+	Triage: k493  2rdzy/backport-35984-psbt-sighash-single	last=7d54593012c
+		# Backport of #35984, with the test added to the older run_test and no PSBTv2 test changes
 	Needs work: k358  chrisguida/rdts-flagday-29+knots
 	Needs work: k363  AcesHigh70/rpc_v2_header_fields
 	Needs work: k368  chrisguida/blake2b-servicebit-29+knots
