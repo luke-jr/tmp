@@ -915,8 +915,7 @@ NM	35197 lld_icf_safe-28						774960e112b	last=24ad7419dea fanquake/lld_icf_safe
 	# TODO: MAYBE OPTIONAL 12578 promag:2018-03-fee-transaction-record
 	# TODO: 12705 kallewoof/importmulti-wif-support
 	# TODO ? 12792 w/ renamed param
-m	18479 privkeyio/rpc_sign_show_fees-29+knots	ef50ba8749b	last=47b2ba29df2 !origin-pull/12911/head
-	(CHECK-LAST)	last=2c3d05e012a privkeyio/rpc_sign_show_fees-29+knots
+	18479 rpc_sign_show_fees                                        ef50ba8749b     last=47b2ba29df2 !origin-pull/12911/head
 		# Dropped rel notes file
 		# NOTE: Originally #12911
 		#29.xTODO# FIXME: "feerate" fails to account for sigops (see 21d85b5c0e); most of a fix in stash 835c2d3afba
@@ -1811,7 +1810,7 @@ m	k400  privkeyio/policy-dead-branch-data-29.5+knots			aff9ac6c8f9	last=df767118
 	(CHECK-LAST)	last=28187c41c8e rdts_consent_prompt
 	(CHECK-LAST)	last=d58e6f82909 origin-pull-k/323/head
 	(CHECK-LAST)	last=522df02219f privkeyio/rm-rdts-consent
-	(CHECK-LAST)	last= refactor_rdts_split
+	(CHECK-LAST)	last=c264a5dbadb refactor_rdts_split
 		# + knots#256 + maxstaleoutbound + maxstaleoutbound=8 + knots#323 + fixes + knots#362 + knots#520
 		# TODO: + updated fixed seeds ?
 		# NOTE: Core PR in #24930
