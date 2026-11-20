@@ -1792,7 +1792,7 @@ m	-     privkeyio/maxscriptsize-29+knots			438e9a6e36d	last=64c4beb1645 maxscrip
 	# Needs concept & review: k217 1440000bytes/feefilter-extrapool
 	k354  rejecttokens_def-29+knots				73054de4878	last=792dae6539a pdath/rejecttokens
 		# Added corepolicy
-	k489  privkeyio/policy-token-messages-29+knots			last=14c95e7c954 jasonsopko/policy-token-messages
+	# Needs review: k489  jasonsopko/policy-token-messages
 m	k400  privkeyio/policy-dead-branch-data-29.5+knots			aff9ac6c8f9	last=df767118a99 jasonsopko/policy-dead-branch-data
 	(CHECK-LAST)	last=5a1ae6738df privkeyio/policy-dead-branch-data-29.5+knots
 # HARDFORK:
