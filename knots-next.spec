@@ -524,7 +524,7 @@ checkout v30.0rc1
 	34870 fix_wallet_bump_fail_crash-29.3						last=6072a2a6a1f furszy/2026_feebumper_crash_fix
 	k458  2rdzy/wallet-descriptor-range-overflow			last=c5890125ce9
 	(CHECK-LAST)	last=93c8aec3fbc origin-pull/35989/head
-		# Backport of #35989
+		# Backport of #35989, without the descriptor range overflow fix (29.x checks low > high first), and with the import check in wallet/rpc/backup.cpp
 	Needs work: 34872 w0xlt/wallet-mixed-input-history-only
 	34888 furszy/2026_wallet_total_amount_bad_comparison
 	Review: 34893 w0xlt/psbt-proprietary-merge-fix
